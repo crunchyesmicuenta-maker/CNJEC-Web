@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNJEC - B.T.I</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --azul-claro: #e0f2fe;
+            --azul-medio: #38bdf8;
+            --azul-fuerte: #0284c7;
+            --azul-muy-oscuro: #0f172a;
+            --blanco: #ffffff;
+            --texto-oscuro: #1e293b;
+            --texto-claro: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--texto-oscuro);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-fuerte));
+            position: relative;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .logo-img-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            background: radial-gradient(circle at center, rgba(224, 242, 254, 0.9) 0%, rgba(56, 189, 248, 0.3) 40%, rgba(56, 189, 248, 0) 70%);
+            filter: blur(6px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.35));
+        }
+
+        .logo-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+            padding: 0 4px;
+        }
+
+        .logo-container h1 {
+            color: var(--azul-fuerte);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .menu-btn {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .menu-btn div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--azul-fuerte);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--blanco);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 999;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--azul-medio);
+        }
+
+        section {
+            padding: 100px 5%;
+        }
+
+        .intro {
+            padding-top: 130px;
+            background: radial-gradient(circle at top right, var(--azul-claro), var(--blanco));
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            color: var(--azul-fuerte);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--texto-claro);
+        }
+
+        .cards-bridge {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            width: 100%;
+        }
+
+        .cards-bridge .card--main {
+            flex: 1 1 auto;
+            min-width: 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .cards-bridge .card--side {
+            flex: 0 0 auto;
+            width: max-content;
+            max-width: min(100%, 400px);
+            align-self: flex-start;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .card-bridge {
+            flex: 0 0 56px;
+            align-self: center;
+            z-index: 2;
+            margin: 0 -8px;
+            height: 88px;
+            pointer-events: none;
+        }
+
+        .card-bridge svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: drop-shadow(0 8px 18px rgba(2, 132, 199, 0.1));
+        }
+
+        .card {
+            background: var(--blanco);
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
+            border: 1px solid rgba(224, 242, 254, 0.8);
+        }
+
+        .card h3 {
+            color: var(--azul-fuerte);
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .card h4 {
+            color: var(--texto-oscuro);
+            font-size: 1rem;
+            margin: 14px 0 6px;
+        }
+
+        .card ul {
+            margin: 0 0 8px 18px;
+            padding: 0;
+        }
+
+        .card li {
+            color: var(--texto-claro);
+            line-height: 1.7;
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: var(--azul-muy-oscuro);
+            color: var(--blanco);
+            padding: 60px 5% 20px;
+            margin-top: 40px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--azul-medio);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--blanco);
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .redes-sociales a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .cards-bridge {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cards-bridge .card--main,
+            .cards-bridge .card--side {
+                width: 100%;
+                max-width: none;
+                border-radius: 18px;
+            }
+
+            .card-bridge {
+                flex: 0 0 auto;
+                width: 88px;
+                height: 56px;
+                margin: -6px auto;
+                transform: rotate(90deg);
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+            footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-img-wrap">
+                <img
+                    class="logo-img"
+                    src="logo.png"
+                    alt="Logo CNJEC"
+                    loading="eager"
+                    onerror="this.style.display='none'; document.getElementById('logo-fallback-bti').style.display='flex';"
+                />
+                <span id="logo-fallback-bti" class="logo-fallback" aria-hidden="true">CNJEC</span>
+            </div>
+            <h1>CNJEC</h1>
+        </div>
+
+        <div class="menu-btn" id="menuBtn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <nav id="navMenu">
+            <a href="#bti">B.T.I</a>
+            <a href="#plan">Plan de Estudios</a>
+            <a href="#contactos">Contactos</a>
+        </nav>
+    </header>
+
+    <section class="intro" id="bti">
+        <h2>Bachillerato Técnico en Informática (B.T.I)</h2>
+        <p>
+            El Bachillerato Técnico en Informática (BTI) es una modalidad de la educación media enfocada en formar profesionales capaces de gestionar soluciones tecnológicas integrales
+        </p>
+    </section>
+
+    <section id="plan">
+        <div class="cards-bridge">
+            <article class="card card--main">
+                <h3>Perfil del Egresado</h3>
+                <p>Al finalizar el B.T.I, el estudiante desarrolla competencias técnicas y profesionales para continuar estudios superiores o insertarse en el mundo laboral.</p>
+
+                <h4>1) Competencias técnicas</h4>
+                <ul>
+                    <li><strong>Desarrollo de software:</strong> análisis, diseño y programación de aplicaciones con manejo básico de bases de datos.</li>
+                    <li><strong>Soporte técnico:</strong> instalación, configuración y mantenimiento de hardware y software.</li>
+                    <li><strong>Redes:</strong> montaje y configuración de redes locales (LAN) con criterios de conectividad y seguridad.</li>
+                    <li><strong>Implementación de soluciones:</strong> aplicación de herramientas tecnológicas para necesidades reales de instituciones o empresas.</li>
+                </ul>
+
+                <h4>2) Habilidades profesionales</h4>
+                <ul>
+                    <li><strong>Trabajo en equipo y comunicación</strong> para proyectos tecnológicos colaborativos.</li>
+                    <li><strong>Planificación y gestión del tiempo</strong> para cumplir etapas y entregas.</li>
+                    <li><strong>Ética digital y responsabilidad</strong> en el manejo de datos e información.</li>
+                    <li><strong>Resolución de problemas</strong> con enfoque lógico, práctico y eficiente.</li>
+                </ul>
+
+                <h4>3) Proyección laboral y académica</h4>
+                <ul>
+                    <li>Continuidad en carreras universitarias o técnicas del área informática.</li>
+                    <li>Apoyo en áreas de TI, soporte, mantenimiento y asistencia técnica.</li>
+                    <li>Participación en emprendimientos de servicios tecnológicos.</li>
+                </ul>
+            </article>
+
+            <div class="card-bridge" aria-hidden="true">
+                <svg viewBox="0 0 56 88" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 26 Q 28 26, 28 44 Q 28 62, 50 62" fill="none" stroke="rgba(224, 242, 254, 0.95)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 26 Q 28 26, 28 44 Q 28 62, 50 62" fill="none" stroke="#ffffff" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <article class="card card--side">
+                <h3>Áreas Principales</h3>
+                <ul>
+                    <li><strong>Programación:</strong> lógica, algoritmos y desarrollo de aplicaciones.</li>
+                    <li><strong>Bases de datos:</strong> modelado básico, consultas y gestión de información.</li>
+                    <li><strong>Redes y conectividad:</strong> configuración de redes locales y buenas prácticas.</li>
+                    <li><strong>Ofimática y productividad:</strong> uso profesional de herramientas digitales.</li>
+                    <li><strong>Proyectos integradores:</strong> aplicación de conocimientos en casos reales.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <footer id="contactos">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ubicación</h4>
+                <p>Barrio San Pablo</p>
+                <p>Asunción, Paraguay</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Comunícate</h4>
+                <a href="mailto:cnjec699@gmail.com">✉️ cnjec699@gmail.com</a>
+                <p>🕒 Lunes a Viernes: 07:00 - 18:00</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <p>Entérate de nuestras novedades:</p>
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/EscuelaEudoro/" title="Facebook" target="_blank" rel="noopener noreferrer">Fb</a>
+                    <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer">Ig</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Colegio Nacional Juan Eudoro Caceres. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.children[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
+            menuBtn.children[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            menuBtn.children[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
+        });
+    </script>
+</body>
+</html>
