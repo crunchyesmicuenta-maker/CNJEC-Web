@@ -340,10 +340,11 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="site-effects.css" />
 </head>
 <body>
     <header>
-        <div class="logo-container">
+        <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
                 <img
                     class="logo-img"
@@ -355,7 +356,7 @@
                 <span id="logo-fallback-social" class="logo-fallback" aria-hidden="true">CNJEC</span>
             </div>
             <h1>CNJEC</h1>
-        </div>
+        </a>
 
         <div class="menu-btn" id="menuBtn">
             <div></div>
@@ -471,5 +472,6 @@
             menuBtn.children[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
         });
     </script>
+    <script src="site-effects.js" defer></script>
 </body>
 </html>
