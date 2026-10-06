@@ -14,6 +14,14 @@ header.compact-header nav { display: none; }
 header.compact-header.menu-open nav { display: flex; position: absolute; right: 5%; top: calc(100% + 10px); width: min(300px,90vw); padding: 20px; flex-direction: column; align-items: stretch; gap: 12px; background: rgba(3,49,77,.96); border: 1px solid rgba(255,255,255,.15); border-radius: 18px; box-shadow: 0 16px 36px rgba(0,0,0,.2); text-align: left; }
 header.compact-header.menu-open nav a { animation: none; }
 .scroll-menu-toggle:focus-visible { outline: 3px solid var(--azul-medio); outline-offset: 4px; }
+header:not(.compact-header) #navMenu { flex-wrap: wrap; gap: 8px 20px; max-width: calc(100% - 190px); }
+header:not(.compact-header) #navMenu a { font-size: .85rem; }
+header.compact-header.menu-open nav { max-height: min(70vh,600px); overflow-y: auto; }
+nav a:nth-child(7) { animation-delay: 1.45s; }
+nav a:nth-child(8) { animation-delay: 1.65s; }
+nav a:nth-child(9) { animation-delay: 1.85s; }
+nav a:nth-child(10) { animation-delay: 2.05s; }
+@media (max-width: 640px) { header:not(.compact-header) #navMenu { max-width: 100%; gap: 4px 12px; } header:not(.compact-header) #navMenu a { font-size: .75rem; } }
 .logo-container:hover { transform: translateY(-2px); }
 .logo-container:focus-visible { outline: 3px solid var(--azul-medio); outline-offset: 6px; border-radius: 8px; }
 nav a { position: relative; transition: transform .2s ease, color .2s ease; border-bottom-color: transparent !important; }
