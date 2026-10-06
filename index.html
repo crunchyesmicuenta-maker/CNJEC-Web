@@ -315,6 +315,60 @@
             z-index: 1;
         }
 
+        .historia-layout {
+            display: grid;
+            grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+            gap: clamp(28px, 5vw, 64px);
+            align-items: start;
+            margin-top: 28px;
+        }
+
+        .historia-retrato {
+            position: relative;
+            aspect-ratio: 248 / 360;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+        }
+
+        .historia-retrato img {
+            position: absolute;
+            width: 458.065%;
+            max-width: none;
+            height: auto;
+            left: -24.194%;
+            top: -16.667%;
+        }
+
+        .historia-foto figcaption {
+            margin-top: 16px;
+            text-align: center;
+            color: var(--texto-claro);
+            font-size: 0.9rem;
+        }
+
+        .historia-texto h4 {
+            color: var(--azul-muy-oscuro);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 6px;
+        }
+
+        .historia-fechas {
+            color: var(--azul-fuerte);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .historia-texto p:not(.historia-fechas) {
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .historia-layout { grid-template-columns: 1fr; }
+            .historia-foto { width: min(100%, 240px); margin: 0 auto; }
+        }
+
         .hitos {
             margin-top: 20px;
             padding-left: 20px;
@@ -946,12 +1000,27 @@
         </div>
     </section>
 
-    <div class="historia-bg reveal">
-        <h3>Nuestra Historia</h3>
-        <figure style="margin-top:20px; display:flex; justify-content:center;">
-            <img src="images/Historia.png" alt="Historia del colegio" loading="lazy" style="width:100%; max-width:1100px; border-radius:12px; display:block; box-shadow: 0 12px 30px rgba(2,132,199,0.08);" />
-        </figure>
-    </div>
+    <section class="historia-bg reveal" id="historia" aria-labelledby="historia-title">
+        <h3 id="historia-title">Nuestra Historia</h3>
+        <div class="historia-layout">
+            <figure class="historia-foto">
+                <div class="historia-retrato">
+                    <img src="images/Historia.png" alt="Retrato de don Eudoro Cáceres" loading="lazy" width="1136" height="942" />
+                </div>
+                <figcaption>Don Eudoro Cáceres</figcaption>
+            </figure>
+            <div class="historia-texto">
+                <h4>Don Eudoro Cáceres</h4>
+                <p class="historia-fechas">Pilar, 9 de marzo de 1879 · Humaitá, 3 de febrero de 1963</p>
+                <p>Hijo de don Juan Eliseo Cáceres y doña Daniela Zorrilla, nació en la ciudad de Pilar. Contrajo matrimonio con Juana Arruabarrena Albariño, con quien tuvo 16 hijos.</p>
+                <p>En 1909, fue protagonista de la gesta de laureles. Con el grado de mayor de la Guardia Nacional, combatió al frente de la caballería durante tres días y sus noches.</p>
+                <p>En 1912, volvió a combatir en Humaitá bajo el mando del coronel José Gill. Desde entonces, se convirtió en un destacado caudillo del Partido Colorado en el departamento de Ñeembucú.</p>
+                <p>En 1930, mandó erigir el primer monumento al mariscal Francisco Solano López en Yataity Corá, dentro de su propiedad, y posteriormente lo obsequió a las Fuerzas Armadas de la Nación. Durante la Guerra del Chaco, participó en tareas de abastecimiento en la localidad de Humaitá.</p>
+                <p>En 1948, fue designado diputado nacional. Entre 1958 y 1962, dictó conferencias al cuerpo de cadetes en lugares históricos de la guerra de 1865 a 1870, compartiendo su profundo conocimiento de las batallas del sur.</p>
+                <p>Falleció el 3 de febrero de 1963 en Humaitá. Sus restos descansan en los campos de batalla de Sauce Boquerón.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="enfasis-wrap reveal" id="enfasis" aria-labelledby="enfasis-title">
         <h2 id="enfasis-title">Explora Nuestros Énfasis</h2>
