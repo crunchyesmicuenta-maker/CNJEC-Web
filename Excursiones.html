@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNJEC - Colegio Nacional Juan Eudoro Caceres</title>
+    <title>Excursiones - CNJEC</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* Variables de color */
@@ -129,7 +129,7 @@
             border-bottom: 2px solid transparent;
         }
 
-        nav a:hover, nav a:focus-visible, nav a[aria-current="location"] {
+        nav a:hover, nav a:focus-visible, nav a[aria-current="location"], nav a[aria-current="page"] {
             border-bottom-color: var(--blanco);
         }
 
@@ -963,18 +963,18 @@
         </div>
         
         <nav id="navMenu" aria-label="Navegación principal">
-            <a href="#inicio" class="nav-link" aria-current="location">Inicio</a>
-            <a href="#mision-vision" class="nav-link">Misión</a>
-            <a href="#mision-vision" class="nav-link">Visión</a>
-            <a href="#ubicacion" class="nav-link">Ubicación</a>
-            <a href="Excursiones.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Excursiones (abre en una pestaña nueva)">Excursiones</a>
+            <a href="index.html#inicio" class="nav-link">Inicio</a>
+            <a href="index.html#mision-vision" class="nav-link">Misión</a>
+            <a href="index.html#mision-vision" class="nav-link">Visión</a>
+            <a href="index.html#ubicacion" class="nav-link">Ubicación</a>
+            <a href="#inicio" class="nav-link" aria-current="page">Excursiones</a>
             <a href="#contactos" class="nav-link">Contactos</a>
         </nav>
     </header>
 
     <section class="hero" id="inicio">
         <div class="hero-title-wrap">
-            <h2 class="reveal hero-title">Colegio Nacional Juan Eudoro Caceres</h2>
+            <h2 class="reveal hero-title">Excursiones</h2>
             <div class="hero-watermark" aria-hidden="true">
                 <!-- Si no existe archivo de marca de agua separado, usamos el mismo logo.png -->
                 <img
@@ -988,155 +988,16 @@
         </div>
     </section>
 
-    <section id="mision-vision">
-        <div class="grid-2">
-            <div class="card reveal">
-                <h3>Misión</h3>
-                <p>Nuestra misión es formar ciudadanos íntegros, con excelencia académica y valores éticos, preparados para enfrentar los desafíos de la sociedad moderna y contribuir activamente al desarrollo de nuestro país.</p>
+    <main>
+        <section aria-labelledby="excursiones-title">
+            <div class="card reveal" style="max-width:900px; margin:0 auto; text-align:center;">
+                <h3 id="excursiones-title">Aprender más allá del aula</h3>
+                <p style="line-height:1.85; margin-bottom:20px;">Un espacio para compartir las excursiones y experiencias educativas del Colegio Nacional Juan Eudoro Cáceres.</p>
+                <p style="color:var(--texto-claro); line-height:1.85;">Próximamente encontrarás aquí las fotografías, los destinos y los recuerdos de nuestras salidas.</p>
+                <a href="index.html" style="display:inline-block; margin-top:28px; padding:12px 24px; border-radius:30px; background:var(--azul-fuerte); color:white; text-decoration:none; font-weight:600;">Volver al inicio</a>
             </div>
-            <div class="card reveal" style="transition-delay: 0.2s;">
-                <h3>Visión</h3>
-                <p>Ser una institución educativa líder y de referencia a nivel nacional, reconocida por su innovación, calidad humana y compromiso inquebrantable con la educación de las futuras generaciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="historia-bg reveal" id="historia" aria-labelledby="historia-title">
-        <h3 id="historia-title">Nuestra Historia</h3>
-        <div class="historia-layout">
-            <figure class="historia-foto">
-                <div class="historia-retrato">
-                    <img src="images/Historia.png" alt="Retrato de don Eudoro Cáceres" loading="lazy" width="1136" height="942" />
-                </div>
-                <figcaption>Don Eudoro Cáceres</figcaption>
-            </figure>
-            <div class="historia-texto">
-                <h4>Don Eudoro Cáceres</h4>
-                <p class="historia-fechas">Pilar, 9 de marzo de 1879 · Humaitá, 3 de febrero de 1963</p>
-                <p>Hijo de don Juan Eliseo Cáceres y doña Daniela Zorrilla, nació en la ciudad de Pilar. Contrajo matrimonio con Juana Arruabarrena Albariño, con quien tuvo 16 hijos.</p>
-                <p>En 1909, fue protagonista de la gesta de laureles. Con el grado de mayor de la Guardia Nacional, combatió al frente de la caballería durante tres días y sus noches.</p>
-                <p>En 1912, volvió a combatir en Humaitá bajo el mando del coronel José Gill. Desde entonces, se convirtió en un destacado caudillo del Partido Colorado en el departamento de Ñeembucú.</p>
-                <p>En 1930, mandó erigir el primer monumento al mariscal Francisco Solano López en Yataity Corá, dentro de su propiedad, y posteriormente lo obsequió a las Fuerzas Armadas de la Nación. Durante la Guerra del Chaco, participó en tareas de abastecimiento en la localidad de Humaitá.</p>
-                <p>En 1948, fue designado diputado nacional. Entre 1958 y 1962, dictó conferencias al cuerpo de cadetes en lugares históricos de la guerra de 1865 a 1870, compartiendo su profundo conocimiento de las batallas del sur.</p>
-                <p>Falleció el 3 de febrero de 1963 en Humaitá. Sus restos descansan en los campos de batalla de Sauce Boquerón.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="enfasis-wrap reveal" id="enfasis" aria-labelledby="enfasis-title">
-        <h2 id="enfasis-title">Explora Nuestros Énfasis</h2>
-
-        <div class="hero-carousel" id="heroCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Énfasis académicos del colegio">
-            <div class="hero-carousel__slide is-active" data-index="0" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
-                <div class="hero-carousel__bg" aria-hidden="true"></div>
-                <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Bachillerato Técnico en Informática</div>
-                    <p class="hero-carousel__meta">B.T.I · Programación · Redes · Proyectos</p>
-                    <p class="hero-carousel__desc">
-                        Formación técnica en informática: desarrollo de software, soporte, redes y proyectos integradores para resolver necesidades reales con criterio profesional.
-                    </p>
-                    <div class="hero-carousel__actions">
-                        <a href="BTI.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            Ver B.T.I
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-carousel__slide" data-index="1" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
-                <div class="hero-carousel__bg" aria-hidden="true"></div>
-                <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Ciencias Sociales</div>
-                    <p class="hero-carousel__meta">Humanidades · Análisis social · Ciudadanía</p>
-                    <p class="hero-carousel__desc">
-                        Énfasis en pensamiento crítico, comprensión del contexto social y formación ciudadana para interpretar el mundo con rigor y responsabilidad.
-                    </p>
-                    <div class="hero-carousel__actions">
-                        <a href="CienciasSociales.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            Ver Ciencias Sociales
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" id="heroPrev" aria-label="Diapositiva anterior">‹</button>
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" id="heroNext" aria-label="Diapositiva siguiente">›</button>
-
-            <div class="hero-carousel__dots" id="heroDots" role="tablist" aria-label="Seleccionar diapositiva"></div>
-        </div>
-    </section>
-
-    <section class="egresados-wrap reveal" id="egresados" aria-labelledby="egresados-title">
-        <h2 id="egresados-title">Alumnos egresados importantes</h2>
-
-        <figure class="egresados-frame">
-            <img
-                class="egresados-frame__img"
-                src="images/mejores-egresados.png"
-                alt="Mejores egresados del Colegio Nacional Juan Eudoro Caceres — Bachiller en Ciencias y Letras y Bachillerato Técnico en Contabilidad"
-                loading="lazy"
-            />
-        </figure>
-    </section>
-
-    <section class="ex-directores-wrap reveal" id="ex-directores" aria-labelledby="ex-directores-title">
-        <h2 id="ex-directores-title">Ex-Directores</h2>
-
-        <div class="ex-directores-carousel" id="exDirectoresCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Ex-Directores del colegio">
-            <div class="ex-directores-carousel__slide is-active" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores1.png"
-                    alt="Marta Núñez de Rodríguez — Sucesión de directores de la institución"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores2.png"
-                    alt="Ex-Director 2"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores3.png"
-                    alt="Ex-Director 3"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores4.png"
-                    alt="Ex-Director 4"
-                    loading="lazy"
-                />
-            </div>
-
-            <button type="button" class="ex-directores-carousel__arrow ex-directores-carousel__arrow--prev" id="exDirectoresPrev" aria-label="Diapositiva anterior">‹</button>
-            <button type="button" class="ex-directores-carousel__arrow ex-directores-carousel__arrow--next" id="exDirectoresNext" aria-label="Diapositiva siguiente">›</button>
-
-            <div class="ex-directores-carousel__dots" id="exDirectoresDots" role="tablist" aria-label="Seleccionar diapositiva"></div>
-        </div>
-    </section>
-
-    <section id="ubicacion" class="reveal">
-        <div class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
-            <h3>Ubicación</h3>
-            <p>Barrio San Pablo — Asunción, Paraguay</p>
-            <figure style="margin-top:16px; width:100%; display:flex; justify-content:center;">
-                <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Nacional+Juan+Eudoro+C%C3%A1ceres%2C+Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener noreferrer" aria-label="Ver el Colegio Nacional Juan Eudoro Cáceres en Google Maps" style="display:block; width:100%; max-width:720px;">
-                    <img src="images/Ubicación.png" alt="Ubicación del colegio" loading="lazy" style="width:100%; max-width:720px; border-radius:12px; display:block;" />
-                </a>
-            </figure>
-        </div>
-    </section>
-
+        </section>
+    </main>
     <footer id="contactos" class="reveal">
         <div class="footer-grid">
             <div class="footer-col">
