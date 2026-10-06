@@ -11,10 +11,22 @@
         }
         function updateCompactHeader() {
             const compact = window.scrollY > 80;
+            if (compact === header.classList.contains('compact-header')) return;
+            const logo = header.querySelector('.logo-container');
+            const emblem = logo.querySelector('.logo-img-wrap');
+            const before = emblem.getBoundingClientRect();
             if (!compact || !header.classList.contains('compact-header')) closeMenu();
             if (compact && !header.classList.contains('compact-header') && nav.contains(document.activeElement)) toggle.focus();
             if (!compact && document.activeElement === toggle) header.querySelector('.logo-container').focus();
             header.classList.toggle('compact-header', compact);
+            const after = emblem.getBoundingClientRect();
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                logo.getAnimations().forEach(animation => animation.cancel());
+                logo.animate([
+                    { transform: `translate(${before.left - after.left}px, ${before.top - after.top}px)` },
+                    { transform: 'translate(0, 0)' }
+                ], { duration: 1100, easing: 'cubic-bezier(.22,1,.36,1)' });
+            }
         }
         window.addEventListener('scroll', updateCompactHeader, { passive: true });
         updateCompactHeader();
