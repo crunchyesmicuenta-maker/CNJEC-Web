@@ -1,4 +1,32 @@
 (() => {
+    const header = document.querySelector('header');
+    const toggle = document.querySelector('.scroll-menu-toggle');
+    if (header && toggle) {
+        const nav = header.querySelector('nav');
+        function closeMenu(restoreFocus = false) {
+            header.classList.remove('menu-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir menú');
+            if (restoreFocus) toggle.focus();
+        }
+        function updateCompactHeader() {
+            const compact = window.scrollY > 80;
+            if (!compact || !header.classList.contains('compact-header')) closeMenu();
+            if (compact && !header.classList.contains('compact-header') && nav.contains(document.activeElement)) toggle.focus();
+            if (!compact && document.activeElement === toggle) header.querySelector('.logo-container').focus();
+            header.classList.toggle('compact-header', compact);
+        }
+        window.addEventListener('scroll', updateCompactHeader, { passive: true });
+        updateCompactHeader();
+        toggle.addEventListener('click', () => {
+            const open = header.classList.toggle('menu-open');
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        });
+        nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+        document.addEventListener('click', event => { if (!header.contains(event.target)) closeMenu(); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && header.classList.contains('menu-open')) closeMenu(true); });
+    }
     const title = document.querySelector('[data-typing-title]');
     if (!title || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const fullText = title.textContent.trim();
