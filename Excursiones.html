@@ -941,6 +941,28 @@
             .ex-directores-carousel__arrow--next { right: 10px; }
             footer { border-radius: 0; }
         }
+
+        .hero { height: 68vh; min-height: 440px; max-height: 720px; }
+        .hero::before { background: linear-gradient(rgba(3,49,77,.32), rgba(3,49,77,.55)), url('images/Excursiones/Excursion.jpeg') center / cover no-repeat; }
+        .hero-title { color: white; background: none; -webkit-text-fill-color: white; text-shadow: 0 4px 24px rgba(0,0,0,.35); }
+        .hero-watermark { display: none; }
+        .excursion-intro { max-width: 760px; margin: 0 auto 40px; text-align: center; }
+        .excursion-intro p { color: var(--texto-claro); line-height: 1.8; }
+        .excursion-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; max-width: 1200px; margin: auto; }
+        .excursion-photo { border: 0; background: white; border-radius: 18px; overflow: hidden; cursor: zoom-in; text-align: left; box-shadow: 0 8px 28px rgba(15,23,42,.09); transition: transform .2s, box-shadow .2s; }
+        .excursion-photo:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(15,23,42,.16); }
+        .excursion-photo:focus-visible { outline: 3px solid var(--azul-fuerte); outline-offset: 5px; }
+        .excursion-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+        .excursion-photo span { display: block; padding: 14px 18px; color: var(--texto-oscuro); font-size: .9rem; font-weight: 600; }
+        .excursion-album { background: var(--azul-claro); }
+        .photo-viewer { margin: auto; width: min(1100px,94vw); max-height: 94vh; padding: 20px; border: 0; border-radius: 20px; background: #0f172a; color: white; }
+        .photo-viewer::backdrop { background: rgba(3,12,24,.85); }
+        .viewer-controls { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .viewer-controls button { color: white; background: #334155; border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; font-size: 1rem; }
+        .photo-viewer img { display: block; width: 100%; height: min(70vh,700px); object-fit: contain; }
+        @media (max-width: 900px) { .excursion-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; } }
+        @media (max-width: 540px) { .excursion-gallery { grid-template-columns: 1fr; } .hero { min-height: 420px; height: 60vh; } .hero-title { font-size: 3rem; } .viewer-controls button { padding: 10px; } }
+        @media (prefers-reduced-motion: reduce) { .excursion-photo { transition: none; } }
     </style>
 </head>
 <body>
@@ -990,14 +1012,42 @@
 
     <main>
         <section aria-labelledby="excursiones-title">
-            <div class="card reveal" style="max-width:900px; margin:0 auto; text-align:center;">
-                <h3 id="excursiones-title">Aprender más allá del aula</h3>
-                <p style="line-height:1.85; margin-bottom:20px;">Un espacio para compartir las excursiones y experiencias educativas del Colegio Nacional Juan Eudoro Cáceres.</p>
-                <p style="color:var(--texto-claro); line-height:1.85;">Próximamente encontrarás aquí las fotografías, los destinos y los recuerdos de nuestras salidas.</p>
-                <a href="index.html" style="display:inline-block; margin-top:28px; padding:12px 24px; border-radius:30px; background:var(--azul-fuerte); color:white; text-decoration:none; font-weight:600;">Volver al inicio</a>
+            <div class="excursion-intro"><h3 id="excursiones-title">Aprender más allá del aula</h3><p>Destinos, aprendizajes y momentos compartidos. Revive nuestras excursiones y amplía cada fotografía para descubrir todos sus detalles.</p></div>
+            <div class="excursion-gallery">
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%201.jpeg" data-caption="Excursión · 01" aria-label="Ampliar Excursión · 01"><img src="images/Excursiones/Excursion%201.jpeg" alt="Excursión · 01" loading="lazy" decoding="async" /><span>Excursión · 01</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%202.jpeg" data-caption="Excursión · 02" aria-label="Ampliar Excursión · 02"><img src="images/Excursiones/Excursion%202.jpeg" alt="Excursión · 02" loading="lazy" decoding="async" /><span>Excursión · 02</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%203.jpeg" data-caption="Excursión · 03" aria-label="Ampliar Excursión · 03"><img src="images/Excursiones/Excursion%203.jpeg" alt="Excursión · 03" loading="lazy" decoding="async" /><span>Excursión · 03</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%204.jpeg" data-caption="Excursión · 04" aria-label="Ampliar Excursión · 04"><img src="images/Excursiones/Excursion%204.jpeg" alt="Excursión · 04" loading="lazy" decoding="async" /><span>Excursión · 04</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%205.jpeg" data-caption="Excursión · 05" aria-label="Ampliar Excursión · 05"><img src="images/Excursiones/Excursion%205.jpeg" alt="Excursión · 05" loading="lazy" decoding="async" /><span>Excursión · 05</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%206.jpeg" data-caption="Excursión · 06" aria-label="Ampliar Excursión · 06"><img src="images/Excursiones/Excursion%206.jpeg" alt="Excursión · 06" loading="lazy" decoding="async" /><span>Excursión · 06</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%207.jpeg" data-caption="Excursión · 07" aria-label="Ampliar Excursión · 07"><img src="images/Excursiones/Excursion%207.jpeg" alt="Excursión · 07" loading="lazy" decoding="async" /><span>Excursión · 07</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%208.jpeg" data-caption="Excursión · 08" aria-label="Ampliar Excursión · 08"><img src="images/Excursiones/Excursion%208.jpeg" alt="Excursión · 08" loading="lazy" decoding="async" /><span>Excursión · 08</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%209.jpeg" data-caption="Excursión · 09" aria-label="Ampliar Excursión · 09"><img src="images/Excursiones/Excursion%209.jpeg" alt="Excursión · 09" loading="lazy" decoding="async" /><span>Excursión · 09</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2010.jpeg" data-caption="Excursión · 10" aria-label="Ampliar Excursión · 10"><img src="images/Excursiones/Excursion%2010.jpeg" alt="Excursión · 10" loading="lazy" decoding="async" /><span>Excursión · 10</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2011.jpeg" data-caption="Excursión · 11" aria-label="Ampliar Excursión · 11"><img src="images/Excursiones/Excursion%2011.jpeg" alt="Excursión · 11" loading="lazy" decoding="async" /><span>Excursión · 11</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2013.jpeg" data-caption="Excursión · 12" aria-label="Ampliar Excursión · 12"><img src="images/Excursiones/Excursion%2013.jpeg" alt="Excursión · 12" loading="lazy" decoding="async" /><span>Excursión · 12</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2014.jpeg" data-caption="Excursión · 13" aria-label="Ampliar Excursión · 13"><img src="images/Excursiones/Excursion%2014.jpeg" alt="Excursión · 13" loading="lazy" decoding="async" /><span>Excursión · 13</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2015.jpeg" data-caption="Excursión · 14" aria-label="Ampliar Excursión · 14"><img src="images/Excursiones/Excursion%2015.jpeg" alt="Excursión · 14" loading="lazy" decoding="async" /><span>Excursión · 14</span></button>
+            </div>
+        </section>
+        <section class="excursion-album" aria-labelledby="recuerdos-title">
+            <div class="excursion-intro"><h3 id="recuerdos-title">Más recuerdos compartidos</h3><p>Una colección de momentos que forman parte de nuestra vida escolar.</p></div>
+            <div class="excursion-gallery">
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud1.jpeg" data-caption="Recuerdo · 01" aria-label="Ampliar Recuerdo · 01"><img src="images/Excursiones/FolJuventud/FolJuventud1.jpeg" alt="Recuerdo · 01" loading="lazy" decoding="async" /><span>Recuerdo · 01</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud2.jpeg" data-caption="Recuerdo · 02" aria-label="Ampliar Recuerdo · 02"><img src="images/Excursiones/FolJuventud/FolJuventud2.jpeg" alt="Recuerdo · 02" loading="lazy" decoding="async" /><span>Recuerdo · 02</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud3.jpeg" data-caption="Recuerdo · 03" aria-label="Ampliar Recuerdo · 03"><img src="images/Excursiones/FolJuventud/FolJuventud3.jpeg" alt="Recuerdo · 03" loading="lazy" decoding="async" /><span>Recuerdo · 03</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud4.jpeg" data-caption="Recuerdo · 04" aria-label="Ampliar Recuerdo · 04"><img src="images/Excursiones/FolJuventud/FolJuventud4.jpeg" alt="Recuerdo · 04" loading="lazy" decoding="async" /><span>Recuerdo · 04</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud5.jpeg" data-caption="Recuerdo · 05" aria-label="Ampliar Recuerdo · 05"><img src="images/Excursiones/FolJuventud/FolJuventud5.jpeg" alt="Recuerdo · 05" loading="lazy" decoding="async" /><span>Recuerdo · 05</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud6.jpeg" data-caption="Recuerdo · 06" aria-label="Ampliar Recuerdo · 06"><img src="images/Excursiones/FolJuventud/FolJuventud6.jpeg" alt="Recuerdo · 06" loading="lazy" decoding="async" /><span>Recuerdo · 06</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud7.jpeg" data-caption="Recuerdo · 07" aria-label="Ampliar Recuerdo · 07"><img src="images/Excursiones/FolJuventud/FolJuventud7.jpeg" alt="Recuerdo · 07" loading="lazy" decoding="async" /><span>Recuerdo · 07</span></button>
+                <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud8.jpeg" data-caption="Recuerdo · 08" aria-label="Ampliar Recuerdo · 08"><img src="images/Excursiones/FolJuventud/FolJuventud8.jpeg" alt="Recuerdo · 08" loading="lazy" decoding="async" /><span>Recuerdo · 08</span></button>
             </div>
         </section>
     </main>
+    <dialog class="photo-viewer" id="photoViewer" aria-label="Fotografía ampliada">
+        <div class="viewer-controls"><button type="button" id="previousPhoto" aria-label="Foto anterior">←</button><span id="photoCaption" aria-live="polite"></span><button type="button" id="nextPhoto" aria-label="Foto siguiente">→</button><button type="button" id="closeViewer" aria-label="Cerrar fotografía">Cerrar ×</button></div>
+        <img id="viewerImage" alt="" />
+    </dialog>
     <footer id="contactos" class="reveal">
         <div class="footer-grid">
             <div class="footer-col">
@@ -1104,6 +1154,27 @@
 
         window.addEventListener("scroll", reveal);
         reveal();
+
+        const photoButtons = Array.from(document.querySelectorAll('[data-photo]'));
+        const viewer = document.getElementById('photoViewer');
+        const viewerImage = document.getElementById('viewerImage');
+        let photoIndex = 0;
+        function showPhoto(index) {
+            photoIndex = (index + photoButtons.length) % photoButtons.length;
+            const button = photoButtons[photoIndex];
+            viewerImage.src = button.dataset.photo;
+            viewerImage.alt = button.dataset.caption;
+            document.getElementById('photoCaption').textContent = button.dataset.caption + ' · ' + (photoIndex + 1) + ' / ' + photoButtons.length;
+        }
+        photoButtons.forEach((button,index) => button.addEventListener('click', () => { showPhoto(index); viewer.showModal(); }));
+        document.getElementById('closeViewer').addEventListener('click', () => viewer.close());
+        document.getElementById('previousPhoto').addEventListener('click', () => showPhoto(photoIndex - 1));
+        document.getElementById('nextPhoto').addEventListener('click', () => showPhoto(photoIndex + 1));
+        viewer.addEventListener('keydown', event => {
+            if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(photoIndex - 1); }
+            if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(photoIndex + 1); }
+        });
+        viewer.addEventListener('close', () => { viewerImage.removeAttribute('src'); });
     </script>
 </body>
 </html>
