@@ -1,4 +1,4 @@
-Es<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -37,9 +37,9 @@ Es<!DOCTYPE html>
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: transparent;
+            transition: background 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: none;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -102,62 +102,46 @@ Es<!DOCTYPE html>
         }
 
         .logo-container h1 {
-            color: var(--azul-fuerte);
+            color: var(--blanco);
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: 1px;
         }
 
-        /* Menú Hamburguesa */
-        .menu-btn {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 1001;
+        header.scrolled {
+            background: rgba(3, 49, 77, 0.94);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
         }
 
-        .menu-btn div {
-            width: 30px;
-            height: 3px;
-            background-color: var(--azul-fuerte);
-            transition: all 0.3s ease;
-        }
-
-        /* Navegación desplegable */
         nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background-color: var(--blanco);
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 30px;
-            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            z-index: 999;
-        }
-
-        nav.active {
-            right: 0;
+            justify-content: flex-end;
+            gap: clamp(16px, 3vw, 40px);
         }
 
         nav a {
+            color: var(--blanco);
             text-decoration: none;
-            color: var(--texto-oscuro);
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
         }
 
-        nav a:hover {
-            color: var(--azul-medio);
+        nav a:hover, nav a:focus-visible, nav a[aria-current="location"] {
+            border-bottom-color: var(--blanco);
         }
 
+        section, footer { scroll-margin-top: 125px; }
+
+        @media (max-width: 640px) {
+            header { flex-wrap: wrap; gap: 8px; padding: 12px 5%; }
+            .logo-img-wrap { width: 36px; height: 36px; }
+            .logo-container h1 { font-size: 1.2rem; }
+            nav { width: 100%; justify-content: space-between; gap: 8px; }
+            nav a { font-size: 0.75rem; }
+        }
         /* Sección Hero */
         .hero {
             height: 100vh;
@@ -173,13 +157,11 @@ Es<!DOCTYPE html>
             content: '';
             position: absolute;
             inset: 0;
-            background: url('infraestructura.jpg') center / cover no-repeat;
+            background: linear-gradient(rgba(2, 132, 199, 0.48), rgba(2, 132, 199, 0.15)), url('infraestructura.jpg') center / cover no-repeat;
             z-index: 0;
             pointer-events: none;
 
-            /* Difuminación suave en los bordes */
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-            mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+
         }
 
         .hero-title-wrap {
@@ -926,13 +908,8 @@ Es<!DOCTYPE html>
             <h1>CNJEC</h1>
         </div>
         
-        <div class="menu-btn" id="menuBtn">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-
-        <nav id="navMenu">
+        <nav id="navMenu" aria-label="Navegación principal">
+            <a href="#inicio" class="nav-link" aria-current="location">Inicio</a>
             <a href="#mision-vision" class="nav-link">Misión</a>
             <a href="#mision-vision" class="nav-link">Visión</a>
             <a href="#ubicacion" class="nav-link">Ubicación</a>
@@ -1121,26 +1098,17 @@ Es<!DOCTYPE html>
     </footer>
 
     <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
+        const siteHeader = document.querySelector('header');
         const navLinks = document.querySelectorAll('.nav-link');
-
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuBtn.children[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
-            menuBtn.children[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-            menuBtn.children[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
-        });
-
+        const updateHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuBtn.children[0].style.transform = 'none';
-                menuBtn.children[1].style.opacity = '1';
-                menuBtn.children[2].style.transform = 'none';
+                navLinks.forEach(item => item.removeAttribute('aria-current'));
+                link.setAttribute('aria-current', 'location');
             });
         });
-
         (function () {
             function initFadeCarousel(root, slideSelector, dotClass) {
                 if (!root) return;
