@@ -3,6 +3,7 @@
     const toggle = document.querySelector('.scroll-menu-toggle');
     if (header && toggle) {
         const nav = header.querySelector('nav');
+        const mobileMenu = window.matchMedia('(max-width: 768px)');
         function closeMenu(restoreFocus = false) {
             header.classList.remove('menu-open');
             toggle.setAttribute('aria-expanded', 'false');
@@ -10,7 +11,7 @@
             if (restoreFocus) toggle.focus();
         }
         function updateCompactHeader() {
-            const compact = window.scrollY > 80;
+            const compact = mobileMenu.matches || window.scrollY > 80;
             if (compact === header.classList.contains('compact-header')) return;
             const logo = header.querySelector('.logo-container');
             const emblem = logo.querySelector('.logo-img-wrap');
@@ -29,6 +30,7 @@
             }
         }
         window.addEventListener('scroll', updateCompactHeader, { passive: true });
+        mobileMenu.addEventListener('change', updateCompactHeader);
         updateCompactHeader();
         toggle.addEventListener('click', () => {
             const open = header.classList.toggle('menu-open');
