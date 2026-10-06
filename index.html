@@ -941,7 +941,7 @@
             .ex-directores-carousel__arrow--next { right: 10px; }
             footer { border-radius: 0; }
         }
-    
+
         .egresados-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px; max-width: 1200px; margin: 36px auto 0; }
         .egresado-card { background: white; padding: 16px; border-radius: 20px; box-shadow: 0 8px 28px rgba(15,23,42,.08); }
         .egresado-retrato { position: relative; overflow: hidden; border-radius: 14px; }
@@ -949,6 +949,16 @@
         .egresado-card figcaption { color: var(--texto-oscuro); text-align: center; font-size: .95rem; font-weight: 600; line-height: 1.5; padding: 18px 4px 4px; }
         @media (max-width: 900px) { .egresados-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; } }
         @media (max-width: 640px) { .egresados-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; } .egresado-card { padding: 10px; } .egresado-card figcaption { font-size: .8rem; } }
+
+        .directores-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; max-width: 1200px; margin: 36px auto 0; }
+        .director-card { padding: 20px; background: white; border-radius: 20px; box-shadow: 0 8px 28px rgba(15,23,42,.09); }
+        .director-retrato { position: relative; overflow: hidden; border-radius: 14px; }
+        .director-retrato img { position: absolute; max-width: none; height: auto; display: block; }
+        .director-card h3 { font-size: 1.1rem; line-height: 1.5; margin: 20px 0 12px; text-align: center; }
+        .director-card h3::after { display: none; }
+        .director-card p { font-size: .9rem; line-height: 1.8; color: var(--texto-claro); }
+        @media (max-width: 1000px) { .directores-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+        @media (max-width: 540px) { .directores-grid { grid-template-columns: 1fr; } .director-retrato { max-width: 240px; margin: auto; } }
     </style>
     <link rel="stylesheet" href="site-effects.css" />
 </head>
@@ -970,7 +980,7 @@
             </div>
             <h1>CNJEC</h1>
         </a>
-        
+
         <button type="button" class="scroll-menu-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
         <nav id="navMenu" aria-label="Navegación principal">
             <a href="#inicio" class="nav-link" aria-current="location">Inicio</a>
@@ -1136,44 +1146,27 @@
     <section class="ex-directores-wrap reveal" id="ex-directores" aria-labelledby="ex-directores-title">
         <h2 id="ex-directores-title">Ex-Directores</h2>
 
-        <div class="ex-directores-carousel" id="exDirectoresCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Ex-Directores del colegio">
-            <div class="ex-directores-carousel__slide is-active" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores1.png"
-                    alt="Marta Núñez de Rodríguez — Sucesión de directores de la institución"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores2.png"
-                    alt="Ex-Director 2"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="3 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores3.png"
-                    alt="Ex-Director 3"
-                    loading="lazy"
-                />
-            </div>
-            <div class="ex-directores-carousel__slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 4">
-                <img
-                    class="ex-directores-carousel__img"
-                    src="images/ExDirectores4.png"
-                    alt="Ex-Director 4"
-                    loading="lazy"
-                />
-            </div>
-
-            <button type="button" class="ex-directores-carousel__arrow ex-directores-carousel__arrow--prev" id="exDirectoresPrev" aria-label="Diapositiva anterior">‹</button>
-            <button type="button" class="ex-directores-carousel__arrow ex-directores-carousel__arrow--next" id="exDirectoresNext" aria-label="Diapositiva siguiente">›</button>
-
-            <div class="ex-directores-carousel__dots" id="exDirectoresDots" role="tablist" aria-label="Seleccionar diapositiva"></div>
+        <div class="directores-grid">
+            <article class="director-card">
+                <div class="director-retrato" style="aspect-ratio:202/198;"><img src="images/ExDirectores1.png" alt="Retrato de Marta Núñez de Rodríguez" loading="lazy" style="width:546.5346534653465%; left:-37.62376237623762%; top:-20.2020202020202%;" /></div>
+                <h3>Marta Núñez de Rodríguez</h3>
+                <p>Fundadora y primera directora del colegio en 1982. Docente de Estudios Sociales, Educación Idiomática y Lengua Guaraní, con trayectoria en dirección y supervisión educativa.</p>
+            </article>
+            <article class="director-card">
+                <div class="director-retrato" style="aspect-ratio:242/209;"><img src="images/ExDirectores2.png" alt="Retrato de Ignacio Ramiro González" loading="lazy" style="width:537.603305785124%; left:-18.59504132231405%; top:-22.00956937799043%;" /></div>
+                <h3>Ignacio Ramiro González</h3>
+                <p>Director y catedrático del Colegio Nacional Juan Eudoro Cáceres. Se formó en Administración Educacional en el ISE y dirigió diversas instituciones del país.</p>
+            </article>
+            <article class="director-card">
+                <div class="director-retrato" style="aspect-ratio:254/251;"><img src="images/ExDirectores3.png" alt="Retrato de Limpia Concepción Giménez de Garay" loading="lazy" style="width:491.3385826771654%; left:-27.559055118110237%; top:-10.756972111553784%;" /></div>
+                <h3>Limpia Concepción Giménez de Garay</h3>
+                <p>Licenciada en Letras y profesora de Lengua Guaraní. Se incorporó al colegio en 1985; fue nombrada directora del turno noche en 1995 y encargada de la dirección de mañana y tarde en 2002.</p>
+            </article>
+            <article class="director-card">
+                <div class="director-retrato" style="aspect-ratio:222/222;"><img src="images/ExDirectores4.png" alt="Retrato de Anatalia Coronel de Vuyk" loading="lazy" style="width:511.7117117117117%; left:-24.324324324324326%; top:-18.01801801801802%;" /></div>
+                <h3>Anatalia Coronel de Vuyk</h3>
+                <p>Licenciada en Ciencias de la Educación y profesora de Matemática y Lengua Guaraní. Integró el colegio desde su fundación en 1982, desempeñándose como secretaria y catedrática.</p>
+            </article>
         </div>
     </section>
 
@@ -1197,7 +1190,7 @@
                 <p>Asunción, Paraguay</p>
                 <p>C.P. 1234 (Opcional)</p>
             </div>
-            
+
             <div class="footer-col">
                 <h4>Comunícate</h4>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cnjec699@gmail.com" target="_blank" rel="noopener noreferrer">✉️ cnjec699@gmail.com</a>
@@ -1213,7 +1206,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="copyright">
             <p>&copy; 2026 Colegio Nacional Juan Eudoro Caceres. Todos los derechos reservados.</p>
         </div>
