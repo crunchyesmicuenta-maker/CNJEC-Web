@@ -58,5 +58,5 @@
         if (index < fullText.length) window.setTimeout(typeNext, 65);
         else title.classList.remove('is-typing');
     }
-    window.setTimeout(typeNext, 300);
+    window.setTimeout(typeNext, 550);
 })();

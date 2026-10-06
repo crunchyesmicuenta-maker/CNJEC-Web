@@ -27,6 +27,12 @@ nav a:nth-child(6) { animation-delay: 1.25s; }
 @keyframes menu-entry { from { opacity: 0; translate: 0 -14px; } to { opacity: 1; translate: 0 0; } }
 nav a:focus-visible { animation: none; }
 .typing-title .typing-space { visibility: hidden; }
+.hero[data-cover-reveal]::before { animation: cover-unfold 3.6s cubic-bezier(.25,.65,.3,1) both; }
+@keyframes cover-unfold {
+    from { clip-path: inset(0 100% 0 0); transform: scale(1.08); opacity: .25; }
+    to { clip-path: inset(0 0 0 0); transform: scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .hero[data-cover-reveal]::before { animation: none; } }
 .typing-title .typing-output { position: absolute; inset: 0; background: inherit; background-clip: text; -webkit-background-clip: text; }
 .typing-title.is-typing .typing-output::after { content: ''; display: inline-block; width: 3px; height: .8em; margin-left: 6px; background: var(--azul-medio); animation: typing-cursor .8s steps(1) infinite; }
 @keyframes typing-cursor { 50% { opacity: 0; } }
