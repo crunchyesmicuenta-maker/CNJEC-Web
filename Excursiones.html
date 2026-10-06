@@ -963,11 +963,12 @@
         @media (max-width: 540px) { .excursion-gallery { grid-template-columns: 1fr; } .hero { min-height: 420px; height: 60vh; } .hero-title { font-size: 3rem; } .viewer-controls button { padding: 10px; } }
         @media (prefers-reduced-motion: reduce) { .excursion-photo { transition: none; } }
     </style>
+    <link rel="stylesheet" href="site-effects.css" />
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
+        <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
                 <!-- Intenta cargar el logo desde archivo (misma carpeta que index.html).
                      Si no existe, se muestra un fallback visible. -->
@@ -981,7 +982,7 @@
                 <span id="logo-fallback" class="logo-fallback" aria-hidden="true">CNJEC</span>
             </div>
             <h1>CNJEC</h1>
-        </div>
+        </a>
         
         <nav id="navMenu" aria-label="Navegación principal">
             <a href="index.html#inicio" class="nav-link">Inicio</a>
@@ -1227,5 +1228,6 @@
         });
         viewer.addEventListener('close', () => { viewerImage.removeAttribute('src'); });
     </script>
+    <script src="site-effects.js" defer></script>
 </body>
 </html>
