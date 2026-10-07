@@ -1,4 +1,19 @@
 (() => {
+    const track = document.getElementById('currentDirectorsTrack');
+    if (track) {
+        const count = track.children.length;
+        function move(delta) {
+            const index = Math.round(track.scrollLeft / track.clientWidth);
+            const next = (index + delta + count) % count;
+            track.scrollTo({ left: next * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+        }
+        document.getElementById('currentDirectorPrev').addEventListener('click', () => move(-1));
+        document.getElementById('currentDirectorNext').addEventListener('click', () => move(1));
+        track.addEventListener('scroll', () => { document.getElementById('currentDirectorStatus').textContent = (Math.round(track.scrollLeft / track.clientWidth) + 1) + ' de ' + count; }, { passive: true });
+        track.addEventListener('keydown', event => {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1); }
+        });
+    }
     const header = document.querySelector('header');
     const toggle = document.querySelector('.scroll-menu-toggle');
     if (header && toggle) {
