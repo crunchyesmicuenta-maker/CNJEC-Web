@@ -75,6 +75,7 @@
     let paused = false;
     let radiusX = 0;
     let radiusY = 0;
+    let titleClearance = 0;
     function draw() {
         images.forEach((image,index) => {
             const angle = phase + index * Math.PI * 2 / images.length;
@@ -84,6 +85,7 @@
             const x = Math.sign(cosine) * Math.pow(Math.abs(cosine), exponent) * radiusX;
             const y = Math.sign(sine) * Math.pow(Math.abs(sine), exponent) * radiusY;
             image.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+            image.style.opacity = mobile.matches ? String(Math.max(0, Math.min(1, (Math.abs(y) - titleClearance) / 36))) : '1';
         });
     }
     function animate(time) {
@@ -98,10 +100,11 @@
         cancelAnimationFrame(frame);
         const active = !reduced.matches;
         hero.classList.toggle('beneficios-orbit',active);
-        images.forEach(image => image.style.removeProperty('transform'));
+        images.forEach(image => { image.style.removeProperty('transform'); image.style.removeProperty('opacity'); });
         if (!active) return;
-        radiusX = hero.clientWidth/2 - images[0].offsetWidth/2 - (mobile.matches ? 8 : 30);
-        radiusY = hero.clientHeight*.30;
+        radiusX = mobile.matches ? hero.clientWidth/2 + images[0].offsetWidth/2 : hero.clientWidth/2 - images[0].offsetWidth/2 - 30;
+        radiusY = hero.clientHeight * (mobile.matches ? .34 : .30);
+        titleClearance = hero.querySelector('.hero-title-wrap').offsetHeight/2 + Math.max(...images.map(image => image.offsetHeight))/2 + 18;
         lastTime = 0;
         draw();
         frame = requestAnimationFrame(animate);
@@ -110,5 +113,7 @@
     hero.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') paused = false; });
     window.addEventListener('resize',configure);
     reduced.addEventListener('change',configure);
+    images.forEach(image => image.addEventListener('load', configure, { once: true }));
+    if (document.fonts) document.fonts.ready.then(configure);
     configure();
 })();

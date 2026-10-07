@@ -11,8 +11,8 @@
 @media (max-width: 899px) {
     .hero.hero--beneficios.beneficios-orbit { min-height: max(660px,100svh); padding: 0; }
     .beneficios-orbit .beneficios-row img, .beneficios-orbit .beneficios-row--top img:last-child { width: clamp(90px,28vw,170px); }
-    .beneficios-orbit .hero-title-wrap { left: 31%; width: 38%; }
-    .beneficios-orbit .hero-title { font-size: clamp(18px,5vw,30px); }
+    .beneficios-orbit .hero-title-wrap { left: 8%; width: 84%; z-index: 3; }
+    .beneficios-orbit .hero-title { font-size: clamp(32px,8vw,48px); line-height: 1.18; text-shadow: 0 3px 18px rgba(3,49,77,.3); }
 }
 .redes-sociales a { overflow: hidden; }
 .redes-sociales a img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
