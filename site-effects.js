@@ -62,3 +62,58 @@
     }
     window.setTimeout(typeNext, 550);
 })();
+
+(() => {
+    const hero = document.querySelector('.hero--beneficios');
+    if (!hero) return;
+    const images = Array.from(hero.querySelectorAll('.beneficios-row img'));
+    const mobile = window.matchMedia('(max-width: 899px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    let phase = 0;
+    let lastTime = 0;
+    let paused = false;
+    let radiusX = 0;
+    let radiusY = 0;
+    let titleClearance = 0;
+    function draw() {
+        images.forEach((image,index) => {
+            const angle = phase + index * Math.PI * 2 / images.length;
+            const cosine = Math.cos(angle);
+            const sine = Math.sin(angle);
+            const exponent = mobile.matches ? .55 : 1;
+            const x = Math.sign(cosine) * Math.pow(Math.abs(cosine), exponent) * radiusX;
+            const y = Math.sign(sine) * Math.pow(Math.abs(sine), exponent) * radiusY;
+            image.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+            image.style.opacity = mobile.matches ? String(Math.max(0, Math.min(1, (Math.abs(y) - titleClearance) / 36))) : '1';
+        });
+    }
+    function animate(time) {
+        if (lastTime && !paused && !document.hidden && hero.getBoundingClientRect().bottom > 0) {
+            phase += Math.min(time-lastTime,50) / 60000 * Math.PI * 2;
+        }
+        lastTime = time;
+        draw();
+        frame = requestAnimationFrame(animate);
+    }
+    function configure() {
+        cancelAnimationFrame(frame);
+        const active = !reduced.matches;
+        hero.classList.toggle('beneficios-orbit',active);
+        images.forEach(image => { image.style.removeProperty('transform'); image.style.removeProperty('opacity'); });
+        if (!active) return;
+        radiusX = mobile.matches ? hero.clientWidth/2 + images[0].offsetWidth/2 : hero.clientWidth/2 - images[0].offsetWidth/2 - 30;
+        radiusY = hero.clientHeight * (mobile.matches ? .34 : .30);
+        titleClearance = hero.querySelector('.hero-title-wrap').offsetHeight/2 + Math.max(...images.map(image => image.offsetHeight))/2 + 18;
+        lastTime = 0;
+        draw();
+        frame = requestAnimationFrame(animate);
+    }
+    hero.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') paused = true; });
+    hero.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') paused = false; });
+    window.addEventListener('resize',configure);
+    reduced.addEventListener('change',configure);
+    images.forEach(image => image.addEventListener('load', configure, { once: true }));
+    if (document.fonts) document.fonts.ready.then(configure);
+    configure();
+})();
