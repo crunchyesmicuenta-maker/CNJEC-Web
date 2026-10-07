@@ -62,3 +62,48 @@
     }
     window.setTimeout(typeNext, 550);
 })();
+
+(() => {
+    const hero = document.querySelector('.hero--beneficios');
+    if (!hero) return;
+    const images = Array.from(hero.querySelectorAll('.beneficios-row img'));
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    let phase = 0;
+    let lastTime = 0;
+    let paused = false;
+    let radiusX = 0;
+    let radiusY = 0;
+    function draw() {
+        images.forEach((image,index) => {
+            const angle = phase + index * Math.PI * 2 / images.length;
+            image.style.transform = `translate(-50%, -50%) translate(${Math.cos(angle)*radiusX}px, ${Math.sin(angle)*radiusY}px)`;
+        });
+    }
+    function animate(time) {
+        if (lastTime && !paused && !document.hidden && hero.getBoundingClientRect().bottom > 0) {
+            phase += Math.min(time-lastTime,50) / 60000 * Math.PI * 2;
+        }
+        lastTime = time;
+        draw();
+        frame = requestAnimationFrame(animate);
+    }
+    function configure() {
+        cancelAnimationFrame(frame);
+        const active = desktop.matches && !reduced.matches;
+        hero.classList.toggle('beneficios-orbit',active);
+        images.forEach(image => image.style.removeProperty('transform'));
+        if (!active) return;
+        radiusX = hero.clientWidth/2 - images[0].offsetWidth/2 - 30;
+        radiusY = hero.clientHeight*.30;
+        lastTime = 0;
+        draw();
+        frame = requestAnimationFrame(animate);
+    }
+    hero.addEventListener('pointerenter', () => paused = true);
+    hero.addEventListener('pointerleave', () => paused = false);
+    window.addEventListener('resize',configure);
+    reduced.addEventListener('change',configure);
+    configure();
+})();

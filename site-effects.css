@@ -1,4 +1,12 @@
 .logo-container { text-decoration: none; transition: transform .2s ease; }
+.hero--beneficios .beneficios-row--top { max-width: 720px; }
+.hero--beneficios .beneficios-row--bottom { max-width: 900px; }
+@media (max-width: 480px) { .hero--beneficios .beneficios-row { max-width: 250px; } }
+.hero.hero--beneficios.beneficios-orbit { min-height: max(740px,100svh); padding: 0; }
+.beneficios-orbit .beneficios-row { display: contents; }
+.beneficios-orbit .beneficios-row img { position: absolute; left: 50%; top: 55%; width: clamp(150px,15vw,190px); z-index: 2; }
+.beneficios-orbit .hero-title-wrap { position: absolute; left: 25%; top: 55%; width: 50%; transform: translateY(-50%); }
+.beneficios-orbit .hero-title { font-size: clamp(2.2rem,3.7vw,3.6rem); }
 .redes-sociales a { overflow: hidden; }
 .redes-sociales a img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .scroll-menu-toggle { display: none; border: 0; border-radius: 12px; background: rgba(255,255,255,.12); padding: 12px; cursor: pointer; }
