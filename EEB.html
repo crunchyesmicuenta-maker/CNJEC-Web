@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNJEC - Educación Escolar Básica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --azul-claro: #e0f2fe;
+            --azul-medio: #38bdf8;
+            --azul-fuerte: #0284c7;
+            --azul-muy-oscuro: #0f172a;
+            --blanco: #ffffff;
+            --texto-oscuro: #1e293b;
+            --texto-claro: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--texto-oscuro);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--azul-medio), var(--azul-fuerte));
+            position: relative;
+            overflow: hidden;
+            flex: 0 0 auto;
+        }
+
+        .logo-img-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            background: radial-gradient(circle at center, rgba(224, 242, 254, 0.9) 0%, rgba(56, 189, 248, 0.3) 40%, rgba(56, 189, 248, 0) 70%);
+            filter: blur(6px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.35));
+        }
+
+        .logo-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+            padding: 0 4px;
+        }
+
+        .logo-container h1 {
+            color: var(--azul-fuerte);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .menu-btn {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .menu-btn div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--azul-fuerte);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--blanco);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 999;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--azul-medio);
+        }
+
+        section {
+            padding: 100px 5%;
+        }
+
+        .intro {
+            padding-top: 130px;
+            background: radial-gradient(circle at top right, var(--azul-claro), var(--blanco));
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            color: var(--azul-fuerte);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--texto-claro);
+        }
+
+        .cards-bridge {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            width: 100%;
+        }
+
+        .cards-bridge .card--main {
+            flex: 1 1 auto;
+            min-width: 0;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .cards-bridge .card--side {
+            flex: 0 0 auto;
+            width: max-content;
+            max-width: min(100%, 400px);
+            align-self: flex-start;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .card-bridge {
+            flex: 0 0 56px;
+            align-self: center;
+            z-index: 2;
+            margin: 0 -8px;
+            height: 88px;
+            pointer-events: none;
+        }
+
+        .card-bridge svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: drop-shadow(0 8px 18px rgba(2, 132, 199, 0.1));
+        }
+
+        .card {
+            background: var(--blanco);
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
+            border: 1px solid rgba(224, 242, 254, 0.8);
+        }
+
+        .card h3 {
+            color: var(--azul-fuerte);
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .card h4 {
+            color: var(--texto-oscuro);
+            font-size: 1rem;
+            margin: 14px 0 6px;
+        }
+
+        .card ul {
+            margin: 0 0 8px 18px;
+            padding: 0;
+        }
+
+        .card li {
+            color: var(--texto-claro);
+            line-height: 1.7;
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: var(--azul-muy-oscuro);
+            color: var(--blanco);
+            padding: 60px 5% 20px;
+            margin-top: 40px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--azul-medio);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--blanco);
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .redes-sociales a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .redes-sociales a:hover {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .cards-bridge {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cards-bridge .card--main,
+            .cards-bridge .card--side {
+                width: 100%;
+                max-width: none;
+                border-radius: 18px;
+            }
+
+            .card-bridge {
+                flex: 0 0 auto;
+                width: 88px;
+                height: 56px;
+                margin: -6px auto;
+                transform: rotate(90deg);
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+            footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="site-effects.css" />
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
+            <div class="logo-img-wrap">
+                <img
+                    class="logo-img"
+                    src="logo.png"
+                    alt="Logo CNJEC"
+                    loading="eager"
+                    onerror="this.style.display='none'; document.getElementById('logo-fallback-social').style.display='flex';"
+                />
+                <span id="logo-fallback-social" class="logo-fallback" aria-hidden="true">CNJEC</span>
+            </div>
+            <h1>CNJEC</h1>
+        </a>
+
+        <div class="menu-btn" id="menuBtn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <nav id="navMenu">
+            <a href="#eeb">Escolar Básica</a>
+            <a href="#enfoque">Enfoque</a>
+            <a href="#contactos">Contactos</a>
+        </nav>
+    </header>
+
+    <section class="intro" id="eeb">
+        <h2>Educación Escolar Básica</h2>
+        <p>Aprender, convivir y crecer: una etapa fundamental para desarrollar conocimientos, habilidades y valores que acompañan a cada estudiante en su vida escolar.</p>
+    </section>
+
+    <section id="enfoque">
+        <div class="cards-bridge">
+            <article class="card card--main">
+                <h3>Formación integral</h3>
+                <p>La Educación Escolar Básica construye las bases para continuar aprendiendo. Integra el desarrollo intelectual, personal y social, con énfasis en la comunicación, el razonamiento y la convivencia.</p>
+                <h4>Aprendizajes fundamentales</h4>
+                <ul>
+                    <li><strong>Comunicación:</strong> comprender textos, expresar ideas y fortalecer la lectura y la escritura.</li>
+                    <li><strong>Pensamiento matemático:</strong> razonar, resolver problemas y aplicar conocimientos en situaciones cotidianas.</li>
+                    <li><strong>Exploración del entorno:</strong> observar, formular preguntas y comprender la naturaleza y la sociedad.</li>
+                    <li><strong>Creatividad:</strong> desarrollar la expresión artística, la imaginación y las habilidades personales.</li>
+                </ul>
+                <h4>Valores y convivencia</h4>
+                <ul>
+                    <li>Respeto, responsabilidad y cuidado de uno mismo y de los demás.</li>
+                    <li>Trabajo en equipo, diálogo y resolución pacífica de conflictos.</li>
+                    <li>Autonomía, curiosidad y hábitos de estudio.</li>
+                    <li>Participación de las familias en el acompañamiento del aprendizaje.</li>
+                </ul>
+                <h4>Continuidad educativa</h4>
+                <p>Esta etapa permite fortalecer las herramientas necesarias para avanzar hacia nuevos desafíos académicos y tomar un papel activo en la comunidad.</p>
+            </article>
+            <div class="card-bridge" aria-hidden="true"><svg viewBox="0 0 56 88" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 26 Q 28 26, 28 44 Q 28 62, 50 62" fill="none" stroke="#ffffff" stroke-width="38" stroke-linecap="round"/></svg></div>
+            <article class="card card--side">
+                <h3>Áreas de aprendizaje</h3>
+                <ul>
+                    <li><strong>Lenguas y comunicación:</strong> comprensión y expresión oral y escrita.</li>
+                    <li><strong>Matemática:</strong> números, operaciones, formas y resolución de problemas.</li>
+                    <li><strong>Ciencias naturales:</strong> ambiente, salud y conocimiento del mundo natural.</li>
+                    <li><strong>Ciencias sociales:</strong> historia, comunidad y convivencia ciudadana.</li>
+                    <li><strong>Arte y expresión:</strong> sensibilidad, creatividad y cultura.</li>
+                    <li><strong>Educación física:</strong> movimiento, bienestar y hábitos saludables.</li>
+                </ul>
+                <h4>Información e inscripciones</h4>
+                <p>Para conocer los grados disponibles, los turnos y los requisitos de inscripción, comunícate con la institución.</p>
+                <p><a href="#contactos">Consultar con el colegio →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <footer id="contactos">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ubicación</h4>
+                <p>Barrio San Pablo</p>
+                <p>Asunción, Paraguay</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Comunícate</h4>
+                <a href="mailto:cnjec699@gmail.com">✉️ cnjec699@gmail.com</a>
+                <p>🕒 Lunes a Viernes: 07:00 - 18:00</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <p>Entérate de nuestras novedades:</p>
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/EscuelaEudoro/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
+                    <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/IG.jpg" alt="Instagram" loading="lazy" width="40" height="40" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Colegio Nacional Juan Eudoro Caceres. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuBtn.children[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
+            menuBtn.children[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+            menuBtn.children[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
+        });
+    </script>
+    <script src="site-effects.js" defer></script>
+</body>
+</html>
