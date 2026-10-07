@@ -1,4 +1,6 @@
 .logo-container { text-decoration: none; transition: transform .2s ease; }
+.hero-carousel__slide--eeb .hero-carousel__bg { background: linear-gradient(115deg,#0f172a 0%,#123959 45%,#0c4a6e 100%); }
+.hero-carousel__slide--eeb .hero-carousel__bg::before { content: ''; position: absolute; inset: 0; background: url('images/logo-E.E.B.png') center / cover no-repeat; opacity: .22; pointer-events: none; }
 #directores-actuales > h2 { text-align: center; font-size: clamp(1.7rem,3vw,2.4rem); color: var(--azul-fuerte); }
 .current-directors { max-width: 1150px; margin: 32px auto 0; }
 .current-directors-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 24px; background: var(--azul-claro); }
