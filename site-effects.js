@@ -67,7 +67,7 @@
     const hero = document.querySelector('.hero--beneficios');
     if (!hero) return;
     const images = Array.from(hero.querySelectorAll('.beneficios-row img'));
-    const desktop = window.matchMedia('(min-width: 900px)');
+    const mobile = window.matchMedia('(max-width: 899px)');
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     let frame = 0;
     let phase = 0;
@@ -78,7 +78,12 @@
     function draw() {
         images.forEach((image,index) => {
             const angle = phase + index * Math.PI * 2 / images.length;
-            image.style.transform = `translate(-50%, -50%) translate(${Math.cos(angle)*radiusX}px, ${Math.sin(angle)*radiusY}px)`;
+            const cosine = Math.cos(angle);
+            const sine = Math.sin(angle);
+            const exponent = mobile.matches ? .55 : 1;
+            const x = Math.sign(cosine) * Math.pow(Math.abs(cosine), exponent) * radiusX;
+            const y = Math.sign(sine) * Math.pow(Math.abs(sine), exponent) * radiusY;
+            image.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
         });
     }
     function animate(time) {
@@ -91,18 +96,18 @@
     }
     function configure() {
         cancelAnimationFrame(frame);
-        const active = desktop.matches && !reduced.matches;
+        const active = !reduced.matches;
         hero.classList.toggle('beneficios-orbit',active);
         images.forEach(image => image.style.removeProperty('transform'));
         if (!active) return;
-        radiusX = hero.clientWidth/2 - images[0].offsetWidth/2 - 30;
+        radiusX = hero.clientWidth/2 - images[0].offsetWidth/2 - (mobile.matches ? 8 : 30);
         radiusY = hero.clientHeight*.30;
         lastTime = 0;
         draw();
         frame = requestAnimationFrame(animate);
     }
-    hero.addEventListener('pointerenter', () => paused = true);
-    hero.addEventListener('pointerleave', () => paused = false);
+    hero.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') paused = true; });
+    hero.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') paused = false; });
     window.addEventListener('resize',configure);
     reduced.addEventListener('change',configure);
     configure();
