@@ -959,6 +959,16 @@
         .director-card p { font-size: .9rem; line-height: 1.8; color: var(--texto-claro); }
         @media (max-width: 1000px) { .directores-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
         @media (max-width: 540px) { .directores-grid { grid-template-columns: 1fr; } .director-retrato { max-width: 240px; margin: auto; } }
+
+        .hero.hero--beneficios { height: auto; min-height: 100svh; flex-direction: column; justify-content: center; gap: clamp(24px,4vh,44px); padding: 150px 5% 60px; }
+        .hero--beneficios .hero-title { font-size: clamp(2.2rem,4.5vw,4rem); max-width: 950px; }
+        .hero--beneficios .hero-watermark { display: none; }
+        .beneficios-row { position: relative; z-index: 1; display: grid; gap: 18px; width: 100%; }
+        .beneficios-row--top { grid-template-columns: repeat(3,minmax(0,1fr)); max-width: 1080px; }
+        .beneficios-row--bottom { grid-template-columns: repeat(4,minmax(0,1fr)); max-width: 1200px; }
+        .beneficios-row img { width: 100%; height: auto; display: block; border-radius: 14px; filter: grayscale(1) sepia(1) hue-rotate(155deg) saturate(1.8) brightness(.95); box-shadow: 0 8px 24px rgba(3,49,77,.22); }
+        @media (max-width: 768px) { .hero.hero--beneficios { padding: 110px 5% 40px; gap: 24px; } .beneficios-row--top, .beneficios-row--bottom { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .beneficios-row--top img:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; } }
+        @media (max-width: 480px) { .beneficios-row--top, .beneficios-row--bottom { grid-template-columns: 1fr; max-width: 360px; } .beneficios-row--top img:last-child { width: 100%; } }
     </style>
     <link rel="stylesheet" href="site-effects.css" />
 </head>
@@ -991,12 +1001,17 @@
             <a href="#egresados" class="nav-link">Egresados</a>
             <a href="#ex-directores" class="nav-link">Exdirectores</a>
             <a href="#ubicacion" class="nav-link">Ubicación</a>
-            <a href="Excursiones.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)">Actividades</a>
+            <a href="Actividades.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)">Actividades</a>
             <a href="#contactos" class="nav-link">Contactos</a>
         </nav>
     </header>
 
-    <section class="hero" id="inicio" data-cover-reveal>
+    <section class="hero hero--beneficios" id="inicio" data-cover-reveal>
+        <div class="beneficios-row beneficios-row--top" aria-label="Beneficios de estudiar en el colegio">
+            <img src="images/Beneficios/beneficios1.jpeg" alt="Aprendés y adquirís nuevos conocimientos." width="718" height="210" decoding="async" />
+            <img src="images/Beneficios/beneficios2.jpeg" alt="Compartís con tus compañeros y hacés nuevos amigos." width="718" height="210" decoding="async" />
+            <img src="images/Beneficios/beneficios3.jpeg" alt="Desarrollás tus habilidades y talentos." width="718" height="210" decoding="async" />
+        </div>
         <div class="hero-title-wrap">
             <h2 class="reveal hero-title" data-typing-title>Colegio Nacional Juan Eudoro Caceres</h2>
             <div class="hero-watermark" aria-hidden="true">
@@ -1009,6 +1024,12 @@
                 />
                 <span id="hero-watermark-fallback" class="hero-watermark-fallback">CNJEC</span>
             </div>
+        </div>
+        <div class="beneficios-row beneficios-row--bottom" aria-label="Beneficios de estudiar en el colegio">
+            <img src="images/Beneficios/beneficios4.jpeg" alt="Mejorás tus resultados y tu futuro." width="718" height="210" decoding="async" />
+            <img src="images/Beneficios/beneficios5.jpeg" alt="Mejorás tus resultados y tu futuro." width="718" height="210" decoding="async" />
+            <img src="images/Beneficios/beneficios6.jpeg" alt="Mejorás tus resultados y tu futuro." width="718" height="210" decoding="async" />
+            <img src="images/Beneficios/beneficios7.jpeg" alt="¡Tu presencia también cuenta!" width="718" height="210" decoding="async" />
         </div>
     </section>
 
