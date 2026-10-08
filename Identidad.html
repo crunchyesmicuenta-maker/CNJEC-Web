@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNJEC - Colegio Nacional Juan Eudoro Caceres</title>
+    <title>Identidad - CNJEC</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* Variables de color */
@@ -971,9 +971,9 @@
         @media (max-width: 480px) { .beneficios-row--top, .beneficios-row--bottom { grid-template-columns: 1fr; max-width: 360px; } .beneficios-row--top img:last-child { width: 100%; } }
     </style>
     <link rel="stylesheet" href="site-effects.css" />
+    <link rel="stylesheet" href="identity-design.css" />
 </head>
-<body>
-
+<body class="identity-page">
     <header>
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
@@ -993,265 +993,61 @@
 
         <button type="button" class="scroll-menu-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
         <nav id="navMenu" aria-label="Navegación principal">
-            <a href="#inicio" class="nav-link" aria-current="location">Inicio</a>
-            <a href="#mision-vision" class="nav-link">Misión</a>
-            <a href="#mision-vision" class="nav-link">Visión</a>
-            <a href="#historia" class="nav-link">Historia</a>
-            <a href="#enfasis" class="nav-link">Énfasis</a>
-            <a href="#egresados" class="nav-link">Egresados</a>
-            <a href="#ex-directores" class="nav-link">Exdirectores</a>
-            <a href="#directores-actuales" class="nav-link">Directores actuales</a>
-            <a href="#ubicacion" class="nav-link">Ubicación</a>
+            <a href="index.html#inicio" class="nav-link">Inicio</a>
+            <a href="index.html#mision-vision" class="nav-link">Misión</a>
+            <a href="index.html#mision-vision" class="nav-link">Visión</a>
+            <a href="index.html#historia" class="nav-link">Historia</a>
+            <a href="index.html#enfasis" class="nav-link">Énfasis</a>
+            <a href="index.html#egresados" class="nav-link">Egresados</a>
+            <a href="index.html#ex-directores" class="nav-link">Exdirectores</a>
+            <a href="index.html#directores-actuales" class="nav-link">Directores actuales</a>
+            <a href="index.html#ubicacion" class="nav-link">Ubicación</a>
             <a href="Actividades.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)">Actividades</a>
-            <a href="Identidad.html" class="nav-link">Identidad</a>
+            <a href="#inicio" class="nav-link" aria-current="page">Identidad</a>
             <a href="#contactos" class="nav-link">Contactos</a>
         </nav>
     </header>
-
-    <section class="hero hero--beneficios" id="inicio" data-cover-reveal>
-        <div class="beneficios-row beneficios-row--top" aria-label="Beneficios de estudiar en el colegio">
-            <img src="images/Beneficios/beneficios1.jpeg" alt="Aprendés y adquirís nuevos conocimientos." width="718" height="210" decoding="async" />
-            <img src="images/Beneficios/beneficios2.jpeg" alt="Compartís con tus compañeros y hacés nuevos amigos." width="718" height="210" decoding="async" />
-            <img src="images/Beneficios/beneficios3.jpeg" alt="Desarrollás tus habilidades y talentos." width="718" height="210" decoding="async" />
-        </div>
-        <div class="hero-title-wrap">
-            <h2 class="reveal hero-title" data-typing-title>Colegio Nacional Juan Eudoro Caceres</h2>
-            <div class="hero-watermark" aria-hidden="true">
-                <!-- Si no existe archivo de marca de agua separado, usamos el mismo logo.png -->
-                <img
-                    class="hero-watermark-img"
-                    src="logo.png"
-                    alt=""
-                    onerror="this.style.display='none'; document.getElementById('hero-watermark-fallback').style.display='block';"
-                />
-                <span id="hero-watermark-fallback" class="hero-watermark-fallback">CNJEC</span>
-            </div>
-        </div>
-        <div class="beneficios-row beneficios-row--bottom" aria-label="Beneficios de estudiar en el colegio">
-            <img src="images/Beneficios/beneficios4.jpeg" alt="Mejorás tus resultados y tu futuro." width="718" height="210" decoding="async" />
-            <img src="images/Beneficios/beneficios7.jpeg" alt="¡Tu presencia también cuenta!" width="718" height="210" decoding="async" />
-        </div>
+    <section class="hero" id="inicio">
+        <div class="hero-title-wrap"><span class="identity-eyebrow">COLEGIO NACIONAL JUAN EUDORO CÁCERES</span><h2 class="hero-title">Identidad</h2><p>Nuestra oración y nuestro himno, expresiones que nos unen como comunidad.</p></div>
     </section>
-
-    <section id="mision-vision">
-        <div class="grid-2">
-            <div class="card reveal">
-                <h3>Misión</h3>
-                <p>Nuestra misión es formar ciudadanos íntegros, con excelencia académica y valores éticos, preparados para enfrentar los desafíos de la sociedad moderna y contribuir activamente al desarrollo de nuestro país.</p>
-            </div>
-            <div class="card reveal" style="transition-delay: 0.2s;">
-                <h3>Visión</h3>
-                <p>Ser una institución educativa líder y de referencia a nivel nacional, reconocida por su innovación, calidad humana y compromiso inquebrantable con la educación de las futuras generaciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="historia-bg reveal" id="historia" aria-labelledby="historia-title">
-        <h3 id="historia-title">Nuestra Historia</h3>
-        <div class="historia-layout">
-            <figure class="historia-foto">
-                <div class="historia-retrato">
-                    <img src="images/Historia.png" alt="Retrato de don Eudoro Cáceres" loading="lazy" width="1136" height="942" />
-                </div>
-                <figcaption>Don Eudoro Cáceres</figcaption>
-            </figure>
-            <div class="historia-texto">
-                <h4>Don Eudoro Cáceres</h4>
-                <p class="historia-fechas">Pilar, 9 de marzo de 1879 · Humaitá, 3 de febrero de 1963</p>
-                <p>Hijo de don Juan Eliseo Cáceres y doña Daniela Zorrilla, nació en la ciudad de Pilar. Contrajo matrimonio con Juana Arruabarrena Albariño, con quien tuvo 16 hijos.</p>
-                <p>En 1909, fue protagonista de la gesta de laureles. Con el grado de mayor de la Guardia Nacional, combatió al frente de la caballería durante tres días y sus noches.</p>
-                <p>En 1912, volvió a combatir en Humaitá bajo el mando del coronel José Gill. Desde entonces, se convirtió en un destacado caudillo del Partido Colorado en el departamento de Ñeembucú.</p>
-                <p>En 1930, mandó erigir el primer monumento al mariscal Francisco Solano López en Yataity Corá, dentro de su propiedad, y posteriormente lo obsequió a las Fuerzas Armadas de la Nación. Durante la Guerra del Chaco, participó en tareas de abastecimiento en la localidad de Humaitá.</p>
-                <p>En 1948, fue designado diputado nacional. Entre 1958 y 1962, dictó conferencias al cuerpo de cadetes en lugares históricos de la guerra de 1865 a 1870, compartiendo su profundo conocimiento de las batallas del sur.</p>
-                <p>Falleció el 3 de febrero de 1963 en Humaitá. Sus restos descansan en los campos de batalla de Sauce Boquerón.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="enfasis-wrap reveal" id="enfasis" aria-labelledby="enfasis-title">
-        <h2 id="enfasis-title">Explora Nuestros Énfasis</h2>
-
-        <div class="hero-carousel" id="heroCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Énfasis académicos del colegio">
-            <div class="hero-carousel__slide is-active" data-index="0" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
-                <div class="hero-carousel__bg" aria-hidden="true"></div>
-                <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Bachillerato Técnico en Informática</div>
-                    <p class="hero-carousel__meta">B.T.I · Programación · Redes · Proyectos</p>
-                    <p class="hero-carousel__desc">
-                        Formación técnica en informática: desarrollo de software, soporte, redes y proyectos integradores para resolver necesidades reales con criterio profesional.
-                    </p>
-                    <div class="hero-carousel__actions">
-                        <a href="BTI.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            Ver B.T.I
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-carousel__slide" data-index="1" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
-                <div class="hero-carousel__bg" aria-hidden="true"></div>
-                <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Ciencias Sociales</div>
-                    <p class="hero-carousel__meta">Humanidades · Análisis social · Ciudadanía</p>
-                    <p class="hero-carousel__desc">
-                        Énfasis en pensamiento crítico, comprensión del contexto social y formación ciudadana para interpretar el mundo con rigor y responsabilidad.
-                    </p>
-                    <div class="hero-carousel__actions">
-                        <a href="CienciasSociales.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            Ver Ciencias Sociales
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-carousel__slide hero-carousel__slide--eeb" data-index="2" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
-                <div class="hero-carousel__bg" aria-hidden="true"></div>
-                <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Educación Escolar Básica</div>
-                    <p class="hero-carousel__meta">E.E.B. · Aprendizaje · Valores · Desarrollo integral</p>
-                    <p class="hero-carousel__desc">Una etapa para construir conocimientos, desarrollar habilidades y fortalecer valores, acompañando el crecimiento de cada estudiante.</p>
-                    <div class="hero-carousel__actions">
-                        <a href="EEB.html" class="hero-carousel__btn-primary" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            Ver Escolar Básica
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" id="heroPrev" aria-label="Diapositiva anterior">‹</button>
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" id="heroNext" aria-label="Diapositiva siguiente">›</button>
-
-            <div class="hero-carousel__dots" id="heroDots" role="tablist" aria-label="Seleccionar diapositiva"></div>
-        </div>
-    </section>
-
-    <section class="egresados-wrap reveal" id="egresados" aria-labelledby="egresados-title">
-        <h2 id="egresados-title">Alumnos egresados importantes</h2>
-
-        <div class="egresados-grid">
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:174/145;"><img src="images/mejores-egresados.png" alt="Retrato de María Estela López Recalde" loading="lazy" style="width:588.5057471264367%; left:-60.3448275862069%; top:-44.827586206896555%;" /></div>
-                <figcaption>María Estela López Recalde</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:162/145;"><img src="images/mejores-egresados.png" alt="Retrato de Paublina Ramos Sequeira" loading="lazy" style="width:632.0987654320987%; left:-219.7530864197531%; top:-53.79310344827586%;" /></div>
-                <figcaption>Paublina Ramos Sequeira</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:155/142;"><img src="images/mejores-egresados.png" alt="Retrato de Julián Agustín Domínguez Arias" loading="lazy" style="width:660.6451612903226%; left:-380.6451612903226%; top:-59.154929577464785%;" /></div>
-                <figcaption>Julián Agustín Domínguez Arias</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:125/128;"><img src="images/mejores-egresados.png" alt="Retrato de Lady Geraldina Escobar Barrera" loading="lazy" style="width:819.2%; left:-660%; top:-77.34375%;" /></div>
-                <figcaption>Lady Geraldina Escobar Barrera</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:175/150;"><img src="images/mejores-egresados.png" alt="Retrato de Francisco Javier Rodríguez Griffith" loading="lazy" style="width:585.1428571428571%; left:-57.14285714285714%; top:-189.33333333333334%;" /></div>
-                <figcaption>Francisco Javier Rodríguez Griffith</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:168/156;"><img src="images/mejores-egresados.png" alt="Retrato de Juan Bautista Liano Guillén" loading="lazy" style="width:609.5238095238095%; left:-211.9047619047619%; top:-184.6153846153846%;" /></div>
-                <figcaption>Juan Bautista Liano Guillén</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:155/149;"><img src="images/mejores-egresados.png" alt="Retrato de Rosa Alcibíades Martínez Bernal" loading="lazy" style="width:660.6451612903226%; left:-387.0967741935484%; top:-195.97315436241612%;" /></div>
-                <figcaption>Rosa Alcibíades Martínez Bernal</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:129/143;"><img src="images/mejores-egresados.png" alt="Retrato de Lucas Edgar Aquino Fernández" loading="lazy" style="width:793.7984496124031%; left:-656.5891472868217%; top:-211.1888111888112%;" /></div>
-                <figcaption>Lucas Edgar Aquino Fernández</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:188/174;"><img src="images/mejores-egresados.png" alt="Retrato de Viviana Ruth Agüero" loading="lazy" style="width:544.6808510638298%; left:-43.61702127659575%; top:-317.81609195402297%;" /></div>
-                <figcaption>Viviana Ruth Agüero</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:175/178;"><img src="images/mejores-egresados.png" alt="Retrato de Lucy Olga Saucedo Ramírez" loading="lazy" style="width:585.1428571428571%; left:-201.71428571428572%; top:-311.7977528089888%;" /></div>
-                <figcaption>Lucy Olga Saucedo Ramírez</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:165/172;"><img src="images/mejores-egresados.png" alt="Retrato de Mario David Villalba Álvarez" loading="lazy" style="width:620.6060606060606%; left:-370.3030303030303%; top:-322.6744186046512%;" /></div>
-                <figcaption>Mario David Villalba Álvarez</figcaption>
-            </figure>
-            <figure class="egresado-card">
-                <div class="egresado-retrato" style="aspect-ratio:139/168;"><img src="images/mejores-egresados.png" alt="Retrato de Marlene Catalina Román Talavera" loading="lazy" style="width:736.6906474820145%; left:-622.3021582733813%; top:-330.35714285714283%;" /></div>
-                <figcaption>Marlene Catalina Román Talavera</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <section class="ex-directores-wrap reveal" id="ex-directores" aria-labelledby="ex-directores-title">
-        <h2 id="ex-directores-title">Ex-Directores</h2>
-
-        <div class="directores-grid">
-            <article class="director-card">
-                <div class="director-retrato" style="aspect-ratio:202/198;"><img src="images/ExDirectores1.png" alt="Retrato de Marta Núñez de Rodríguez" loading="lazy" style="width:546.5346534653465%; left:-37.62376237623762%; top:-20.2020202020202%;" /></div>
-                <h3>Marta Núñez de Rodríguez</h3>
-                <p>Fundadora y primera directora del colegio en 1982. Docente de Estudios Sociales, Educación Idiomática y Lengua Guaraní, con trayectoria en dirección y supervisión educativa.</p>
-            </article>
-            <article class="director-card">
-                <div class="director-retrato" style="aspect-ratio:242/209;"><img src="images/ExDirectores2.png" alt="Retrato de Ignacio Ramiro González" loading="lazy" style="width:537.603305785124%; left:-18.59504132231405%; top:-22.00956937799043%;" /></div>
-                <h3>Ignacio Ramiro González</h3>
-                <p>Director y catedrático del Colegio Nacional Juan Eudoro Cáceres. Se formó en Administración Educacional en el ISE y dirigió diversas instituciones del país.</p>
-            </article>
-            <article class="director-card">
-                <div class="director-retrato" style="aspect-ratio:254/251;"><img src="images/ExDirectores3.png" alt="Retrato de Limpia Concepción Giménez de Garay" loading="lazy" style="width:491.3385826771654%; left:-27.559055118110237%; top:-10.756972111553784%;" /></div>
-                <h3>Limpia Concepción Giménez de Garay</h3>
-                <p>Licenciada en Letras y profesora de Lengua Guaraní. Se incorporó al colegio en 1985; fue nombrada directora del turno noche en 1995 y encargada de la dirección de mañana y tarde en 2002.</p>
-            </article>
-            <article class="director-card">
-                <div class="director-retrato" style="aspect-ratio:222/222;"><img src="images/ExDirectores4.png" alt="Retrato de Anatalia Coronel de Vuyk" loading="lazy" style="width:511.7117117117117%; left:-24.324324324324326%; top:-18.01801801801802%;" /></div>
-                <h3>Anatalia Coronel de Vuyk</h3>
-                <p>Licenciada en Ciencias de la Educación y profesora de Matemática y Lengua Guaraní. Integró el colegio desde su fundación en 1982, desempeñándose como secretaria y catedrática.</p>
-            </article>
-        </div>
-    </section>
-
-    <section id="directores-actuales" class="reveal" aria-labelledby="directores-actuales-title">
-        <h2 id="directores-actuales-title">Directores actuales</h2>
-        <div class="current-directors" role="region" aria-roledescription="carrusel" aria-label="Directores actuales">
-            <div class="current-directors-track" id="currentDirectorsTrack" tabindex="0" aria-label="Desliza para ver las dos fichas">
-                <article class="current-director-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
-                    <div class="current-director-portrait"><img src="images/Directores%20Actuales/MauricioMelgarejo.jpeg" alt="Retrato del Dr. Mauricio Melgarejo Vázquez" loading="lazy" /></div>
-                    <div class="current-director-bio">
-                        <h3>Dr. Mauricio Melgarejo Vázquez</h3>
-                        <p>Profesional de la educación con más de 16 años de experiencia docente como catedrático en el área de Ciencias Sociales y una sólida trayectoria en gestión directiva.</p>
-                        <h4>Formación académica principal</h4>
-                        <ul><li>Doctorado en Ciencias de la Educación (2021).</li><li>Maestría en Metodología de la Investigación (2016).</li><li>Licenciatura en Ciencias de la Educación (2010).</li><li>Licenciatura en Filosofía (2008).</li></ul>
-                        <h4>Experiencia en gestión institucional</h4>
-                        <ul><li>Director del Colegio Nacional Juan Eudoro Cáceres (2022 – actualidad).</li><li>Director del turno noche del Colegio Nacional Manuel Ortiz Guerrero (2019 – actualidad).</li></ul>
-                    </div>
-                </article>
-                <article class="current-director-slide" role="group" aria-roledescription="diapositiva" aria-label="2 de 2">
-                    <div class="current-director-portrait" style="aspect-ratio:800/980;"><img src="images/Directores%20Actuales/FlorindaEchague.jpeg?v=a3c7740" alt="Retrato de la Lic. Florinda Echagüe Ruiz" loading="lazy" style="width:128.625%; left:-18.75%; top:-9.184%;" /></div>
-                    <div class="current-director-bio">
-                        <h3>Lic. Florinda Echagüe Ruiz</h3>
-                        <p>La Lic. Florinda Echagüe Ruiz es una profesional de la educación con <strong>30 años de trayectoria en el ámbito educativo</strong>. Es licenciada en Ciencias – Química por la Universidad Nacional de Asunción (UNA), con formación especializada en Gestión Pedagógica y Curricular, Aprendizajes Basados en Redes y Liderazgo Pedagógico.</p>
-                        <p>Cuenta con amplia experiencia en dirección y gestión institucional, coordinación de proyectos educativos y acompañamiento a docentes y estudiantes. A lo largo de su trayectoria, se ha destacado por su compromiso con la calidad educativa, el trabajo en equipo, la convivencia escolar y el mejoramiento continuo de la comunidad educativa.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="current-directors-controls"><button type="button" id="currentDirectorPrev" aria-label="Director anterior">← Anterior</button><span id="currentDirectorStatus" aria-live="polite">1 de 2</span><button type="button" id="currentDirectorNext" aria-label="Director siguiente">Siguiente →</button></div>
-        </div>
-    </section>
-
-    <section id="ubicacion" class="reveal">
-        <div class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
-            <h3>Ubicación</h3>
-            <p>Barrio San Pablo — Asunción, Paraguay</p>
-            <figure style="margin-top:16px; width:100%; display:flex; justify-content:center;">
-                <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Nacional+Juan+Eudoro+C%C3%A1ceres%2C+Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener noreferrer" aria-label="Ver el Colegio Nacional Juan Eudoro Cáceres en Google Maps" style="display:block; width:100%; max-width:720px;">
-                    <img src="images/Ubicación.png?v=ee55fa1" alt="Ubicación del colegio" loading="lazy" style="width:100%; max-width:720px; border-radius:12px; display:block;" />
-                </a>
-            </figure>
-            <p style="color:var(--azul-fuerte); font-size:0.95rem;">Haz clic en la imagen para ver la ubicación del colegio en Google Maps.</p>
-        </div>
-    </section>
-
-    <footer id="contactos" class="reveal">
+    <main>
+        <div class="identity-shortcuts"><a href="#oracion">Oración del colegio ↓</a><a href="#himno">Himno del colegio ↓</a></div>
+        <section class="identity-grid" aria-label="Oración e himno del colegio">
+            <article class="identity-card" id="oracion"><span class="identity-label">FE Y COMUNIDAD</span><h3>Oración del colegio</h3><p class="identity-verses">Dios, Padre nuestro<br />
+Antes de comenzar nuestra jornada<br />
+Levantemos a ti nuestra mirada<br />
+Para pedir que bendigas nuestros esfuerzos<br />
+E ilumines con tu claridad nuestras mentes<br />
+Oh, Señor<br />
+Danos inteligencia para comprender<br />
+Memoria para entender<br />
+Lucidez para interpretar<br />
+Y gracias abundantes para expresarnos<br />
+Para nuestros hermanos los hombres<br />
+Da fuerza, bondad y luz<br />
+A nuestros educadores<br />
+Aprendemos a traducir en hechos<br />
+Los conocimientos adquiridos y<br />
+A prepararnos para nuestra misión<br />
+En el mundo</p><p class="identity-amen">AMÉN</p></article>
+            <article class="identity-card" id="himno"><span class="identity-label">ORGULLO Y PERTENENCIA</span><h3>Himno del Colegio Nacional Juan Eudoro Cáceres</h3><p class="identity-verses">Adelante estudiantes marchemos<br />
+Hacia el logro en un mundo mejor<br />
+Estudiando seremos fuertes<br />
+Estudiando sabremos triunfar<br />
+Juventud paraguaya a marchar<br />
+Vibración de garganta sonora<br />
+Entonces este canto con fervor<br />
+Cantemos todos este himno triunfal<br />
+Al colegio Juan Eudoro Cáceres<br />
+Templo de amor y de sabiduría<br />
+Sembrador de conciencia y de valor<br />
+En ti Colegio dejamos la alegría y buenos<br />
+Momentos de nuestra juventud<br />
+Envueltos en los recuerdos de la infancia<br />
+Hoy comprendo que nunca te olvidaré</p></article>
+        </section>
+    </main>
+    <footer id="contactos">
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Ubicación</h4>
@@ -1280,84 +1076,6 @@
             <p>&copy; 2026 Colegio Nacional Juan Eudoro Caceres. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script>
-        const siteHeader = document.querySelector('header');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const updateHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
-        window.addEventListener('scroll', updateHeader, { passive: true });
-        updateHeader();
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (link.target === '_blank') return;
-                navLinks.forEach(item => item.removeAttribute('aria-current'));
-                link.setAttribute('aria-current', 'location');
-            });
-        });
-        (function () {
-            function initFadeCarousel(root, slideSelector, dotClass) {
-                if (!root) return;
-                var slides = root.querySelectorAll(slideSelector);
-                var prev = root.querySelector('[data-carousel-prev]') || document.getElementById(root.id.replace('Carousel', 'Prev'));
-                var next = root.querySelector('[data-carousel-next]') || document.getElementById(root.id.replace('Carousel', 'Next'));
-                var dotsWrap = root.querySelector('[data-carousel-dots]') || document.getElementById(root.id.replace('Carousel', 'Dots'));
-                if (!prev || !next || !dotsWrap || slides.length === 0) return;
-
-                var i = 0;
-                var n = slides.length;
-
-                slides.forEach(function (_, idx) {
-                    var b = document.createElement('button');
-                    b.type = 'button';
-                    b.className = dotClass + (idx === 0 ? ' is-active' : '');
-                    b.setAttribute('role', 'tab');
-                    b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
-                    b.setAttribute('aria-label', 'Diapositiva ' + (idx + 1));
-                    b.addEventListener('click', function () { go(idx); });
-                    dotsWrap.appendChild(b);
-                });
-
-                var dots = dotsWrap.querySelectorAll('button');
-
-                function go(index) {
-                    i = (index + n) % n;
-                    slides.forEach(function (el, idx) {
-                        el.classList.toggle('is-active', idx === i);
-                    });
-                    dots.forEach(function (d, idx) {
-                        d.classList.toggle('is-active', idx === i);
-                        d.setAttribute('aria-selected', idx === i ? 'true' : 'false');
-                    });
-                }
-
-                prev.addEventListener('click', function () { go(i - 1); });
-                next.addEventListener('click', function () { go(i + 1); });
-
-                root.addEventListener('keydown', function (e) {
-                    if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
-                    if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
-                });
-            }
-
-            initFadeCarousel(document.getElementById('heroCarousel'), '.hero-carousel__slide', 'hero-carousel__dot');
-            initFadeCarousel(document.getElementById('exDirectoresCarousel'), '.ex-directores-carousel__slide', 'ex-directores-carousel__dot');
-        })();
-
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
     <script src="site-effects.js" defer></script>
 </body>
 </html>
