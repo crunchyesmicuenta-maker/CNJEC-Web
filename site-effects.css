@@ -1,9 +1,9 @@
 .logo-container { text-decoration: none; transition: transform .2s ease; }
 .menu-scroll-shell { display: flex; align-items: center; gap: 10px; flex: 1 1 auto; min-width: 0; margin-left: 36px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: scroll; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.85) rgba(255,255,255,.16); gap: 20px; padding: 8px 4px 12px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar { display: block; height: 5px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-track { background: rgba(255,255,255,.16); border-radius: 10px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-thumb { background: rgba(255,255,255,.85); border-radius: 10px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: scroll; scrollbar-width: thin; scrollbar-color: #ffffff rgba(255,255,255,.3); gap: 20px; padding: 8px 4px 2px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar { display: block; height: 3px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-track { background: rgba(255,255,255,.3); border-radius: 10px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
 .menu-scroll-shell #navMenu a { flex: 0 0 auto; white-space: nowrap; }
 header.compact-header .menu-scroll-shell { display: contents; }
 .hero-carousel__slide--eeb .hero-carousel__bg { background: linear-gradient(115deg,#0f172a 0%,#123959 45%,#0c4a6e 100%); }
