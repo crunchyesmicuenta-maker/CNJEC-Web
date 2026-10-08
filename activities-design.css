@@ -1,0 +1,45 @@
+.activities-page { background: #f5f9fc; }
+.activities-page .hero { min-height: 480px; height: 68svh; max-height: 760px; }
+.activities-page .hero::before { animation: activities-cover 1.6s ease-out both; }
+.activities-page .hero-title-wrap { flex-direction: column; align-items: center; gap: 20px; }
+.activities-page .hero-title { font-size: clamp(2.8rem,7vw,5.8rem); letter-spacing: -2px; }
+.activities-tag { padding: 8px 18px; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); border-radius: 30px; color: white; font-size: .8rem; letter-spacing: 2px; }
+.activities-subtitle { max-width: 580px; color: white; text-align: center; line-height: 1.7; padding: 0 20px; }
+.activities-explore { margin-top: 10px; padding: 12px 24px; background: white; color: #075985; border-radius: 30px; text-decoration: none; font-weight: 600; transition: transform .25s; }
+.activities-explore:hover { transform: translateY(-4px); }
+.activities-quick-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 1150px; margin: 0 auto; padding: 30px 5%; }
+.activities-quick-links a { text-decoration: none; color: #075985; background: white; border: 1px solid #dbeaf3; padding: 10px 18px; border-radius: 30px; font-size: .9rem; box-shadow: 0 4px 12px rgba(3,49,77,.04); transition: background .25s,color .25s,transform .25s; }
+.activities-quick-links a:hover, .activities-quick-links a:focus-visible { background: #075985; color: white; transform: translateY(-3px); }
+.activities-page main > section { padding: 65px 6%; }
+.activities-page .excursion-album { background: linear-gradient(135deg,#e8f5fc,#f4faff); }
+.activities-page .excursion-intro { margin-bottom: 32px; }
+.activities-page .excursion-intro h3 { font-size: clamp(1.6rem,3.2vw,2.4rem); line-height: 1.3; color: #123959; }
+.activities-page .excursion-intro h3::after { margin: 16px auto 0; width: 64px; border-radius: 4px; }
+.activities-page .excursion-intro p { max-width: 620px; margin: 18px auto 0; }
+.album-number { display: inline-block; padding: 6px 12px; background: #d6edf9; color: #075985; border-radius: 30px; font-size: .75rem; font-weight: 600; margin-bottom: 14px; letter-spacing: 1px; }
+.activities-page .excursion-gallery { gap: 22px; }
+.activities-page .excursion-photo { position: relative; border: 5px solid white; border-radius: 22px; box-shadow: 0 8px 28px rgba(3,49,77,.09); }
+.activities-page .excursion-photo img { transition: transform .6s ease,filter .6s; }
+.activities-page .excursion-photo::after { content: 'Ampliar ↗'; position: absolute; bottom: 12px; right: 12px; background: rgba(15,23,42,.72); color: white; border-radius: 20px; padding: 6px 12px; font-size: .75rem; opacity: 0; transition: opacity .25s; pointer-events: none; }
+@media (hover: hover) { .activities-page .excursion-photo:hover img { transform: scale(1.045); filter: saturate(1.08); } }
+.activities-page .excursion-photo:hover::after, .activities-page .excursion-photo:focus-visible::after { opacity: 1; }
+.activities-page .gallery-ready .excursion-photo { opacity: 0; translate: 0 22px; transition: opacity .65s,translate .65s,transform .25s,box-shadow .25s; transition-delay: var(--entry-delay,0ms); }
+.activities-page .gallery-ready .excursion-photo.photo-visible { opacity: 1; translate: 0 0; }
+.activities-page .photo-viewer { border: 1px solid rgba(255,255,255,.2); box-shadow: 0 30px 100px rgba(0,0,0,.4); }
+@keyframes activities-cover { from { transform: scale(1.06); opacity: .6; } to { transform: scale(1); opacity: 1; } }
+@media (max-width: 640px) {
+    .activities-page .hero { min-height: 500px; height: 72svh; }
+    .activities-page .hero-title { letter-spacing: -1px; }
+    .activities-page main > section { padding: 45px 5%; }
+    .activities-quick-links { gap: 8px; padding: 24px 5%; }
+    .activities-quick-links a { font-size: .8rem; padding: 9px 12px; }
+    .activities-page .excursion-gallery { gap: 18px; }
+    .activities-page .excursion-photo::after { opacity: 1; }
+    .activities-page .photo-viewer { padding: 12px; }
+    .activities-page .viewer-controls { flex-wrap: wrap; gap: 8px; }
+    .activities-page #photoCaption { order: 4; width: 100%; text-align: center; font-size: .85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .activities-page .hero::before { animation: none; }
+    .activities-page .excursion-photo, .activities-page .excursion-photo img, .activities-page .excursion-photo::after, .activities-explore, .activities-quick-links a { transition: none !important; }
+}

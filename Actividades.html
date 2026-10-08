@@ -964,8 +964,9 @@
         @media (prefers-reduced-motion: reduce) { .excursion-photo { transition: none; } }
     </style>
     <link rel="stylesheet" href="site-effects.css" />
+    <link rel="stylesheet" href="activities-design.css" />
 </head>
-<body>
+<body class="activities-page">
 
     <header>
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
@@ -1002,7 +1003,7 @@
 
     <section class="hero" id="inicio">
         <div class="hero-title-wrap">
-            <h2 class="reveal hero-title">Actividades</h2>
+            <span class="activities-tag">VIVE LA EXPERIENCIA CNJEC</span><h2 class="reveal hero-title">Actividades</h2><p class="activities-subtitle">Aprendizajes, encuentros y recuerdos que nos unen como comunidad educativa.</p><a class="activities-explore" href="#album-excursiones">Explorar las galerías ↓</a>
             <div class="hero-watermark" aria-hidden="true">
                 <!-- Si no existe archivo de marca de agua separado, usamos el mismo logo.png -->
                 <img
@@ -1017,7 +1018,8 @@
     </section>
 
     <main>
-        <section aria-labelledby="excursiones-title">
+        <div class="activities-quick-links" aria-label="Accesos a las galerías"><a href="#album-excursiones">Excursiones</a><a href="#album-folklore">Folklore y Juventud</a><a href="#charla-padres">Docentes y Padres</a><a href="#proyecto-fami">Día de la Familia</a><a href="#eventos-escolares">Eventos Escolares</a></div>
+        <section id="album-excursiones" aria-labelledby="excursiones-title">
             <div class="excursion-intro"><h3 id="excursiones-title">Aprender más allá del aula</h3><p>Destinos, aprendizajes y momentos compartidos. Revive nuestras excursiones y amplía cada fotografía para descubrir todos sus detalles.</p></div>
             <div class="excursion-gallery">
                 <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%201.jpeg" data-caption="Excursión · 01" aria-label="Ampliar Excursión · 01"><img src="images/Excursiones/Excursion%201.jpeg" alt="Excursión · 01" loading="lazy" decoding="async" /></button>
@@ -1036,7 +1038,7 @@
                 <button type="button" class="excursion-photo" data-photo="images/Excursiones/Excursion%2015.jpeg" data-caption="Excursión · 14" aria-label="Ampliar Excursión · 14"><img src="images/Excursiones/Excursion%2015.jpeg" alt="Excursión · 14" loading="lazy" decoding="async" /></button>
             </div>
         </section>
-        <section class="excursion-album" aria-labelledby="recuerdos-title">
+        <section id="album-folklore" class="excursion-album" aria-labelledby="recuerdos-title">
             <div class="excursion-intro"><h3 id="recuerdos-title">Folklore - Día de la Juventud</h3><p>Una colección de momentos que forman parte de nuestra vida escolar.</p></div>
             <div class="excursion-gallery">
                 <button type="button" class="excursion-photo" data-photo="images/Excursiones/FolJuventud/FolJuventud1.jpeg" data-caption="Recuerdo · 01" aria-label="Ampliar Recuerdo · 01"><img src="images/Excursiones/FolJuventud/FolJuventud1.jpeg" alt="Recuerdo · 01" loading="lazy" decoding="async" /></button>
@@ -1235,5 +1237,6 @@
         viewer.addEventListener('close', () => { viewerImage.removeAttribute('src'); });
     </script>
     <script src="site-effects.js" defer></script>
+    <script src="activities-design.js" defer></script>
 </body>
 </html>
