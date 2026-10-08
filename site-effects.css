@@ -1,9 +1,9 @@
 .logo-container { text-decoration: none; transition: transform .2s ease; }
 .menu-scroll-shell { display: flex; align-items: center; gap: 10px; flex: 1 1 auto; min-width: 0; margin-left: 36px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: scroll; scrollbar-width: thin; scrollbar-color: #ffffff rgba(255,255,255,.3); gap: 20px; padding: 8px 4px 2px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar { display: block; height: 3px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-track { background: rgba(255,255,255,.3); border-radius: 10px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: scroll; scrollbar-width: thin; scrollbar-color: #ffffff transparent; scrollbar-width: auto; gap: 20px; padding: 8px 4px 2px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar { display: block; height: 2px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-track { background: transparent; border-radius: 0; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 0; }
 .menu-scroll-shell #navMenu a { flex: 0 0 auto; white-space: nowrap; }
 header.compact-header .menu-scroll-shell { display: contents; }
 .hero-carousel__slide--eeb .hero-carousel__bg { background: linear-gradient(115deg,#0f172a 0%,#123959 45%,#0c4a6e 100%); }
@@ -98,3 +98,5 @@ nav a:focus-visible { animation: none; }
 .typing-title.is-typing .typing-output::after { content: ''; display: inline-block; width: 3px; height: .8em; margin-left: 6px; background: var(--azul-medio); animation: typing-cursor .8s steps(1) infinite; }
 @keyframes typing-cursor { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .logo-container, nav a, nav a::after { transition: none; } nav a, .typing-title.is-typing .typing-output::after { animation: none; } nav a:hover, nav a:focus-visible, .logo-container:hover { transform: none; } }
+
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
