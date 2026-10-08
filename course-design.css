@@ -1,0 +1,24 @@
+body.course-page { background: #f4f9fd; }
+.course-page .intro { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; padding: 145px 6% 72px; background: radial-gradient(circle at 85% 20%,#c5edfc,transparent 55%),linear-gradient(135deg,#f8fcff,#eaf4fc); }
+.course-intro-copy { max-width: 720px; }
+.course-label { display: inline-block; margin-bottom: 18px; padding: 7px 14px; border-radius: 30px; background: #d8effb; color: #075985; font-size: .8rem; font-weight: 600; letter-spacing: 1px; }
+.course-page .intro h2 { font-size: clamp(2rem,3.5vw,3.3rem); line-height: 1.2; color: #123959; }
+.course-page .intro p { font-size: 1.05rem; max-width: 640px; }
+.course-visual { margin: 0; border-radius: 28px; padding: 12px; background: rgba(255,255,255,.7); border: 1px solid white; box-shadow: 0 24px 60px rgba(3,49,77,.18); transform: rotate(-2deg); }
+.course-visual img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border-radius: 20px; }
+.course-visual figcaption { padding: 12px 10px 4px; color: #075985; font-size: .85rem; font-weight: 600; text-align: center; }
+.course-page section:not(.intro) { padding: 60px 6%; }
+.course-page .cards-bridge { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); align-items: start; gap: 28px; max-width: 1300px; margin: auto; }
+.course-page .cards-bridge .card--main, .course-page .cards-bridge .card--side { width: auto; max-width: none; border-radius: 24px; padding: 32px; border: 1px solid #dceaf3; border-top: 5px solid #38bdf8; box-shadow: 0 12px 36px rgba(3,49,77,.06); }
+.course-page .cards-bridge .card--side { background: linear-gradient(145deg,#fff,#e9f6ff); border-top-color: #0284c7; }
+.course-page .card h3 { font-size: 1.45rem; margin-bottom: 18px; color: #123959; }
+.course-page .card h4 { margin-top: 26px; border-left: 3px solid #38bdf8; padding-left: 10px; }
+.course-page .card li { margin-bottom: 12px; }
+.course-page .card a { color: #0369a1; font-weight: 600; }
+@media (max-width: 768px) {
+    .course-page .intro { grid-template-columns: 1fr; padding: 120px 6% 45px; gap: 28px; }
+    .course-visual { width: min(100%,480px); justify-self: center; transform: none; }
+    .course-page .cards-bridge { grid-template-columns: 1fr; gap: 22px; }
+    .course-page .cards-bridge .card--main, .course-page .cards-bridge .card--side { padding: 24px; }
+    .course-page section:not(.intro) { padding: 38px 6%; }
+}
