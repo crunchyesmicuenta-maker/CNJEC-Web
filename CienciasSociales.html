@@ -343,7 +343,7 @@
     <link rel="stylesheet" href="site-effects.css" />
     <link rel="stylesheet" href="course-design.css" />
 </head>
-<body class="course-page">
+<body class="course-page course-social">
     <header>
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
@@ -368,6 +368,7 @@
         <nav id="navMenu">
             <a href="#ciencias">Ciencias Sociales</a>
             <a href="#enfoque">Enfoque</a>
+            <a href="Identidad.html" class="nav-link">Identidad</a>
             <a href="#contactos">Contactos</a>
         </nav>
     </header>
@@ -376,23 +377,22 @@
         <div class="course-intro-copy"><span class="course-label">CNJEC · FORMACIÓN ACADÉMICA</span>
         <h2>Ciencias Sociales</h2>
         <p>
-            Esta página presenta el énfasis de Ciencias Sociales con la misma identidad visual del sitio institucional,
-            promoviendo el pensamiento crítico, la comprensión de la sociedad y la participación ciudadana.
-        </p>
+            Comprender la sociedad, investigar con criterio y participar con responsabilidad: una formación que impulsa el pensamiento crítico y la ciudadanía.
+        </p><div class="course-shortcuts" aria-label="Accesos al contenido"><a href="#course-block-1">Perfil del Egresado ↓</a><a href="#course-block-2">Áreas Principales ↓</a><a href="#contactos">Consultar con el colegio ↗</a></div>
             </div>
         <figure class="course-visual"><img src="images/logo-cs.png" alt="Imagen de Ciencias Sociales" width="800" height="500" decoding="async" /><figcaption>Sociedad y pensamiento crítico</figcaption></figure>
     </section>
 
     <section id="enfoque">
         <div class="cards-bridge">
-            <article class="card card--main">
+            <article class="card card--main" id="course-block-1">
                 <h3>Perfil del Egresado</h3>
                 <p>
                     Al finalizar el énfasis en Ciencias Sociales, el estudiante desarrolla competencias para analizar fenómenos sociales,
                     investigar con criterio y comunicar hallazgos con responsabilidad.
                 </p>
 
-                <h4>1) Competencias de análisis e investigación</h4>
+                <div class="course-module"><span class="course-module-number" aria-hidden="true">01</span><h4>Competencias de análisis e investigación</h4>
                 <ul>
                     <li><strong>Comprensión social:</strong> interpretar hechos y procesos sociales con base en información confiable.</li>
                     <li><strong>Metodología:</strong> formular preguntas, organizar datos y aplicar técnicas de investigación.</li>
@@ -400,7 +400,7 @@
                     <li><strong>Lectura y análisis de fuentes:</strong> comprender textos, mapas y materiales históricos o contemporáneos.</li>
                 </ul>
 
-                <h4>2) Habilidades de comunicación y participación</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">02</span><h4>Habilidades de comunicación y participación</h4>
                 <ul>
                     <li><strong>Comunicación efectiva:</strong> redactar informes, presentar ideas y dialogar con respeto.</li>
                     <li><strong>Trabajo colaborativo:</strong> coordinar equipos en proyectos sociales y académicos.</li>
@@ -408,15 +408,15 @@
                     <li><strong>Enfoque ético:</strong> actuar con responsabilidad en el uso de información y datos.</li>
                 </ul>
 
-                <h4>3) Proyección laboral y académica</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">03</span><h4>Proyección laboral y académica</h4>
                 <ul>
                     <li>Continuidad en estudios universitarios relacionados con educación, comunicación, ciencias sociales o derecho.</li>
                     <li>Apoyo en áreas de investigación, gestión cultural y proyectos comunitarios.</li>
                     <li>Participación en proyectos de convivencia, ciudadanía y resolución de conflictos.</li>
                 </ul>
-            </article>
+            </div></article>
 
-            <article class="card card--side">
+            <article class="card card--side" id="course-block-2">
                 <h3>Áreas Principales</h3>
                 <ul>
                     <li><strong>Historia:</strong> análisis de procesos, cambios y continuidades en el tiempo.</li>
@@ -447,7 +447,7 @@
                 <h4>Síguenos</h4>
                 <p>Entérate de nuestras novedades:</p>
                 <div class="redes-sociales">
-                    <a href="https://www.facebook.com/EscuelaEudoro/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
+                    <a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
                     <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/IG.jpg" alt="Instagram" loading="lazy" width="40" height="40" /></a>
                 </div>
             </div>
@@ -470,5 +470,6 @@
         });
     </script>
     <script src="site-effects.js" defer></script>
+    <script src="course-design.js" defer></script>
 </body>
 </html>

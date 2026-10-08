@@ -18,6 +18,30 @@
     const toggle = document.querySelector('.scroll-menu-toggle');
     if (header && toggle) {
         const nav = header.querySelector('nav');
+        const shell = document.createElement('div');
+        shell.className = 'menu-scroll-shell';
+        nav.before(shell);
+        shell.append(nav);
+        const menuSlider = document.createElement('input');
+        menuSlider.type = 'range';
+        menuSlider.className = 'menu-scroll-line';
+        menuSlider.min = '0';
+        menuSlider.max = '1000';
+        menuSlider.value = '0';
+        menuSlider.setAttribute('aria-label', 'Desplazar el menú horizontalmente');
+        menuSlider.setAttribute('aria-controls', nav.id);
+        shell.append(menuSlider);
+        function syncMenuSlider() {
+            const distance = nav.scrollWidth - nav.clientWidth;
+            menuSlider.disabled = distance <= 1;
+            menuSlider.value = distance > 1 ? String(Math.round(nav.scrollLeft / distance * 1000)) : '0';
+        }
+        menuSlider.addEventListener('input', () => { nav.scrollLeft = Number(menuSlider.value) / 1000 * Math.max(0, nav.scrollWidth - nav.clientWidth); });
+        nav.addEventListener('scroll', syncMenuSlider, { passive: true });
+        window.addEventListener('resize', syncMenuSlider);
+        if ('ResizeObserver' in window) new ResizeObserver(syncMenuSlider).observe(nav);
+        if (document.fonts) document.fonts.ready.then(syncMenuSlider);
+        syncMenuSlider();
         const mobileMenu = window.matchMedia('(max-width: 768px)');
         function closeMenu(restoreFocus = false) {
             header.classList.remove('menu-open');

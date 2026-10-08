@@ -343,7 +343,7 @@
     <link rel="stylesheet" href="site-effects.css" />
     <link rel="stylesheet" href="course-design.css" />
 </head>
-<body class="course-page">
+<body class="course-page course-basic">
     <header>
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
@@ -368,6 +368,7 @@
         <nav id="navMenu">
             <a href="#eeb">Escolar Básica</a>
             <a href="#enfoque">Enfoque</a>
+            <a href="Identidad.html" class="nav-link">Identidad</a>
             <a href="#contactos">Contactos</a>
         </nav>
     </header>
@@ -375,34 +376,34 @@
     <section class="intro" id="eeb">
         <div class="course-intro-copy"><span class="course-label">CNJEC · FORMACIÓN ACADÉMICA</span>
         <h2>Educación Escolar Básica</h2>
-        <p>Aprender, convivir y crecer: una etapa fundamental para desarrollar conocimientos, habilidades y valores que acompañan a cada estudiante en su vida escolar.</p>
+        <p>Aprender, convivir y crecer: una etapa fundamental para desarrollar conocimientos, habilidades y valores que acompañan a cada estudiante en su vida escolar.</p><div class="course-shortcuts" aria-label="Accesos al contenido"><a href="#course-block-1">Formación integral ↓</a><a href="#course-block-2">Áreas de aprendizaje ↓</a><a href="#contactos">Consultar con el colegio ↗</a></div>
             </div>
         <figure class="course-visual"><img src="images/logo-E.E.B.png" alt="Imagen de Educación Escolar Básica" width="800" height="500" decoding="async" /><figcaption>Aprendizaje y desarrollo integral</figcaption></figure>
     </section>
 
     <section id="enfoque">
         <div class="cards-bridge">
-            <article class="card card--main">
+            <article class="card card--main" id="course-block-1">
                 <h3>Formación integral</h3>
                 <p>La Educación Escolar Básica construye las bases para continuar aprendiendo. Integra el desarrollo intelectual, personal y social, con énfasis en la comunicación, el razonamiento y la convivencia.</p>
-                <h4>Aprendizajes fundamentales</h4>
+                <div class="course-module"><span class="course-module-number" aria-hidden="true">01</span><h4>Aprendizajes fundamentales</h4>
                 <ul>
                     <li><strong>Comunicación:</strong> comprender textos, expresar ideas y fortalecer la lectura y la escritura.</li>
                     <li><strong>Pensamiento matemático:</strong> razonar, resolver problemas y aplicar conocimientos en situaciones cotidianas.</li>
                     <li><strong>Exploración del entorno:</strong> observar, formular preguntas y comprender la naturaleza y la sociedad.</li>
                     <li><strong>Creatividad:</strong> desarrollar la expresión artística, la imaginación y las habilidades personales.</li>
                 </ul>
-                <h4>Valores y convivencia</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">02</span><h4>Valores y convivencia</h4>
                 <ul>
                     <li>Respeto, responsabilidad y cuidado de uno mismo y de los demás.</li>
                     <li>Trabajo en equipo, diálogo y resolución pacífica de conflictos.</li>
                     <li>Autonomía, curiosidad y hábitos de estudio.</li>
                     <li>Participación de las familias en el acompañamiento del aprendizaje.</li>
                 </ul>
-                <h4>Continuidad educativa</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">03</span><h4>Continuidad educativa</h4>
                 <p>Esta etapa permite fortalecer las herramientas necesarias para avanzar hacia nuevos desafíos académicos y tomar un papel activo en la comunidad.</p>
-            </article>
-            <article class="card card--side">
+            </div></article>
+            <article class="card card--side" id="course-block-2">
                 <h3>Áreas de aprendizaje</h3>
                 <ul>
                     <li><strong>Lenguas y comunicación:</strong> comprensión y expresión oral y escrita.</li>
@@ -412,10 +413,10 @@
                     <li><strong>Arte y expresión:</strong> sensibilidad, creatividad y cultura.</li>
                     <li><strong>Educación física:</strong> movimiento, bienestar y hábitos saludables.</li>
                 </ul>
-                <h4>Información e inscripciones</h4>
+                <div class="course-module"><span class="course-module-number" aria-hidden="true">01</span><h4>Información e inscripciones</h4>
                 <p>Para conocer los grados disponibles, los turnos y los requisitos de inscripción, comunícate con la institución.</p>
                 <p><a href="#contactos">Consultar con el colegio →</a></p>
-            </article>
+            </div></article>
         </div>
     </section>
 
@@ -437,7 +438,7 @@
                 <h4>Síguenos</h4>
                 <p>Entérate de nuestras novedades:</p>
                 <div class="redes-sociales">
-                    <a href="https://www.facebook.com/EscuelaEudoro/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
+                    <a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
                     <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/IG.jpg" alt="Instagram" loading="lazy" width="40" height="40" /></a>
                 </div>
             </div>
@@ -460,5 +461,6 @@
         });
     </script>
     <script src="site-effects.js" defer></script>
+    <script src="course-design.js" defer></script>
 </body>
 </html>

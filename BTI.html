@@ -343,7 +343,7 @@
     <link rel="stylesheet" href="site-effects.css" />
     <link rel="stylesheet" href="course-design.css" />
 </head>
-<body class="course-page">
+<body class="course-page course-technology">
     <header>
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
@@ -368,6 +368,7 @@
         <nav id="navMenu">
             <a href="#bti">B.T.I</a>
             <a href="#plan">Plan de Estudios</a>
+            <a href="Identidad.html" class="nav-link">Identidad</a>
             <a href="#contactos">Contactos</a>
         </nav>
     </header>
@@ -377,18 +378,18 @@
         <h2>Bachillerato Técnico en Informática (B.T.I)</h2>
         <p>
             El Bachillerato Técnico en Informática (BTI) es una modalidad de la educación media enfocada en formar profesionales capaces de gestionar soluciones tecnológicas integrales
-        </p>
+        </p><div class="course-shortcuts" aria-label="Accesos al contenido"><a href="#course-block-1">Perfil del Egresado ↓</a><a href="#course-block-2">Áreas Principales ↓</a><a href="#contactos">Consultar con el colegio ↗</a></div>
             </div>
         <figure class="course-visual"><img src="images/logo-bti.png" alt="Imagen de Bachillerato Técnico en Informática" width="800" height="500" decoding="async" /><figcaption>Tecnología y proyectos</figcaption></figure>
     </section>
 
     <section id="plan">
         <div class="cards-bridge">
-            <article class="card card--main">
+            <article class="card card--main" id="course-block-1">
                 <h3>Perfil del Egresado</h3>
                 <p>Al finalizar el B.T.I, el estudiante desarrolla competencias técnicas y profesionales para continuar estudios superiores o insertarse en el mundo laboral.</p>
 
-                <h4>1) Competencias técnicas</h4>
+                <div class="course-module"><span class="course-module-number" aria-hidden="true">01</span><h4>Competencias técnicas</h4>
                 <ul>
                     <li><strong>Desarrollo de software:</strong> análisis, diseño y programación de aplicaciones con manejo básico de bases de datos.</li>
                     <li><strong>Soporte técnico:</strong> instalación, configuración y mantenimiento de hardware y software.</li>
@@ -396,7 +397,7 @@
                     <li><strong>Implementación de soluciones:</strong> aplicación de herramientas tecnológicas para necesidades reales de instituciones o empresas.</li>
                 </ul>
 
-                <h4>2) Habilidades profesionales</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">02</span><h4>Habilidades profesionales</h4>
                 <ul>
                     <li><strong>Trabajo en equipo y comunicación</strong> para proyectos tecnológicos colaborativos.</li>
                     <li><strong>Planificación y gestión del tiempo</strong> para cumplir etapas y entregas.</li>
@@ -404,15 +405,15 @@
                     <li><strong>Resolución de problemas</strong> con enfoque lógico, práctico y eficiente.</li>
                 </ul>
 
-                <h4>3) Proyección laboral y académica</h4>
+                </div><div class="course-module"><span class="course-module-number" aria-hidden="true">03</span><h4>Proyección laboral y académica</h4>
                 <ul>
                     <li>Continuidad en carreras universitarias o técnicas del área informática.</li>
                     <li>Apoyo en áreas de TI, soporte, mantenimiento y asistencia técnica.</li>
                     <li>Participación en emprendimientos de servicios tecnológicos.</li>
                 </ul>
-            </article>
+            </div></article>
 
-            <article class="card card--side">
+            <article class="card card--side" id="course-block-2">
                 <h3>Áreas Principales</h3>
                 <ul>
                     <li><strong>Programación:</strong> lógica, algoritmos y desarrollo de aplicaciones.</li>
@@ -443,7 +444,7 @@
                 <h4>Síguenos</h4>
                 <p>Entérate de nuestras novedades:</p>
                 <div class="redes-sociales">
-                    <a href="https://www.facebook.com/EscuelaEudoro/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
+                    <a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
                     <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/IG.jpg" alt="Instagram" loading="lazy" width="40" height="40" /></a>
                 </div>
             </div>
@@ -466,5 +467,6 @@
         });
     </script>
     <script src="site-effects.js" defer></script>
+    <script src="course-design.js" defer></script>
 </body>
 </html>
