@@ -1,13 +1,11 @@
 .logo-container { text-decoration: none; transition: transform .2s ease; }
 .menu-scroll-shell { display: flex; align-items: center; gap: 10px; flex: 1 1 auto; min-width: 0; margin-left: 36px; }
-header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; gap: 20px; padding: 8px 4px; }
-.menu-scroll-shell #navMenu::-webkit-scrollbar { display: none; }
+header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; flex: 1 1 auto; min-width: 0; max-width: none; flex-wrap: nowrap; justify-content: flex-start; overflow-x: scroll; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.85) rgba(255,255,255,.16); gap: 20px; padding: 8px 4px 12px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar { display: block; height: 5px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-track { background: rgba(255,255,255,.16); border-radius: 10px; }
+header:not(.compact-header) .menu-scroll-shell #navMenu::-webkit-scrollbar-thumb { background: rgba(255,255,255,.85); border-radius: 10px; }
 .menu-scroll-shell #navMenu a { flex: 0 0 auto; white-space: nowrap; }
-.menu-scroll-arrow { flex: 0 0 32px; width: 32px; height: 32px; padding: 0; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(3,49,77,.3); color: white; font-size: 1.5rem; cursor: pointer; }
-.menu-scroll-arrow:disabled { opacity: .25; cursor: default; }
-.menu-scroll-arrow:focus-visible { outline: 3px solid var(--azul-medio); outline-offset: 3px; }
 header.compact-header .menu-scroll-shell { display: contents; }
-header.compact-header .menu-scroll-arrow { display: none; }
 .hero-carousel__slide--eeb .hero-carousel__bg { background: linear-gradient(115deg,#0f172a 0%,#123959 45%,#0c4a6e 100%); }
 .hero-carousel__slide--eeb .hero-carousel__bg::before { content: ''; position: absolute; inset: 0; background: url('images/logo-E.E.B.png') center / cover no-repeat; opacity: .22; pointer-events: none; }
 #directores-actuales > h2 { text-align: center; font-size: clamp(1.7rem,3vw,2.4rem); color: var(--azul-fuerte); }

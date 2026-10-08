@@ -20,33 +20,8 @@
         const nav = header.querySelector('nav');
         const shell = document.createElement('div');
         shell.className = 'menu-scroll-shell';
-        const previous = document.createElement('button');
-        const next = document.createElement('button');
-        for (const button of [previous, next]) {
-            button.type = 'button';
-            button.className = 'menu-scroll-arrow';
-            button.setAttribute('aria-controls', nav.id);
-        }
-        previous.textContent = '‹';
-        next.textContent = '›';
-        previous.setAttribute('aria-label', 'Desplazar menú a la izquierda');
-        next.setAttribute('aria-label', 'Desplazar menú a la derecha');
         nav.before(shell);
-        shell.append(previous, nav, next);
-        function updateMenuArrows() {
-            previous.disabled = nav.scrollLeft <= 2;
-            next.disabled = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2;
-        }
-        function scrollMenu(direction) {
-            nav.scrollBy({ left: direction * nav.clientWidth * .65, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-        }
-        previous.addEventListener('click', () => scrollMenu(-1));
-        next.addEventListener('click', () => scrollMenu(1));
-        nav.addEventListener('scroll', updateMenuArrows, { passive: true });
-        window.addEventListener('resize', updateMenuArrows);
-        if ('ResizeObserver' in window) new ResizeObserver(updateMenuArrows).observe(nav);
-        if (document.fonts) document.fonts.ready.then(updateMenuArrows);
-        updateMenuArrows();
+        shell.append(nav);
         const mobileMenu = window.matchMedia('(max-width: 768px)');
         function closeMenu(restoreFocus = false) {
             header.classList.remove('menu-open');
