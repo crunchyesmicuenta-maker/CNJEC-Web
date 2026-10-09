@@ -1,5 +1,17 @@
 .identity-page { background: #f4f9fd; }
 .identity-page .hero { height: 55svh; min-height: 400px; padding: 130px 6% 65px; }
+.identity-page .hero::before {
+    inset: 0 50% 0 0;
+    background: linear-gradient(rgba(6, 42, 65, .52), rgba(6, 42, 65, .65)), url('images/HimnoPy.jpg') center / cover no-repeat;
+}
+.identity-page .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 50%;
+    background: linear-gradient(rgba(6, 42, 65, .52), rgba(6, 42, 65, .65)), url('images/cnjec.jpg') center / contain no-repeat, #a7adaf;
+    z-index: 0;
+    pointer-events: none;
+}
 .identity-page .hero-title-wrap { flex-direction: column; align-items: center; gap: 18px; text-align: center; }
 .identity-page .hero-title { background: none; color: white; -webkit-text-fill-color: white; font-size: clamp(3rem,7vw,5rem); text-shadow: 0 4px 24px rgba(3,49,77,.3); }
 .identity-page .hero-title-wrap p { max-width: 650px; color: white; line-height: 1.7; }
