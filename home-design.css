@@ -141,6 +141,8 @@ h1,h2,h3,h4{line-height:1.25}
 .hero-carousel__slide:nth-child(2) .hero-carousel__bg::before{background-image:url("images/logo-cs.png")}
 .hero-carousel__slide--eeb .hero-carousel__bg::before{background-image:url("images/logo-E.E.B.png")}
 .hero-carousel__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#102d4600 45%,#0b516810)}
+#program-bti .hero-carousel__bg::before{inset:auto;top:50%;left:75%;width:min(42%,360px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;background-size:auto 100%}
+@media(max-width:600px){#program-bti .hero-carousel__bg::before{top:65%;left:72%;width:70%}}
 .hero-carousel__inner{width:60%;position:relative;padding:48px 65px 100px}
 .hero-carousel__logo-area{font-size:clamp(25px,3vw,38px);font-weight:700;letter-spacing:-.8px;line-height:1.25;color:white;margin-bottom:14px;text-wrap:balance}
 .hero-carousel__meta{font-size:11px;letter-spacing:.3px;color:#a6dce9;margin-bottom:15px}
