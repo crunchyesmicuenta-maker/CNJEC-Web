@@ -107,6 +107,8 @@ header:not(.compact-header) .menu-scroll-shell #navMenu { display: flex; width: 
 .menu-scroll-line:focus-visible { outline: 1px solid #38bdf8; outline-offset: 3px; }
 .menu-scroll-line:disabled { opacity: .35; cursor: default; }
 header.compact-header .menu-scroll-line { display: none; }
-.personal-administrativo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; }
+.personal-administrativo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1120px; }
+.personal-administrativo-grid .personal-staff-name { margin: 0.9rem 0.75rem 0.2rem; color: #102f50; font-size: 1.02rem; line-height: 1.35; text-align: center; }
+.personal-administrativo-grid .personal-staff-role { margin: 0 0.75rem 1rem; color: #63758a; font-size: 0.9rem; line-height: 1.5; text-align: center; }
 @media (max-width: 1000px) { .personal-administrativo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 540px) { .personal-administrativo-grid { grid-template-columns: 1fr; } }
