@@ -3,978 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNJEC - Colegio Nacional Juan Eudoro Caceres</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        /* Variables de color */
-        :root {
-            --azul-claro: #e0f2fe;
-            --azul-medio: #38bdf8;
-            --azul-fuerte: #0284c7;
-            --azul-muy-oscuro: #0f172a;
-            --blanco: #ffffff;
-            --texto-oscuro: #1e293b;
-            --texto-claro: #64748b;
-        }
-
-        /* Reseteo básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--blanco);
-            color: var(--texto-oscuro);
-            overflow-x: hidden;
-        }
-
-        /* Barra de navegación */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: transparent;
-            transition: background 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: none;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img-wrap {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--azul-medio), var(--azul-fuerte));
-            position: relative;
-            overflow: hidden;
-            flex: 0 0 auto;
-        }
-
-        .logo-img-wrap::before {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            background: radial-gradient(circle at center, rgba(224, 242, 254, 0.9) 0%, rgba(56, 189, 248, 0.3) 40%, rgba(56, 189, 248, 0) 70%);
-            filter: blur(6px);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 8px rgba(2, 132, 199, 0.35));
-        }
-
-        .logo-fallback {
-            display: none;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 2;
-            padding: 0 4px;
-        }
-
-        .logo-container h1 {
-            color: var(--blanco);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        header.scrolled {
-            background: rgba(3, 49, 77, 0.94);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: clamp(16px, 3vw, 40px);
-        }
-
-        nav a {
-            color: var(--blanco);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 400;
-            padding: 8px 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        nav a:hover, nav a:focus-visible, nav a[aria-current="location"] {
-            border-bottom-color: var(--blanco);
-        }
-
-        section, footer { scroll-margin-top: 125px; }
-
-        @media (max-width: 640px) {
-            header { flex-wrap: wrap; gap: 8px; padding: 12px 5%; }
-            .logo-img-wrap { width: 36px; height: 36px; }
-            .logo-container h1 { font-size: 1.2rem; }
-            nav { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 12px; text-align: center; }
-            nav a { font-size: 0.75rem; }
-        }
-        /* Sección Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            background: radial-gradient(circle at top right, var(--azul-claro), var(--blanco));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(2, 132, 199, 0.48), rgba(2, 132, 199, 0.15)), url('infraestructura.jpg') center / cover no-repeat;
-            z-index: 0;
-            pointer-events: none;
-
-
-        }
-
-        .hero-title-wrap {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 1;
-        }
-
-        .hero-watermark {
-            position: absolute;
-            left: 50%;
-            bottom: -30px;
-            transform: translateX(-50%);
-            width: 260px;
-            max-width: 60vw;
-            opacity: 0.12;
-            z-index: 0;
-            pointer-events: none;
-            color: var(--azul-fuerte);
-            -webkit-mask-image: radial-gradient(closest-side, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 74%);
-            mask-image: radial-gradient(closest-side, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 74%);
-        }
-
-        .hero-watermark-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        .hero-watermark-fallback {
-            display: none;
-            width: 100%;
-            text-align: center;
-            font-weight: 800;
-            letter-spacing: 6px;
-            font-size: 86px;
-            line-height: 1;
-        }
-
-        .hero-title {
-            position: relative;
-            z-index: 1;
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--azul-fuerte);
-            max-width: 800px;
-            background: -webkit-linear-gradient(45deg, var(--azul-fuerte), var(--azul-medio));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            text-align: center;
-        }
-
-        /* Secciones Generales */
-        section {
-            padding: 100px 5%;
-        }
-
-        h3 {
-            font-size: 2.5rem;
-            color: var(--azul-fuerte);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 50%;
-            height: 4px;
-            background-color: var(--azul-medio);
-            border-radius: 2px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--texto-claro);
-            margin-bottom: 15px;
-        }
-
-        /* Misión y Visión */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .card {
-            background: var(--blanco);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
-            border: 1px solid rgba(224, 242, 254, 0.65);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0) 0%, rgba(56, 189, 248, 0.45) 40%, rgba(224, 242, 254, 0) 100%);
-            filter: blur(10px);
-            opacity: 0.35;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Historia */
-        .historia-bg {
-            background-color: var(--azul-claro);
-            border-radius: 30px;
-            padding: 60px;
-            margin: 50px 5%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .historia-bg::before {
-            content: '';
-            position: absolute;
-            inset: -10px;
-            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35) 0%, rgba(56, 189, 248, 0) 55%);
-            filter: blur(12px);
-            opacity: 0.45;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .historia-bg > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .historia-layout {
-            display: grid;
-            grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
-            gap: clamp(28px, 5vw, 64px);
-            align-items: start;
-            margin-top: 28px;
-        }
-
-        .historia-retrato {
-            position: relative;
-            aspect-ratio: 248 / 360;
-            overflow: hidden;
-            border-radius: 18px;
-            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
-        }
-
-        .historia-retrato img {
-            position: absolute;
-            width: 458.065%;
-            max-width: none;
-            height: auto;
-            left: -24.194%;
-            top: -16.667%;
-        }
-
-        .historia-foto figcaption {
-            margin-top: 16px;
-            text-align: center;
-            color: var(--texto-claro);
-            font-size: 0.9rem;
-        }
-
-        .historia-texto h4 {
-            color: var(--azul-muy-oscuro);
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 6px;
-        }
-
-        .historia-fechas {
-            color: var(--azul-fuerte);
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .historia-texto p:not(.historia-fechas) {
-            line-height: 1.85;
-            margin-bottom: 16px;
-        }
-
-        @media (max-width: 768px) {
-            .historia-layout { grid-template-columns: 1fr; }
-            .historia-foto { width: min(100%, 240px); margin: 0 auto; }
-        }
-
-        .hitos {
-            margin-top: 20px;
-            padding-left: 20px;
-            border-left: 3px solid var(--azul-medio);
-        }
-
-        /* Carrusel hero — Explora nuestros Énfasis */
-        .enfasis-wrap {
-            margin: 10px 5% 60px;
-        }
-
-        .enfasis-wrap > h2 {
-            color: var(--azul-fuerte);
-            font-size: 2rem;
-            margin-bottom: 22px;
-            font-weight: 800;
-        }
-
-        .hero-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: min(420px, 70vh);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
-            background: #0f172a;
-        }
-
-        .hero-carousel__slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.55s ease, visibility 0.55s ease;
-            display: flex;
-            align-items: stretch;
-        }
-
-        .hero-carousel__slide.is-active {
-            opacity: 1;
-            visibility: visible;
-            z-index: 1;
-        }
-
-        .hero-carousel__bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .hero-carousel__slide:nth-child(1) .hero-carousel__bg {
-            background: linear-gradient(115deg, #0f172a 0%, #1e3a5f 45%, #0c4a6e 100%);
-        }
-
-        .hero-carousel__slide:nth-child(2) .hero-carousel__bg {
-            background: linear-gradient(115deg, #0f172a 0%, #164e63 42%, #155e75 100%);
-        }
-
-        /* Logos de marca desvanecidos (detrás de la viñeta) */
-        .hero-carousel__slide:nth-child(1) .hero-carousel__bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('images/logo-bti.png') no-repeat center center;
-            background-size: cover;
-            opacity: 0.22;
-            pointer-events: none;
-        }
-
-        .hero-carousel__slide:nth-child(2) .hero-carousel__bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('images/logo-cs.png') no-repeat center center;
-            background-size: cover;
-            opacity: 0.22;
-            pointer-events: none;
-        }
-
-        .hero-carousel__bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background: linear-gradient(90deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.55) 48%, rgba(15, 23, 42, 0.15) 100%);
-        }
-
-        .hero-carousel__inner {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 42%;
-            padding: 48px 40px 56px 48px;
-            color: #f8fafc;
-        }
-
-        .hero-carousel__logo-area {
-            font-size: 1.75rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            color: #fff;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .hero-carousel__meta {
-            font-size: 0.85rem;
-            color: rgba(248, 250, 252, 0.75);
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-
-        .hero-carousel__desc {
-            font-size: 0.95rem;
-            line-height: 1.65;
-            color: rgba(241, 245, 249, 0.88);
-            margin-bottom: 24px;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .hero-carousel__actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .hero-carousel__btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 22px;
-            border: none;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            cursor: pointer;
-            background: var(--azul-medio);
-            color: #fff;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-        }
-
-        .hero-carousel__btn-primary:hover {
-            background: var(--azul-fuerte);
-        }
-
-        .hero-carousel__btn-primary:active {
-            transform: scale(0.98);
-        }
-
-        .hero-carousel__btn-primary svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-        }
-
-        .hero-carousel__arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 3;
-            width: 44px;
-            height: 44px;
-            border: none;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.12);
-            color: rgba(255, 255, 255, 0.9);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            line-height: 1;
-            transition: background 0.2s;
-        }
-
-        .hero-carousel__arrow:hover {
-            background: rgba(255, 255, 255, 0.22);
-        }
-
-        .hero-carousel__arrow--prev { left: 12px; }
-        .hero-carousel__arrow--next { right: 12px; }
-
-        .hero-carousel__dots {
-            position: absolute;
-            left: 48px;
-            bottom: 20px;
-            z-index: 3;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .hero-carousel__dot {
-            width: 28px;
-            height: 4px;
-            border-radius: 2px;
-            border: none;
-            padding: 0;
-            background: rgba(255, 255, 255, 0.35);
-            cursor: pointer;
-            transition: background 0.25s;
-        }
-
-        .hero-carousel__dot.is-active {
-            background: var(--azul-medio);
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
-        }
-
-        .hero-carousel__dot:hover:not(.is-active) {
-            background: rgba(255, 255, 255, 0.55);
-        }
-
-        /* Cuadro egresados */
-        .egresados-wrap {
-            margin: 0 5% 70px;
-        }
-
-        .egresados-wrap > h2 {
-            color: var(--azul-fuerte);
-            font-size: 2rem;
-            margin-bottom: 22px;
-            font-weight: 800;
-        }
-
-        .egresados-frame {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: 24px;
-            overflow: hidden;
-            background: linear-gradient(145deg, #f8fafc 0%, #e0f2fe 42%, #f1f5f9 100%);
-            border: 1px solid rgba(56, 189, 248, 0.22);
-            box-shadow:
-                0 4px 6px -1px rgba(2, 132, 199, 0.06),
-                0 24px 48px -12px rgba(15, 23, 42, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.85);
-        }
-
-        .egresados-frame__img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        /* Carrusel Ex-Directores */
-        .ex-directores-wrap {
-            margin: 0 5% 70px;
-        }
-
-        .ex-directores-wrap > h2 {
-            color: var(--azul-fuerte);
-            font-size: 2rem;
-            margin-bottom: 22px;
-            font-weight: 800;
-        }
-
-        .ex-directores-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: 24px;
-            overflow: hidden;
-            background: linear-gradient(145deg, #f8fafc 0%, #e0f2fe 42%, #f1f5f9 100%);
-            border: 1px solid rgba(56, 189, 248, 0.22);
-            box-shadow:
-                0 4px 6px -1px rgba(2, 132, 199, 0.06),
-                0 24px 48px -12px rgba(15, 23, 42, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.85);
-        }
-
-        .ex-directores-carousel__slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.55s ease, visibility 0.55s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px 72px 56px;
-        }
-
-        .ex-directores-carousel__slide.is-active {
-            position: relative;
-            inset: auto;
-            opacity: 1;
-            visibility: visible;
-            z-index: 1;
-        }
-
-        .ex-directores-carousel__img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        .ex-directores-carousel__placeholder {
-            width: 100%;
-            min-height: min(240px, 40vh);
-            border-radius: 12px;
-            border: 2px dashed rgba(56, 189, 248, 0.35);
-            background: rgba(255, 255, 255, 0.45);
-        }
-
-        .ex-directores-carousel__arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 3;
-            width: 46px;
-            height: 46px;
-            border: 1px solid rgba(56, 189, 248, 0.35);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--azul-fuerte);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.35rem;
-            line-height: 1;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12);
-            transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
-        }
-
-        .ex-directores-carousel__arrow:hover {
-            background: rgba(224, 242, 254, 0.95);
-            border-color: var(--azul-medio);
-            color: var(--azul-fuerte);
-        }
-
-        .ex-directores-carousel__arrow:active {
-            transform: translateY(-50%) scale(0.96);
-        }
-
-        .ex-directores-carousel__arrow--prev { left: 16px; }
-        .ex-directores-carousel__arrow--next { right: 16px; }
-
-        .ex-directores-carousel__dots {
-            position: absolute;
-            left: 50%;
-            bottom: 18px;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        .ex-directores-carousel__dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            border: none;
-            padding: 0;
-            background: rgba(100, 116, 139, 0.35);
-            cursor: pointer;
-            transition: background 0.25s, transform 0.25s, width 0.25s;
-        }
-
-        .ex-directores-carousel__dot.is-active {
-            width: 26px;
-            border-radius: 999px;
-            background: var(--azul-medio);
-            box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
-        }
-
-        .ex-directores-carousel__dot:hover:not(.is-active) {
-            background: rgba(2, 132, 199, 0.45);
-        }
-
-        /* Directora */
-        .directora-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .directora-img {
-            width: 200px;
-            height: 200px;
-            background-color: var(--azul-medio);
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
-            border: none;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            position: relative;
-            overflow: visible;
-        }
-
-        .directora-img::before {
-            content: '';
-            position: absolute;
-            inset: -18px;
-            border-radius: 50%;
-            background: radial-gradient(circle at center, rgba(224, 242, 254, 0.9) 0%, rgba(56, 189, 248, 0.3) 45%, rgba(56, 189, 248, 0) 72%);
-            filter: blur(10px);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .directora-img > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .directora-container h4 {
-            font-size: 2rem;
-            color: var(--azul-fuerte);
-        }
-
-        .directora-container span {
-            font-size: 1.2rem;
-            color: var(--texto-claro);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- NUEVO: FOOTER / CONTACTOS --- */
-        footer {
-            background-color: var(--azul-muy-oscuro);
-            color: var(--blanco);
-            padding: 60px 5% 20px;
-            margin-top: 50px;
-            border-top-left-radius: 40px;
-            border-top-right-radius: 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            color: var(--azul-medio);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 30px;
-            height: 3px;
-            background-color: var(--azul-fuerte);
-            border-radius: 2px;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #94a3b8;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-col a:hover {
-            color: var(--blanco);
-        }
-
-        .redes-sociales {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .redes-sociales a {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .redes-sociales a:hover {
-            background-color: var(--azul-medio);
-            color: var(--blanco);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        /* Animaciones */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 3rem; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .historia-bg { padding: 30px; }
-            .enfasis-wrap > h2 { font-size: 1.6rem; }
-            .hero-carousel__inner {
-                max-width: 100%;
-                padding: 36px 24px 52px 24px;
-            }
-            .hero-carousel__slide:nth-child(1) .hero-carousel__bg::before,
-            .hero-carousel__slide:nth-child(2) .hero-carousel__bg::before {
-                background-size: cover;
-                background-position: center center;
-                opacity: 0.16;
-            }
-            .hero-carousel__dots { left: 24px; }
-            .hero-carousel__arrow { width: 38px; height: 38px; }
-            .hero-carousel__arrow--prev { left: 8px; }
-            .hero-carousel__arrow--next { right: 8px; }
-            .egresados-wrap > h2 { font-size: 1.6rem; }
-            .ex-directores-wrap > h2 { font-size: 1.6rem; }
-            .ex-directores-carousel__slide { padding: 20px 56px 48px; }
-            .ex-directores-carousel__arrow { width: 40px; height: 40px; font-size: 1.2rem; }
-            .ex-directores-carousel__arrow--prev { left: 10px; }
-            .ex-directores-carousel__arrow--next { right: 10px; }
-            footer { border-radius: 0; }
-        }
-
-        .egresados-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px; max-width: 1200px; margin: 36px auto 0; }
-        .egresado-card { background: white; padding: 16px; border-radius: 20px; box-shadow: 0 8px 28px rgba(15,23,42,.08); }
-        .egresado-retrato { position: relative; overflow: hidden; border-radius: 14px; }
-        .egresado-retrato img { position: absolute; max-width: none; height: auto; display: block; }
-        .egresado-card figcaption { color: var(--texto-oscuro); text-align: center; font-size: .95rem; font-weight: 600; line-height: 1.5; padding: 18px 4px 4px; }
-        @media (max-width: 900px) { .egresados-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; } }
-        @media (max-width: 640px) { .egresados-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; } .egresado-card { padding: 10px; } .egresado-card figcaption { font-size: .8rem; } }
-
-        .directores-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; max-width: 1200px; margin: 36px auto 0; }
-        .director-card { padding: 20px; background: white; border-radius: 20px; box-shadow: 0 8px 28px rgba(15,23,42,.09); }
-        .director-retrato { position: relative; overflow: hidden; border-radius: 14px; }
-        .director-retrato img { position: absolute; max-width: none; height: auto; display: block; }
-        .director-card h3 { font-size: 1.1rem; line-height: 1.5; margin: 20px 0 12px; text-align: center; }
-        .director-card h3::after { display: none; }
-        .director-card p { font-size: .9rem; line-height: 1.8; color: var(--texto-claro); }
-        @media (max-width: 1000px) { .directores-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-        @media (max-width: 540px) { .directores-grid { grid-template-columns: 1fr; } .director-retrato { max-width: 240px; margin: auto; } }
-
-        .hero.hero--beneficios { height: auto; min-height: 100svh; flex-direction: column; justify-content: center; gap: clamp(24px,4vh,44px); padding: 150px 5% 60px; }
-        .hero--beneficios .hero-title { font-size: clamp(2.2rem,4.5vw,4rem); max-width: 950px; }
-        .hero--beneficios .hero-watermark { display: none; }
-        .beneficios-row { position: relative; z-index: 1; display: grid; gap: 18px; width: 100%; }
-        .beneficios-row--top { grid-template-columns: repeat(3,minmax(0,1fr)); max-width: 1080px; }
-        .beneficios-row--bottom { grid-template-columns: repeat(4,minmax(0,1fr)); max-width: 1200px; }
-        .beneficios-row img { width: 100%; height: auto; display: block; border-radius: 14px; filter: grayscale(1) sepia(1) hue-rotate(155deg) saturate(1.8) brightness(.95); box-shadow: 0 8px 24px rgba(3,49,77,.22); }
-        @media (max-width: 768px) { .hero.hero--beneficios { padding: 110px 5% 40px; gap: 24px; } .beneficios-row--top, .beneficios-row--bottom { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .beneficios-row--top img:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; } }
-        @media (max-width: 480px) { .beneficios-row--top, .beneficios-row--bottom { grid-template-columns: 1fr; max-width: 360px; } .beneficios-row--top img:last-child { width: 100%; } }
-    </style>
-    <link rel="stylesheet" href="site-effects.css" />
+    <title>CNJEC · Colegio Nacional Juan Eudoro Cáceres</title>
+    <meta name="description" content="Conoce el Colegio Nacional Juan Eudoro Cáceres: nuestra historia, comunidad educativa, Educación Escolar Básica y énfasis del Nivel Medio en Asunción, Paraguay." />
+    <meta name="theme-color" content="#102f46" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home-design.css?v=1" />
 </head>
-<body>
+<body class="home-page">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="reading-progress" aria-hidden="true"></div>
 
-    <header>
+    <header class="home-header">
         <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
             <div class="logo-img-wrap">
                 <!-- Intenta cargar el logo desde archivo (misma carpeta que index.html).
@@ -988,16 +27,16 @@
                 />
                 <span id="logo-fallback" class="logo-fallback" aria-hidden="true">CNJEC</span>
             </div>
-            <h1>CNJEC</h1>
+            <span class="brand-name">CNJEC</span>
         </a>
 
         <button type="button" class="scroll-menu-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
         <nav id="navMenu" aria-label="Navegación principal">
             <a href="#inicio" class="nav-link" aria-current="location">Inicio</a>
-            <a href="#mision-vision" class="nav-link">Misión</a>
-            <a href="#mision-vision" class="nav-link">Visión</a>
+            <a href="#mision" class="nav-link">Misión</a>
+            <a href="#vision" class="nav-link">Visión</a>
             <a href="#historia" class="nav-link">Historia</a>
-            <a href="#enfasis" class="nav-link">Énfasis</a>
+            <a href="#enfasis" class="nav-link">Oferta educativa</a>
             <a href="#egresados" class="nav-link">Egresados</a>
             <a href="#ex-directores" class="nav-link">Exdirectores</a>
             <a href="#directores-actuales" class="nav-link">Directores actuales</a>
@@ -1009,6 +48,7 @@
         </nav>
     </header>
 
+    <main id="contenido" tabindex="-1">
     <section class="hero hero--beneficios" id="inicio" data-cover-reveal>
         <div class="beneficios-row beneficios-row--top" aria-label="Beneficios de estudiar en el colegio">
             <img src="images/Beneficios/beneficios1.jpeg" alt="Aprendés y adquirís nuevos conocimientos." width="718" height="210" decoding="async" />
@@ -1016,39 +56,44 @@
             <img src="images/Beneficios/beneficios3.jpeg" alt="Desarrollás tus habilidades y talentos." width="718" height="210" decoding="async" />
         </div>
         <div class="hero-title-wrap">
-            <h2 class="reveal hero-title" data-typing-title>Colegio Nacional Juan Eudoro Caceres</h2>
-            <div class="hero-watermark" aria-hidden="true">
-                <!-- Si no existe archivo de marca de agua separado, usamos el mismo logo.png -->
-                <img
-                    class="hero-watermark-img"
-                    src="logo.png"
-                    alt=""
-                    onerror="this.style.display='none'; document.getElementById('hero-watermark-fallback').style.display='block';"
-                />
-                <span id="hero-watermark-fallback" class="hero-watermark-fallback">CNJEC</span>
+            <p class="hero-eyebrow"><span></span> Asunción, Paraguay</p>
+            <h1 class="hero-title" data-typing-title>Colegio Nacional Juan Eudoro Cáceres</h1>
+            <p class="hero-lead">Aprender, compartir y construir el futuro.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="#enfasis">Explorar la oferta educativa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+                <a class="button button-glass" href="#contactos">Contactar al colegio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg></a>
             </div>
         </div>
         <div class="beneficios-row beneficios-row--bottom" aria-label="Beneficios de estudiar en el colegio">
             <img src="images/Beneficios/beneficios4.jpeg" alt="Mejorás tus resultados y tu futuro." width="718" height="210" decoding="async" />
             <img src="images/Beneficios/beneficios7.jpeg" alt="¡Tu presencia también cuenta!" width="718" height="210" decoding="async" />
         </div>
+        <a class="hero-discover" href="#mision-vision">Descubre nuestro colegio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></a>
     </section>
 
-    <section id="mision-vision">
+    <nav class="home-shortcuts" aria-label="Accesos rápidos">
+        <a href="#enfasis"><span class="shortcut-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v14M3 4c4-1 6 0 9 2 3-2 5-3 9-2v14c-4-1-6 0-9 2-3-2-5-3-9-2z"/></svg></span><span><strong>Oferta educativa</strong><small>Encuentra tu camino</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a href="Actividades.html" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)"><span class="shortcut-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2"/></svg></span><span><strong>Actividades</strong><small>Nuestra vida escolar</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a href="#ubicacion"><span class="shortcut-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><strong>Cómo llegar</strong><small>Visita el colegio</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a href="#contactos"><span class="shortcut-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg></span><span><strong>Contacto</strong><small>Estamos para ayudarte</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </nav>
+
+    <section id="mision-vision" class="home-section" aria-labelledby="esencia-title">
+<div class="section-heading"><p class="eyebrow"><span>01</span> Nuestra esencia</p><h2 id="esencia-title">Educamos para un futuro mejor</h2><p class="section-intro">Una comunidad que crece con conocimiento, valores y compromiso.</p></div>
         <div class="grid-2">
-            <div class="card reveal">
-                <h3>Misión</h3>
+            <article class="card mission-card reveal" id="mision" aria-labelledby="mision-title">
+                <span class="card-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></span><h3 id="mision-title">Misión</h3>
                 <p>Nuestra misión es formar ciudadanos íntegros, con excelencia académica y valores éticos, preparados para enfrentar los desafíos de la sociedad moderna y contribuir activamente al desarrollo de nuestro país.</p>
-            </div>
-            <div class="card reveal" style="transition-delay: 0.2s;">
-                <h3>Visión</h3>
+            </article>
+            <article class="card vision-card reveal" id="vision" aria-labelledby="vision-title">
+                <span class="card-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><h3 id="vision-title">Visión</h3>
                 <p>Ser una institución educativa líder y de referencia a nivel nacional, reconocida por su innovación, calidad humana y compromiso inquebrantable con la educación de las futuras generaciones.</p>
-            </div>
+            </article>
         </div>
     </section>
 
-    <section class="historia-bg reveal" id="historia" aria-labelledby="historia-title">
-        <h3 id="historia-title">Nuestra Historia</h3>
+    <section class="home-section historia-bg reveal" id="historia" aria-labelledby="historia-title">
+        <div class="section-heading"><p class="eyebrow"><span>02</span> Nuestras raíces</p><h2 id="historia-title">Nuestra historia</h2><p class="section-intro">Conocer nuestras raíces es parte de lo que somos.</p></div>
         <div class="historia-layout">
             <figure class="historia-foto">
                 <div class="historia-retrato">
@@ -1057,80 +102,88 @@
                 <figcaption>Don Eudoro Cáceres</figcaption>
             </figure>
             <div class="historia-texto">
-                <h4>Don Eudoro Cáceres</h4>
+                <h3>Don Eudoro Cáceres</h3>
                 <p class="historia-fechas">Pilar, 9 de marzo de 1879 · Humaitá, 3 de febrero de 1963</p>
                 <p>Hijo de don Juan Eliseo Cáceres y doña Daniela Zorrilla, nació en la ciudad de Pilar. Contrajo matrimonio con Juana Arruabarrena Albariño, con quien tuvo 16 hijos.</p>
                 <p>En 1909, fue protagonista de la gesta de laureles. Con el grado de mayor de la Guardia Nacional, combatió al frente de la caballería durante tres días y sus noches.</p>
+                <details class="history-more"><summary>Leer la historia completa <span aria-hidden="true">+</span></summary><div class="history-rest">
                 <p>En 1912, volvió a combatir en Humaitá bajo el mando del coronel José Gill. Desde entonces, se convirtió en un destacado caudillo del Partido Colorado en el departamento de Ñeembucú.</p>
                 <p>En 1930, mandó erigir el primer monumento al mariscal Francisco Solano López en Yataity Corá, dentro de su propiedad, y posteriormente lo obsequió a las Fuerzas Armadas de la Nación. Durante la Guerra del Chaco, participó en tareas de abastecimiento en la localidad de Humaitá.</p>
                 <p>En 1948, fue designado diputado nacional. Entre 1958 y 1962, dictó conferencias al cuerpo de cadetes en lugares históricos de la guerra de 1865 a 1870, compartiendo su profundo conocimiento de las batallas del sur.</p>
                 <p>Falleció el 3 de febrero de 1963 en Humaitá. Sus restos descansan en los campos de batalla de Sauce Boquerón.</p>
+                </div></details>
             </div>
         </div>
     </section>
 
-    <section class="enfasis-wrap reveal" id="enfasis" aria-labelledby="enfasis-title">
-        <h2 id="enfasis-title">Explora Nuestros Énfasis</h2>
+    <section class="home-section enfasis-wrap reveal" id="enfasis" aria-labelledby="enfasis-title">
+        <div class="section-heading"><p class="eyebrow"><span>03</span> Aprende con nosotros</p><h2 id="enfasis-title">Nuestra oferta educativa</h2><p class="section-intro">Conoce la Educación Escolar Básica y los énfasis del Nivel Medio.</p></div>
 
-        <div class="hero-carousel" id="heroCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Énfasis académicos del colegio">
-            <div class="hero-carousel__slide is-active" data-index="0" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+        <div class="program-tabs" role="group" aria-label="Elige una propuesta educativa">
+            <button type="button" data-program="0" aria-pressed="true" aria-controls="program-bti">B.T.I.</button>
+            <button type="button" data-program="1" aria-pressed="false" aria-controls="program-sociales">Ciencias Sociales</button>
+            <button type="button" data-program="2" aria-pressed="false" aria-controls="program-eeb">Escolar Básica</button>
+        </div>
+
+        <div class="hero-carousel" id="heroCarousel" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Oferta educativa del colegio">
+            <div class="hero-carousel__slide is-active" id="program-bti" data-index="0" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
                 <div class="hero-carousel__bg" aria-hidden="true"></div>
                 <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Bachillerato Técnico en Informática</div>
+                    <h3 class="hero-carousel__logo-area">Bachillerato Técnico en Informática</h3>
                     <p class="hero-carousel__meta">B.T.I · Programación · Redes · Proyectos</p>
                     <p class="hero-carousel__desc">
                         Formación técnica en informática: desarrollo de software, soporte, redes y proyectos integradores para resolver necesidades reales con criterio profesional.
                     </p>
                     <div class="hero-carousel__actions">
                         <a href="BTI.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
                             Ver B.T.I
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-carousel__slide" data-index="1" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+            <div class="hero-carousel__slide" id="program-sociales" data-index="1" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
                 <div class="hero-carousel__bg" aria-hidden="true"></div>
                 <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Ciencias Sociales</div>
+                    <h3 class="hero-carousel__logo-area">Ciencias Sociales</h3>
                     <p class="hero-carousel__meta">Humanidades · Análisis social · Ciudadanía</p>
                     <p class="hero-carousel__desc">
                         Énfasis en pensamiento crítico, comprensión del contexto social y formación ciudadana para interpretar el mundo con rigor y responsabilidad.
                     </p>
                     <div class="hero-carousel__actions">
                         <a href="CienciasSociales.html" class="hero-carousel__btn-primary">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
                             Ver Ciencias Sociales
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-carousel__slide hero-carousel__slide--eeb" data-index="2" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+            <div class="hero-carousel__slide hero-carousel__slide--eeb" id="program-eeb" data-index="2" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
                 <div class="hero-carousel__bg" aria-hidden="true"></div>
                 <div class="hero-carousel__inner">
-                    <div class="hero-carousel__logo-area">Educación Escolar Básica</div>
+                    <h3 class="hero-carousel__logo-area">Educación Escolar Básica</h3>
                     <p class="hero-carousel__meta">E.E.B. · Aprendizaje · Valores · Desarrollo integral</p>
                     <p class="hero-carousel__desc">Una etapa para construir conocimientos, desarrollar habilidades y fortalecer valores, acompañando el crecimiento de cada estudiante.</p>
                     <div class="hero-carousel__actions">
                         <a href="EEB.html" class="hero-carousel__btn-primary" target="_blank" rel="noopener noreferrer">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
                             Ver Escolar Básica
                         </a>
                     </div>
                 </div>
             </div>
 
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" id="heroPrev" aria-label="Diapositiva anterior">‹</button>
-            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" id="heroNext" aria-label="Diapositiva siguiente">›</button>
+            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" id="heroPrev" aria-label="Propuesta educativa anterior">‹</button>
+            <button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" id="heroNext" aria-label="Propuesta educativa siguiente">›</button>
 
-            <div class="hero-carousel__dots" id="heroDots" role="tablist" aria-label="Seleccionar diapositiva"></div>
+            <div class="hero-carousel__dots" id="heroDots" role="group" aria-label="Seleccionar propuesta educativa"></div>
         </div>
     </section>
 
-    <section class="egresados-wrap reveal" id="egresados" aria-labelledby="egresados-title">
-        <h2 id="egresados-title">Alumnos egresados importantes</h2>
+    <section class="home-section egresados-wrap reveal" id="egresados" aria-labelledby="egresados-title">
+        <div class="section-heading"><p class="eyebrow"><span>04</span> Talento de nuestra comunidad</p><h2 id="egresados-title">Alumnos egresados importantes</h2><p class="section-intro">Personas que forman parte de nuestra trayectoria.</p></div>
 
         <div class="egresados-grid">
             <figure class="egresado-card">
@@ -1184,8 +237,8 @@
         </div>
     </section>
 
-    <section class="ex-directores-wrap reveal" id="ex-directores" aria-labelledby="ex-directores-title">
-        <h2 id="ex-directores-title">Ex-Directores</h2>
+    <section class="home-section ex-directores-wrap reveal" id="ex-directores" aria-labelledby="ex-directores-title">
+        <div class="section-heading"><p class="eyebrow"><span>05</span> Un legado compartido</p><h2 id="ex-directores-title">Exdirectores</h2><p class="section-intro">Reconocemos a quienes acompañaron el crecimiento de nuestra institución.</p></div>
 
         <div class="directores-grid">
             <article class="director-card">
@@ -1211,8 +264,8 @@
         </div>
     </section>
 
-    <section id="directores-actuales" class="reveal" aria-labelledby="directores-actuales-title">
-        <h2 id="directores-actuales-title">Directores actuales</h2>
+    <section id="directores-actuales" class="home-section reveal" aria-labelledby="directores-actuales-title">
+        <div class="section-heading"><p class="eyebrow"><span>06</span> Nuestra comunidad</p><h2 id="directores-actuales-title">Directores actuales</h2><p class="section-intro">Conoce a quienes guían nuestra comunidad educativa.</p></div>
         <div class="current-directors" role="region" aria-roledescription="carrusel" aria-label="Directores actuales">
             <div class="current-directors-track" id="currentDirectorsTrack" tabindex="0" aria-label="Desliza para ver las dos fichas">
                 <article class="current-director-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 2">
@@ -1239,8 +292,8 @@
         </div>
     </section>
 
-    <section id="personal-administrativo" class="ex-directores-wrap reveal" aria-labelledby="personal-administrativo-title">
-        <h2 id="personal-administrativo-title">Personal Administrativo Actual</h2>
+    <section id="personal-administrativo" class="home-section ex-directores-wrap reveal" aria-labelledby="personal-administrativo-title">
+        <div class="section-heading"><p class="eyebrow"><span>07</span> El equipo que te acompaña</p><h2 id="personal-administrativo-title">Personal administrativo actual</h2><p class="section-intro">Conoce al personal que acompaña el día a día del colegio.</p></div>
         <div class="directores-grid personal-administrativo-grid">
             <article class="director-card">
                 <div class="director-retrato" style="aspect-ratio:210/250;"><img src="images/Personal%20Administrativo%20Actual/PersonalActual1.jpg" alt="Retrato de Cristina Pedrozo" loading="lazy" style="width:354.286%; left:-135.714%; top:-58%;" /></div>
@@ -1265,126 +318,38 @@
         </div>
     </section>
 
-    <section id="ubicacion" class="reveal">
-        <div class="card" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:12px;">
-            <h3>Ubicación</h3>
-            <p>Barrio San Pablo — Asunción, Paraguay</p>
-            <figure style="margin-top:16px; width:100%; display:flex; justify-content:center;">
-                <a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Nacional+Juan+Eudoro+C%C3%A1ceres%2C+Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener noreferrer" aria-label="Ver el Colegio Nacional Juan Eudoro Cáceres en Google Maps" style="display:block; width:100%; max-width:720px;">
-                    <img src="images/Ubicación.png?v=ee55fa1" alt="Ubicación del colegio" loading="lazy" style="width:100%; max-width:720px; border-radius:12px; display:block;" />
-                </a>
-            </figure>
-            <p style="color:var(--azul-fuerte); font-size:0.95rem;">Haz clic en la imagen para ver la ubicación del colegio en Google Maps.</p>
+    <section id="ubicacion" class="home-section reveal" aria-labelledby="ubicacion-title">
+        <div class="location-panel">
+            <div class="location-copy">
+                <div class="section-heading"><p class="eyebrow"><span>08</span> Visítanos</p><h2 id="ubicacion-title">Encuéntranos</h2></div>
+                <p class="location-address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> <span><strong>Barrio San Pablo</strong><br/>Asunción, Paraguay</span></p>
+                <p>Haz clic en la imagen para abrir la ubicación del colegio en Google Maps.</p>
+                <a class="button button-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Nacional+Juan+Eudoro+C%C3%A1ceres%2C+Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación del colegio en Google Maps (pestaña nueva)">Abrir en Google Maps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            </div>
+            <a class="location-map" href="https://www.google.com/maps/search/?api=1&amp;query=Colegio+Nacional+Juan+Eudoro+C%C3%A1ceres%2C+Asunci%C3%B3n%2C+Paraguay" target="_blank" rel="noopener noreferrer" aria-label="Ver el Colegio Nacional Juan Eudoro Cáceres en Google Maps (pestaña nueva)">
+                <img src="images/Ubicación.png?v=ee55fa1" alt="Mapa de ubicación del colegio en el barrio San Pablo" loading="lazy" />
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> Ver ubicación <span aria-hidden="true">↗</span></span>
+            </a>
         </div>
     </section>
 
-    <footer id="contactos" class="reveal">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Ubicación</h4>
-                <p>Barrio San Pablo</p>
-                <p>Asunción, Paraguay</p>
-                <p>C.P. 1234 (Opcional)</p>
-            </div>
 
-            <div class="footer-col">
-                <h4>Comunícate</h4>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cnjec699@gmail.com" target="_blank" rel="noopener noreferrer">✉️ cnjec699@gmail.com</a>
-                <p>🕒 Lunes a Viernes: 07:00 - 18:00</p>
+    </main>
+    <footer id="contactos" aria-labelledby="contactos-title">
+        <div class="footer-inner">
+            <div class="footer-heading">
+                <a class="footer-brand" href="#inicio" aria-label="CNJEC · Volver al inicio"><img src="logo.png" alt="" width="64" height="64" loading="lazy"/><span>CNJEC<small>Colegio Nacional Juan Eudoro Cáceres</small></span></a>
+                <p>Aprender, compartir y construir el futuro.</p>
             </div>
-
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-                <p>Entérate de nuestras novedades:</p>
-                <div class="redes-sociales">
-                    <a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer"><img src="images/Facebook.jpg" alt="Facebook" loading="lazy" width="40" height="40" /></a>
-                    <a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer"><img src="images/IG.jpg" alt="Instagram" loading="lazy" width="40" height="40" /></a>
-                </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h2 id="contactos-title">Hablemos</h2><p>Estamos para acompañarte.</p><a class="footer-email" href="mailto:cnjec699@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg> cnjec699@gmail.com</a><p class="footer-hours">Lunes a viernes<br/><strong>07:00 a 18:00</strong></p></div>
+                <div class="footer-col footer-links"><h3>Explora el colegio</h3><a href="#enfasis">Oferta educativa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="Actividades.html" target="_blank" rel="noopener noreferrer">Actividades <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="Identidad.html">Nuestra identidad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="#ubicacion">Cómo llegar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+                <div class="footer-col"><h3>Síguenos</h3><p>Entérate de nuestras novedades.</p><div class="redes-sociales"><a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook del colegio (pestaña nueva)"><img src="images/Facebook.jpg" alt="" loading="lazy" width="44" height="44" /></a><a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram del colegio (pestaña nueva)"><img src="images/IG.jpg" alt="" loading="lazy" width="44" height="44" /></a></div></div>
             </div>
-        </div>
-
-        <div class="copyright">
-            <p>&copy; 2026 Colegio Nacional Juan Eudoro Caceres. Todos los derechos reservados.</p>
+            <div class="copyright"><p>&copy; 2026 Colegio Nacional Juan Eudoro Cáceres.</p><a href="#inicio">Volver al inicio ↑</a></div>
         </div>
     </footer>
-
-    <script>
-        const siteHeader = document.querySelector('header');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const updateHeader = () => siteHeader.classList.toggle('scrolled', window.scrollY > 40);
-        window.addEventListener('scroll', updateHeader, { passive: true });
-        updateHeader();
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (link.target === '_blank') return;
-                navLinks.forEach(item => item.removeAttribute('aria-current'));
-                link.setAttribute('aria-current', 'location');
-            });
-        });
-        (function () {
-            function initFadeCarousel(root, slideSelector, dotClass) {
-                if (!root) return;
-                var slides = root.querySelectorAll(slideSelector);
-                var prev = root.querySelector('[data-carousel-prev]') || document.getElementById(root.id.replace('Carousel', 'Prev'));
-                var next = root.querySelector('[data-carousel-next]') || document.getElementById(root.id.replace('Carousel', 'Next'));
-                var dotsWrap = root.querySelector('[data-carousel-dots]') || document.getElementById(root.id.replace('Carousel', 'Dots'));
-                if (!prev || !next || !dotsWrap || slides.length === 0) return;
-
-                var i = 0;
-                var n = slides.length;
-
-                slides.forEach(function (_, idx) {
-                    var b = document.createElement('button');
-                    b.type = 'button';
-                    b.className = dotClass + (idx === 0 ? ' is-active' : '');
-                    b.setAttribute('role', 'tab');
-                    b.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
-                    b.setAttribute('aria-label', 'Diapositiva ' + (idx + 1));
-                    b.addEventListener('click', function () { go(idx); });
-                    dotsWrap.appendChild(b);
-                });
-
-                var dots = dotsWrap.querySelectorAll('button');
-
-                function go(index) {
-                    i = (index + n) % n;
-                    slides.forEach(function (el, idx) {
-                        el.classList.toggle('is-active', idx === i);
-                    });
-                    dots.forEach(function (d, idx) {
-                        d.classList.toggle('is-active', idx === i);
-                        d.setAttribute('aria-selected', idx === i ? 'true' : 'false');
-                    });
-                }
-
-                prev.addEventListener('click', function () { go(i - 1); });
-                next.addEventListener('click', function () { go(i + 1); });
-
-                root.addEventListener('keydown', function (e) {
-                    if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
-                    if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
-                });
-            }
-
-            initFadeCarousel(document.getElementById('heroCarousel'), '.hero-carousel__slide', 'hero-carousel__dot');
-            initFadeCarousel(document.getElementById('exDirectoresCarousel'), '.ex-directores-carousel__slide', 'ex-directores-carousel__dot');
-        })();
-
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
-        reveal();
-    </script>
-    <script src="site-effects.js" defer></script>
+    <a class="back-to-top" href="#inicio" aria-label="Volver al inicio" hidden>↑</a>
+    <script src="home-design.js?v=1" defer></script>
 </body>
 </html>
