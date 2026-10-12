@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#102f46">
+  <title>Administrar inscripciones · CNJEC</title>
+  <link rel="stylesheet" href="enrollment-design.css?v=3"><link rel="stylesheet" href="enrollment-admin.css">
+  <script src="enrollment-admin.js" defer></script>
+</head>
+<body>
+  <header class="enrollment-header"><a class="enrollment-brand" href="index.html"><img src="logo.png" alt="" width="42" height="42"><span>CNJEC</span></a><a class="enrollment-back" href="index.html#inscripciones">← Volver a la web</a></header>
+  <main class="admin-main">
+    <div class="enrollment-title"><p class="enrollment-eyebrow">Dirección y personal administrativo</p><h1>Administrar inscripciones</h1><p>Controla cuándo las familias pueden acceder al contrato.</p></div>
+    <p id="admin-message" role="status" aria-live="polite">Comprobando acceso…</p>
+    <section id="access" class="admin-card" hidden>
+      <h2 id="access-title">Iniciar sesión</h2><p id="access-help">Usa la cuenta que te entregó la dirección del colegio.</p>
+      <form id="login-form">
+        <label id="setup-name-wrap" hidden>Tu nombre<input id="setup-name" maxlength="80" autocomplete="name"></label>
+        <label id="setup-key-wrap" hidden>Clave de activación<input id="setup-key" type="password" autocomplete="off"><small>Solo se utiliza para crear la primera cuenta de dirección.</small></label>
+        <label>Usuario<input id="username" required minlength="3" maxlength="40" autocomplete="username" autocapitalize="none" spellcheck="false"></label>
+        <label>Contraseña<input id="password" type="password" required maxlength="128" autocomplete="current-password"></label>
+        <button class="primary" id="login-button">Entrar</button>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="admin-welcome"><p id="welcome"></p><button id="logout" type="button">Cerrar sesión</button></div>
+      <article class="admin-card">
+        <span class="state-badge" id="state-badge"></span><h2 id="state-title"></h2><p id="state-help"></p>
+        <button class="primary state-toggle" id="toggle-state" type="button"></button>
+        <p id="last-change" class="admin-muted"></p><a href="Inscripciones.html" target="_blank" rel="noopener">Ver página de inscripciones ↗</a>
+      </article>
+      <section id="accounts" class="admin-card" hidden>
+        <h2>Cuentas autorizadas</h2><p>Crea una cuenta para cada persona. El personal administrativo puede habilitar y deshabilitar las inscripciones. La dirección también puede administrar cuentas.</p>
+        <ul id="users-list"></ul>
+        <details><summary>+ Añadir una persona</summary>
+          <form id="user-form">
+            <label>Nombre completo<input id="new-name" required minlength="2" maxlength="80" autocomplete="off"></label>
+            <label>Usuario<input id="new-username" required minlength="3" maxlength="40" pattern="[a-zA-Z0-9._\-]+" autocomplete="off" autocapitalize="none" spellcheck="false"></label>
+            <label>Contraseña inicial<input id="new-password" type="password" required minlength="12" maxlength="128" autocomplete="new-password"><small>Usa al menos 12 caracteres y entrégala a esa persona de forma privada.</small></label>
+            <label>Permisos<select id="new-role"><option value="staff">Personal administrativo</option><option value="director">Dirección</option></select></label>
+            <button class="primary">Crear cuenta</button>
+          </form>
+        </details>
+      </section>
+    </section>
+  </main>
+  <footer class="enrollment-footer">Colegio Nacional Juan Eudoro Cáceres</footer>
+</body></html>

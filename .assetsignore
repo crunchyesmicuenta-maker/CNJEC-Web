@@ -1,0 +1,14 @@
+**/.git
+.git/
+.wrangler/
+server/
+node_modules/
+.git/**
+**/.git/**
+server/**
+**/.dev.vars*
+**/.env*
+**/.wrangler/**
+node_modules/**
+ADMINISTRACION.md
+wrangler.jsonc

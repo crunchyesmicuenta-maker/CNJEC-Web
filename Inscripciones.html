@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102f46">
+  <title>Completar el contrato · CNJEC</title>
+  <meta name="description" content="Escribe directamente sobre el contrato de inscripción 2027 y descarga tu PDF completado.">
+  <link rel="stylesheet" href="enrollment-design.css?v=2">
+  <script src="vendor/pdf-lib.min.js" defer></script>
+  <script type="module" src="enrollment.js?v=3"></script>
+</head>
+<body>
+  <header class="enrollment-header">
+    <a class="enrollment-brand" href="index.html#inicio" aria-label="CNJEC, volver al inicio"><img src="logo.png" alt="" width="42" height="42"><span>CNJEC</span></a>
+    <a class="enrollment-back" href="index.html#inscripciones">← Volver al inicio</a>
+  </header>
+  <main class="enrollment-main">
+    <div class="enrollment-title">
+      <p class="enrollment-eyebrow">Año lectivo 2027</p>
+      <h1>Tu contrato, directamente aquí</h1>
+      <p>Toca los espacios azules del documento para escribir. Puedes acercar las páginas y descargar tu propia copia en PDF cuando termines.</p>
+    </div>
+    <p class="enrollment-privacy">Tus datos se completan en este navegador. «Guardar borrador» los conserva solo en esta pestaña, sin enviarlos al colegio. Las firmas se realizan a mano al imprimir.</p>
+    <noscript><p>Activa JavaScript para consultar si las inscripciones están habilitadas y completar el contrato.</p></noscript>
+    <div class="enrollment-privacy" id="availability-notice" role="status"><p id="availability-text">Consultando disponibilidad de inscripciones…</p><a href="Inscripciones.html">Volver a consultar</a> · <a href="index.html#contactos">Consultar con el colegio</a></div>
+    <section class="document-editor" hidden aria-label="Contrato de inscripción editable">
+      <div class="document-toolbar">
+        <div class="document-tools">
+          <div class="zoom-tools" aria-label="Tamaño del documento">
+            <button id="zoom-out" type="button" aria-label="Alejar documento" disabled>−</button>
+            <button id="zoom-fit" type="button" aria-label="Ajustar documento al ancho">Ajustar</button>
+            <button id="zoom-in" type="button" aria-label="Acercar documento">+</button>
+          </div>
+          <div class="file-tools">
+            <button id="save-draft" type="button" disabled>Guardar borrador</button>
+            <button id="download-contract" class="primary" type="button" disabled>Descargar PDF <span aria-hidden="true">↓</span></button>
+          </div>
+        </div>
+        <label class="field-picker-label" for="field-picker">Ir a un campo <select id="field-picker" disabled><option value="">Selecciona un espacio del contrato…</option></select></label>
+        <div class="active-field-editor" id="active-field-editor" hidden>
+          <label id="active-value-label" for="active-value">Campo seleccionado</label>
+          <div class="active-value-row">
+            <input id="active-value" type="text" maxlength="150" autocomplete="off" aria-label="Texto del campo seleccionado">
+            <label id="active-check-label" hidden><input id="active-check" type="checkbox"> Marcar esta opción</label>
+            <button id="next-field" type="button">Siguiente →</button>
+            <button id="close-field" type="button" aria-label="Cerrar edición del campo">✓</button>
+          </div>
+        </div>
+      </div>
+      <p class="editor-status" id="enrollment-status" role="status" aria-live="polite">Abriendo el contrato…</p>
+      <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="Páginas del contrato; puedes desplazarte y ampliar el documento"><div id="pdf-stack"></div></div>
+      <div class="document-bottom">
+        <a id="download-ready" hidden>Volver a descargar mi PDF completado</a>
+        <button id="clear-contract" type="button" disabled>Borrar mis datos</button>
+        <a href="contrato-inscripcion-2027.pdf" download>Descargar PDF editable en blanco</a>
+      </div>
+    </section>
+    <p class="enrollment-disclaimer">Descargar el contrato no envía una inscripción al colegio. Guarda tu archivo, revisa los datos y consulta cómo presentar el documento firmado.</p>
+  </main>
+  <footer class="enrollment-footer"><a href="index.html#inicio">Colegio Nacional Juan Eudoro Cáceres</a> · Asunción, Paraguay</footer>
+</body>
+</html>
