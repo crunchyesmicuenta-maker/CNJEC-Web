@@ -342,6 +342,7 @@
     </style>
     <link rel="stylesheet" href="site-effects.css" />
     <link rel="stylesheet" href="course-design.css" />
+    <link rel="stylesheet" href="navigation-menu.css?v=1" />
 </head>
 <body class="course-page course-basic">
     <header>
@@ -359,17 +360,24 @@
             <h1>CNJEC</h1>
         </a>
 
-        <div class="menu-btn" id="menuBtn">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <button type="button" class="scroll-menu-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
 
-        <nav id="navMenu">
-            <a href="#eeb">Escolar Básica</a>
-            <a href="#enfoque">Enfoque</a>
+        <nav id="navMenu" aria-label="Navegación principal">
+            <a href="index.html#inicio" class="nav-link">Inicio</a>
+            <a href="index.html#inscripciones" class="nav-link">Inscripciones</a>
+            <a href="index.html#mision" class="nav-link">Misión</a>
+            <a href="index.html#vision" class="nav-link">Visión</a>
+            <a href="index.html#historia" class="nav-link">Historia</a>
+            <a href="index.html#enfasis" class="nav-link">Oferta educativa</a>
+            <a href="index.html#egresados" class="nav-link">Egresados</a>
+            <a href="index.html#ex-directores" class="nav-link">Exdirectores</a>
+            <a href="index.html#directores-actuales" class="nav-link">Directores actuales</a>
+            <a href="index.html#personal-administrativo" class="nav-link">Personal administrativo</a>
+            <a href="index.html#ubicacion" class="nav-link">Ubicación</a>
+            <a href="Actividades.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)">Actividades</a>
             <a href="Identidad.html" class="nav-link">Identidad</a>
-            <a href="#contactos">Contactos</a>
+            <a href="#contactos" class="nav-link">Contactos</a>
+            <a href="Administracion.html" class="nav-link">Acceso del personal</a>
         </nav>
     </header>
 
@@ -449,18 +457,7 @@
         </div>
     </footer>
 
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuBtn.children[0].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
-            menuBtn.children[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-            menuBtn.children[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
-        });
-    </script>
-    <script src="site-effects.js" defer></script>
+    <script src="site-effects.js?v=2" defer></script>
     <script src="course-design.js" defer></script>
 </body>
 </html>

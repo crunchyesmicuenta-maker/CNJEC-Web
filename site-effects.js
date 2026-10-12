@@ -42,7 +42,7 @@
         if ('ResizeObserver' in window) new ResizeObserver(syncMenuSlider).observe(nav);
         if (document.fonts) document.fonts.ready.then(syncMenuSlider);
         syncMenuSlider();
-        const mobileMenu = window.matchMedia('(max-width: 768px)');
+        const mobileMenu = window.matchMedia('(max-width: 899px)');
         function closeMenu(restoreFocus = false) {
             header.classList.remove('menu-open');
             toggle.setAttribute('aria-expanded', 'false');
@@ -73,6 +73,7 @@
         updateCompactHeader();
         toggle.addEventListener('click', () => {
             const open = header.classList.toggle('menu-open');
+            if (open) { nav.scrollTop = 0; nav.scrollLeft = 0; }
             toggle.setAttribute('aria-expanded', String(open));
             toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
         });

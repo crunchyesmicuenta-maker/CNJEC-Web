@@ -1,0 +1,18 @@
+/* El mismo menú desplegable en Inicio, Identidad, Actividades y los énfasis. */
+header.compact-header{box-sizing:border-box;min-height:96px;flex-wrap:nowrap;overflow:visible}
+header.compact-header::before{background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.18));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+header.compact-header .scroll-menu-toggle{box-sizing:border-box;display:grid;place-content:center;gap:5px;width:48px;height:48px;padding:0;border:1px solid #15374f24;border-radius:13px;background:#ffffff55;color:#15374f;right:max(24px,calc((100vw - 1320px)/2));top:23px;transform:none}
+header.compact-header .scroll-menu-toggle span{display:block;width:22px;height:2px;margin:0;background:currentColor;transition:transform .3s,opacity .3s}
+header.menu-open .scroll-menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header.menu-open .scroll-menu-toggle span:nth-child(2){opacity:0}
+header.menu-open .scroll-menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+header.compact-header.menu-open #navMenu{box-sizing:border-box;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));position:absolute;inset:calc(100% + 4px) max(24px,calc((100vw - 1320px)/2)) auto auto;width:min(450px,calc(100vw - 32px));height:auto;max-width:none;max-height:calc(100dvh - 120px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#648393 transparent;scroll-behavior:auto;align-items:stretch;align-content:start;justify-content:stretch;gap:6px;padding:18px;background:#193a4d;border:1px solid #ffffff25;border-radius:20px;box-shadow:0 24px 65px #06213640;text-align:left;opacity:1;visibility:visible;transform:none;transition:none;animation:school-menu-enter .25s ease both;z-index:1001}
+header.compact-header.menu-open #navMenu::before{content:"Explora el colegio";grid-column:1/-1;padding:5px 10px 12px;color:#99c9dd;font-size:11px;font-weight:600;line-height:1.5;text-transform:uppercase;letter-spacing:1.6px}
+header.compact-header.menu-open #navMenu a{box-sizing:border-box;display:flex;align-items:center;min-width:0;min-height:44px;margin:0;padding:12px 10px;white-space:normal;overflow-wrap:break-word;color:#f1f8ff;font-size:13px;font-weight:600;line-height:1.5;text-decoration:none;text-align:left;border:0;border-radius:9px;animation:none;transform:none;translate:none;transition:background .2s,color .2s}
+header.compact-header.menu-open #navMenu a:hover,header.compact-header.menu-open #navMenu a:focus-visible,header.compact-header.menu-open #navMenu a[aria-current]{background:#ffffff10;color:white;transform:none}
+header.compact-header.menu-open #navMenu a:focus-visible{outline:2px solid #5ed4f1;outline-offset:-2px}
+header.compact-header.menu-open #navMenu a::after{display:none}
+.course-page header:not(.compact-header) #navMenu{position:static;inset:auto;width:100%;height:auto;box-shadow:none;background:transparent;flex-direction:row;transition:none}
+@keyframes school-menu-enter{from{opacity:0;translate:0 -8px}to{opacity:1;translate:0 0}}
+@media(max-width:899px){header.compact-header{min-height:88px}header.compact-header .scroll-menu-toggle{right:20px;top:20px}header.compact-header.menu-open #navMenu{right:16px;max-height:calc(100dvh - 108px)}}
+@media(prefers-reduced-motion:reduce){header.compact-header.menu-open #navMenu{animation:none}header.compact-header .scroll-menu-toggle span{transition:none}}

@@ -98,6 +98,7 @@
   toggle.addEventListener('click', () => {
     const open = !header.classList.contains('menu-open');
     header.classList.toggle('menu-open', open);
+    if (open) { nav.scrollTop = 0; nav.scrollLeft = 0; }
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   });
