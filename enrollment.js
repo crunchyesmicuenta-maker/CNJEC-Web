@@ -14,6 +14,19 @@ const saveButton = document.getElementById('save-draft');
 const clearButton = document.getElementById('clear-contract');
 const downloadLink = document.getElementById('download-ready');
 const mobile = window.matchMedia('(max-width:600px)');
+async function checkEnrollment() {
+  let enabled = false;
+  try {
+    const response = await fetch('/api/enrollment/status',{cache:'no-store'});
+    if (!response.ok) throw new Error();
+    enabled = (await response.json()).enabled === true;
+    document.getElementById('availability-text').textContent = 'Las inscripciones están cerradas por el momento. Consulta con el colegio las próximas fechas.';
+  } catch { document.getElementById('availability-text').textContent = 'No se pudo consultar la disponibilidad. Vuelve a consultar antes de continuar.'; }
+  document.querySelector('.document-editor').hidden = !enabled;
+  document.getElementById('availability-notice').hidden = enabled;
+  if (!enabled && downloadUrl) { URL.revokeObjectURL(downloadUrl); downloadUrl = ''; downloadLink.removeAttribute('href'); }
+  return enabled;
+}
 let fields = [], answers = {}, pdfBytes, documentPdf, pages = [], activeName = '', zoom = 1, renderVersion = 0, downloadUrl = '';
 let renderTasks = [];
 function message(text, error = false) { status.textContent = text; status.dataset.error = String(error); }
@@ -129,6 +142,7 @@ clearButton.addEventListener('click', () => {
 downloadButton.addEventListener('click', async () => {
   downloadButton.disabled = true; message('Preparando tu PDF con los datos escritos…');
   try {
+    if (!await checkEnrollment()) return;
     const {PDFDocument,StandardFonts} = window.PDFLib;
     const pdf = await PDFDocument.load(pdfBytes.slice());
     const form = pdf.getForm(); const font = await pdf.embedFont(StandardFonts.Helvetica);
@@ -153,6 +167,7 @@ downloadButton.addEventListener('click', async () => {
   finally { downloadButton.disabled = false; }
 });
 async function start() {
+  if (!await checkEnrollment()) return;
   const [response,fieldResponse] = await Promise.all([fetch(pdfUrl),fetch('contract-fields.json')]);
   if (!response.ok || !fieldResponse.ok) throw new Error('No se pudo abrir el contrato. Recarga la página o descarga el PDF editable en blanco.');
   pdfBytes = new Uint8Array(await response.arrayBuffer()); fields = await fieldResponse.json();
@@ -161,10 +176,13 @@ async function start() {
   documentPdf = await pdfjs.getDocument({data:pdfBytes.slice(),standardFontDataUrl:new URL('./vendor/standard_fonts/',import.meta.url).href,isEvalSupported:false}).promise;
   pages = await Promise.all(Array.from({length:documentPdf.numPages},(_,i) => documentPdf.getPage(i + 1)));
   await renderDocument();
+  if (!await checkEnrollment()) return;
   if (!window.PDFLib) throw new Error('No se pudo cargar el generador de PDF. Recarga la página.');
   [picker,downloadButton,saveButton,clearButton].forEach(control => { control.disabled = false; });
   message('Contrato abierto. Toca un espacio azul o elige «Ir a un campo» para empezar.');
   let width = host.clientWidth, timer;
   new ResizeObserver(() => { if (Math.abs(width - host.clientWidth) < 2) return; width = host.clientWidth; clearTimeout(timer); timer = setTimeout(requestRender,150); }).observe(host);
+  setInterval(checkEnrollment,20000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) checkEnrollment(); });
 }
 start().catch(error => message(error.message || 'No se pudo abrir el contrato.',true));
