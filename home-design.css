@@ -13,6 +13,7 @@
 .enrollment-guide li span{color:#617486;margin-top:3px;line-height:1.7}
 .enrollment-note{font-size:12px;line-height:1.7;margin-top:24px;padding-top:18px;border-top:1px solid #dee8ef}
 .enrollment-contact{display:inline-flex;align-items:center;gap:12px;color:#086c8b;font-size:13px;font-weight:600;margin-top:14px;text-decoration:underline;text-underline-offset:4px}
+.enrollment-download-original{display:block;width:fit-content;margin-top:14px;color:#617486;font-size:12px;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.enrollment-card{grid-template-columns:1fr;gap:24px}.enrollment-guide{padding:22px}.enrollment-copy .button{max-width:100%}}
 :root{--ink:#15374f;--navy:#102f46;--muted:#617486;--cyan:#0897c7;--sky:#5ed4f1;--paper:#f6f9fc;--line:#deE8ef;--radius:24px;--shadow:0 16px 45px -28px #16395050}
 *{box-sizing:border-box;margin:0;padding:0}
