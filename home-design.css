@@ -55,7 +55,8 @@ h1,h2,h3,h4{line-height:1.25}
 .scroll-menu-toggle{display:none;border:1px solid #ffffff25;border-radius:13px;background:#ffffff16;color:white;width:48px;height:48px;place-content:center;gap:5px;flex:none}
 .scroll-menu-toggle span{display:block;background:currentColor;height:2px;width:22px;transition:transform .3s,opacity .3s}
 .home-header.compact-header{justify-content:center;min-height:96px;padding-block:17px;background:transparent;isolation:isolate}
-.compact-header::before{content:"";position:absolute;inset:0 0 -30px;background:linear-gradient(#102f46c7,#102f4699);backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);mask-image:linear-gradient(black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(black 0%,black 60%,transparent 100%);z-index:-1;pointer-events:none}
+.compact-header::before{content:"";position:absolute;inset:0 0 -30px;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.18));backdrop-filter:blur(18px) saturate(100%);-webkit-backdrop-filter:blur(18px) saturate(100%);mask-image:linear-gradient(black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(black 0%,black 60%,transparent 100%);z-index:-1;pointer-events:none}
+.compact-header .scroll-menu-toggle{border-color:#15374f24;background:#ffffff55;color:#15374f;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .compact-header:not(.menu-open) .logo-img-wrap{transform:scale(1.28)}
 .compact-header .brand-name{display:none}
 .compact-header .menu-scroll-shell{display:contents}
@@ -252,7 +253,7 @@ h1,h2,h3,h4{line-height:1.25}
 @media(max-width:1100px){.home-shortcuts a{padding:21px 16px;gap:10px}.home-shortcuts a>svg{display:none}.hero-carousel__inner{width:65%}.current-director-slide{gap:28px;padding:28px}.directores-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.director-card p{font-size:12px}.personal-administrativo-grid .personal-staff-name{font-size:16px}.personal-administrativo-grid .personal-staff-role{font-size:12px}}
 @media(max-width:899px){
  .home-header,.home-header.compact-header{min-height:88px;padding:14px 24px;justify-content:center;background:transparent;isolation:isolate}
- .home-header::before{content:"";position:absolute;inset:0 0 -25px;background:linear-gradient(#102f469e,#102f4630);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);mask-image:linear-gradient(black 60%,transparent);-webkit-mask-image:linear-gradient(black 60%,transparent);z-index:-1;pointer-events:none}
+ .home-header::before{content:"";position:absolute;inset:0 0 -25px;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.18));backdrop-filter:blur(16px) saturate(100%);-webkit-backdrop-filter:blur(16px) saturate(100%);mask-image:linear-gradient(black 60%,transparent);-webkit-mask-image:linear-gradient(black 60%,transparent);z-index:-1;pointer-events:none}
  .home-header .brand-name,.compact-header .brand-name{display:block;font-size:24px}
  .home-header .logo-img-wrap{width:50px;height:50px}
  .home-header .menu-scroll-shell{display:contents}
