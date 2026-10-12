@@ -9,5 +9,6 @@
     "run_worker_first": true
   },
   "durable_objects": {"bindings": [{"name": "ENROLLMENT", "class_name": "EnrollmentControl"}]},
-  "migrations": [{"tag": "enrollment-v1", "new_sqlite_classes": ["EnrollmentControl"]}]
+  "migrations": [{"tag": "enrollment-v1", "new_sqlite_classes": ["EnrollmentControl"]}],
+  "secrets_store_secrets": [{"binding": "ENROLLMENT_SETUP_KEY", "store_id": "d84ad0f0b4aa47d4af539f94936842b0", "secret_name": "CNJEC_ENROLLMENT_SETUP_KEY"}]
 }

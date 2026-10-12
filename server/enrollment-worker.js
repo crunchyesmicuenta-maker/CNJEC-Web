@@ -23,6 +23,14 @@ export class EnrollmentControl {
     this.sql.exec(`INSERT OR IGNORE INTO settings (id, enabled) VALUES (1, 1)`);
   }
   one(query, ...args) { return this.sql.exec(query, ...args).toArray()[0]; }
+  async setupKey() {
+    const binding = this.env.ENROLLMENT_SETUP_KEY;
+    if (typeof binding === 'string') return binding;
+    if (binding && typeof binding.get === 'function') {
+      try { const value = await binding.get(); return typeof value === 'string' ? value : ''; } catch { return ''; }
+    }
+    return '';
+  }
   state() { const row = this.one('SELECT * FROM settings WHERE id = 1'); return {enabled:Boolean(row.enabled), updatedAt:row.updatedAt, updatedBy:row.updatedBy}; }
   users() { return this.sql.exec('SELECT username, name, role FROM users ORDER BY name').toArray(); }
   async session(request) {
@@ -42,7 +50,8 @@ export class EnrollmentControl {
     if (request.method === 'GET' && path === '/api/enrollment/me') {
       const user = await this.session(request);
       const setupRequired = !this.one('SELECT username FROM users LIMIT 1');
-      return json({user,setupRequired,setupConfigured:setupRequired && (this.env.ENROLLMENT_SETUP_KEY?.length >= 32), ...(user ? {state:this.state(),users:user.role === 'director' ? this.users() : []} : {})});
+      const setupKey = setupRequired ? await this.setupKey() : '';
+      return json({user,setupRequired,setupConfigured:setupRequired && setupKey.length >= 32, ...(user ? {state:this.state(),users:user.role === 'director' ? this.users() : []} : {})});
     }
     if (request.method !== 'POST') return json({error:'Ruta no disponible.'},404);
     const raw = await request.text();
@@ -60,7 +69,8 @@ export class EnrollmentControl {
       const password = body.password;
       if (typeof password !== 'string' || password.length > 128) return json({error:'Usuario o contraseña incorrectos.'},401);
       if (path.endsWith('/setup')) {
-        if (!(this.env.ENROLLMENT_SETUP_KEY?.length >= 32) || !equal(body.setupKey, this.env.ENROLLMENT_SETUP_KEY)) return json({error:'Clave de activación incorrecta.'},403);
+        const setupKey = await this.setupKey();
+        if (!(setupKey.length >= 32) || !equal(body.setupKey, setupKey)) return json({error:'Clave de activación incorrecta.'},403);
         const error = this.validateUser({...body,username}); if (error) return json({error},400);
         const salt = random(); const hash = await passwordHash(password,salt);
         if (this.one('SELECT username FROM users LIMIT 1')) return json({error:'La cuenta inicial ya fue creada. Inicia sesión.'},409);

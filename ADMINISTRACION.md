@@ -5,11 +5,12 @@ El menú «Acceso del personal» abre `/Administracion.html`. El estado se guard
 ## Activación inicial (una sola vez)
 
 1. Publicar estos cambios. Wrangler crea automáticamente el almacenamiento `EnrollmentControl` con su migración SQLite.
-2. En Cloudflare, abrir Workers & Pages → cnjec-web → Settings → Variables and Secrets → Add.
-3. Crear un **Secret**, nombre `ENROLLMENT_SETUP_KEY`, valor: una clave aleatoria privada de al menos 32 caracteres. Guardar y desplegar. No poner esta clave en archivos de la web, GitHub, ni en el chat.
-4. Abrir `/Administracion.html`. Completar nombre, usuario, contraseña (mínimo 12 caracteres) y esa clave para crear la primera cuenta de dirección.
-5. Una vez creada la primera cuenta, la activación se bloquea automáticamente. Se puede quitar el Secret de Cloudflare.
-6. Iniciar sesión y crear cuentas individuales para la directora y/o el personal administrativo. Entregar las contraseñas en privado.
+2. En Cloudflare, abrir Workers & Pages → cnjec-web → Settings → Bindings → Add → Secrets Store.
+3. En **Variable name**, escribir `ENROLLMENT_SETUP_KEY`. En **Secret name**, crear `CNJEC_ENROLLMENT_SETUP_KEY` con permiso **Workers** y pegar una clave aleatoria privada de al menos 32 caracteres. Seleccionar ese secreto en el binding.
+4. Pulsar **Deploy** para guardar el binding.
+5. Abrir `/Administracion.html`. Completar nombre, usuario, contraseña (mínimo 12 caracteres) y esa clave para crear la primera cuenta de dirección.
+6. Una vez creada la primera cuenta, la activación se bloquea automáticamente. Se puede quitar el secreto de Cloudflare.
+7. Iniciar sesión y crear cuentas individuales para la directora y/o el personal administrativo. Entregar las contraseñas en privado.
 
 ## Permisos
 
@@ -29,4 +30,4 @@ Este cambio incorpora el control de apertura y cierre. La carga de nuevas versio
 
 ## Desarrollo local
 
-Usar `npx wrangler dev`; un servidor de archivos estáticos no tiene las rutas API necesarias. Para probar la activación local, poner `ENROLLMENT_SETUP_KEY` en `.dev.vars` (excluido del repositorio y de los archivos públicos).
+Usar `npx wrangler dev`; un servidor de archivos estáticos no tiene las rutas API necesarias. Para desarrollo local, reemplazar temporalmente el binding de Secrets Store por `ENROLLMENT_SETUP_KEY` en `.dev.vars` (excluido del repositorio y de los archivos públicos).
