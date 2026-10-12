@@ -4,117 +4,58 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102f46">
-  <title>Contrato de inscripción 2027 · CNJEC</title>
-  <meta name="description" content="Completa en línea los datos del contrato de inscripción 2027 del Colegio Nacional Juan Eudoro Cáceres y descarga tu copia.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="enrollment-design.css">
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
-  <script src="enrollment.js" defer></script>
+  <title>Completar el contrato · CNJEC</title>
+  <meta name="description" content="Escribe directamente sobre el contrato de inscripción 2027 y descarga tu PDF completado.">
+  <link rel="stylesheet" href="enrollment-design.css?v=2">
+  <script src="vendor/pdf-lib.min.js" defer></script>
+  <script type="module" src="enrollment.js?v=2"></script>
 </head>
 <body>
   <header class="enrollment-header">
-    <a class="enrollment-brand" href="index.html#inicio" aria-label="CNJEC, volver al inicio"><span class="enrollment-seal">C</span><span>CNJEC</span></a>
-    <a class="enrollment-back" href="index.html#inscripciones">← Volver a Inscripciones</a>
+    <a class="enrollment-brand" href="index.html#inicio" aria-label="CNJEC, volver al inicio"><img src="logo.png" alt="" width="42" height="42"><span>CNJEC</span></a>
+    <a class="enrollment-back" href="index.html#inscripciones">← Volver al inicio</a>
   </header>
   <main class="enrollment-main">
     <div class="enrollment-title">
       <p class="enrollment-eyebrow">Año lectivo 2027</p>
-      <h1>Completa el contrato de inscripción</h1>
-      <p>Llena los datos del estudiante y de su familia. Al final podrás descargar una copia del contrato original con la información incorporada.</p>
+      <h1>Tu contrato, directamente aquí</h1>
+      <p>Toca los espacios azules del documento para escribir. Puedes acercar las páginas y descargar tu propia copia en PDF cuando termines.</p>
     </div>
-
-    <div class="enrollment-privacy" role="note">
-      <span aria-hidden="true">🔒</span>
-      <p><strong>Privacidad:</strong> los datos se procesan en tu navegador y no se envían ni guardan en la web del colegio. Descarga tu copia antes de cerrar esta página.</p>
-    </div>
-
-    <form id="enrollment-form">
-      <fieldset class="enrollment-fieldset">
-        <legend><span>1</span> Padres, tutores o encargados</legend>
-        <p class="fieldset-help">Completa la información de quienes correspondan. Si no hay tutor, puedes dejar esa parte vacía.</p>
-        <div class="form-grid">
-          <h2 class="form-subheading">Padre</h2>
-          <label>Nombre completo<input name="fatherName" autocomplete="name"></label>
-          <label>Cédula de identidad<input name="fatherId" autocomplete="off"></label>
-          <label>Lugar de trabajo<input name="fatherWork" autocomplete="organization"></label>
-          <label>Teléfono<input name="fatherPhone" type="tel" autocomplete="tel"></label>
-          <h2 class="form-subheading">Madre</h2>
-          <label>Nombre completo<input name="motherName" autocomplete="name"></label>
-          <label>Cédula de identidad<input name="motherId" autocomplete="off"></label>
-          <label>Lugar de trabajo<input name="motherWork" autocomplete="organization"></label>
-          <label>Teléfono<input name="motherPhone" type="tel" autocomplete="tel"></label>
-          <h2 class="form-subheading">Tutor o encargado, si corresponde</h2>
-          <label>Nombre completo<input name="guardianName" autocomplete="name"></label>
-          <label>Cédula de identidad<input name="guardianId" autocomplete="off"></label>
-          <label>Lugar de trabajo<input name="guardianWork" autocomplete="organization"></label>
-          <label>Teléfono<input name="guardianPhone" type="tel" autocomplete="tel"></label>
-          <h2 class="form-subheading">Datos familiares</h2>
-          <label class="form-span">Domicilio de la persona con quien vive el estudiante<input name="homeAdultAddress" autocomplete="street-address"></label>
-          <label>Parentesco con el estudiante<input name="homeAdultRelation"></label>
-          <label>Barrio<input name="familyNeighborhood" autocomplete="address-level3"></label>
-          <label>Ciudad<input name="familyCity" autocomplete="address-level2"></label>
-          <label>Estado civil<input name="civilStatus"></label>
-          <label>Profesión<input name="profession"></label>
-          <label>Lugar de trabajo<input name="familyWork" autocomplete="organization"></label>
-          <label>Teléfono<input name="familyPhone" type="tel" autocomplete="tel"></label>
-          <label>Celular<input name="familyCell" type="tel" autocomplete="tel"></label>
-          <label class="form-span">Correo electrónico (opcional)<input name="email" type="email" autocomplete="email"></label>
+    <p class="enrollment-privacy">Tus datos se completan en este navegador. «Guardar borrador» los conserva solo en esta pestaña, sin enviarlos al colegio. Las firmas se realizan a mano al imprimir.</p>
+    <noscript><p>Activa JavaScript para completar el documento aquí o <a href="contrato-inscripcion-2027.pdf" download>descarga el PDF editable</a>.</p></noscript>
+    <section class="document-editor" aria-label="Contrato de inscripción editable">
+      <div class="document-toolbar">
+        <div class="document-tools">
+          <div class="zoom-tools" aria-label="Tamaño del documento">
+            <button id="zoom-out" type="button" aria-label="Alejar documento" disabled>−</button>
+            <button id="zoom-fit" type="button" aria-label="Ajustar documento al ancho">Ajustar</button>
+            <button id="zoom-in" type="button" aria-label="Acercar documento">+</button>
+          </div>
+          <div class="file-tools">
+            <button id="save-draft" type="button" disabled>Guardar borrador</button>
+            <button id="download-contract" class="primary" type="button" disabled>Descargar PDF <span aria-hidden="true">↓</span></button>
+          </div>
         </div>
-      </fieldset>
-
-      <fieldset class="enrollment-fieldset">
-        <legend><span>2</span> Datos del estudiante</legend>
-        <p class="fieldset-help">Usa los datos tal como aparecen en los documentos del estudiante.</p>
-        <div class="form-grid">
-          <label>Apellidos<input name="studentSurnames" autocomplete="family-name" required></label>
-          <label>Nombres<input name="studentNames" autocomplete="given-name" required></label>
-          <label>Edad<input name="studentAge" type="number" min="1" max="99" inputmode="numeric"></label>
-          <label>Cédula de identidad<input name="studentId" autocomplete="off"></label>
-          <label>Fecha de nacimiento<input name="birthDate" type="date"></label>
-          <label>Nacionalidad<input name="nationality" value="Paraguaya" autocomplete="country-name"></label>
-          <label>Lugar de nacimiento<input name="birthPlace"></label>
-          <label>Domicilio del estudiante<input name="studentAddress" autocomplete="street-address"></label>
-          <label>Barrio<input name="studentNeighborhood" autocomplete="address-level3"></label>
-          <label>Celular del estudiante<input name="studentCell" type="tel" autocomplete="tel"></label>
-          <label>Grado o curso<input name="grade" required placeholder="Ej.: 7.º grado o 1.º curso"></label>
-          <label>Modalidad o énfasis<input name="emphasis" placeholder="Ej.: B.T.I. o Ciencias Sociales"></label>
-          <label>Turno<input name="shift" required placeholder="Mañana, tarde o noche"></label>
-          <label>¿Requiere adecuación?<select name="adaptation"><option value="No">No</option><option value="Sí">Sí</option></select></label>
-          <label>¿Presenta los documentos requeridos?<select name="documents"><option value="No">No</option><option value="Sí">Sí</option></select></label>
-          <fieldset class="radio-group form-span">
-            <legend>Situación del estudiante</legend>
-            <label><input type="radio" name="studentStatus" value="current" checked> Ya es alumno/a</label>
-            <label><input type="radio" name="studentStatus" value="new"> Alumno/a nuevo/a</label>
-          </fieldset>
+        <label class="field-picker-label" for="field-picker">Ir a un campo <select id="field-picker" disabled><option value="">Selecciona un espacio del contrato…</option></select></label>
+        <div class="active-field-editor" id="active-field-editor" hidden>
+          <label id="active-value-label" for="active-value">Campo seleccionado</label>
+          <div class="active-value-row">
+            <input id="active-value" type="text" maxlength="150" autocomplete="off" aria-label="Texto del campo seleccionado">
+            <label id="active-check-label" hidden><input id="active-check" type="checkbox"> Marcar esta opción</label>
+            <button id="next-field" type="button">Siguiente →</button>
+            <button id="close-field" type="button" aria-label="Cerrar edición del campo">✓</button>
+          </div>
         </div>
-      </fieldset>
-
-      <fieldset class="enrollment-fieldset">
-        <legend><span>3</span> Firmas y contacto de emergencia</legend>
-        <p class="fieldset-help">El contrato descargado conserva los espacios para firmar a mano. Escribe el nombre que aparecerá como aclaración.</p>
-        <div class="form-grid">
-          <label>Cédula del padre<input name="signFatherId"></label>
-          <label>Aclaración: nombre del padre<input name="signFatherName"></label>
-          <label>Cédula de la madre<input name="signMotherId"></label>
-          <label>Aclaración: nombre de la madre<input name="signMotherName"></label>
-          <label>Cédula del tutor o encargado<input name="signGuardianId"></label>
-          <label>Aclaración: nombre del tutor o encargado<input name="signGuardianName"></label>
-          <h2 class="form-subheading form-span">En caso de emergencia</h2>
-          <label>Nombre y parentesco<input name="emergencyContact"></label>
-          <label>Teléfono de emergencia<input name="emergencyPhone" type="tel"></label>
-          <label>Fecha de llenado<input name="signedDate" type="date" required></label>
-        </div>
-      </fieldset>
-
-      <div class="enrollment-actions">
-        <button class="enrollment-submit" id="download-contract" type="submit">Descargar contrato completado <span aria-hidden="true">↓</span></button>
-        <button class="enrollment-reset" type="reset">Limpiar formulario</button>
       </div>
-      <p class="enrollment-status" id="enrollment-status" role="status" aria-live="polite"></p>
-      <p class="enrollment-disclaimer">El archivo se descarga en tu dispositivo. Esta página no recibe la inscripción ni envía los datos al colegio. Imprime el contrato, firma donde corresponda y consulta con el colegio cómo presentarlo.</p>
-    </form>
+      <p class="editor-status" id="enrollment-status" role="status" aria-live="polite">Abriendo el contrato…</p>
+      <div class="pdf-scroll" id="pdf-scroll" tabindex="0" aria-label="Páginas del contrato; puedes desplazarte y ampliar el documento"><div id="pdf-stack"></div></div>
+      <div class="document-bottom">
+        <a id="download-ready" hidden>Volver a descargar mi PDF completado</a>
+        <button id="clear-contract" type="button" disabled>Borrar mis datos</button>
+        <a href="contrato-inscripcion-2027.pdf" download>Descargar PDF editable en blanco</a>
+      </div>
+    </section>
+    <p class="enrollment-disclaimer">Descargar el contrato no envía una inscripción al colegio. Guarda tu archivo, revisa los datos y consulta cómo presentar el documento firmado.</p>
   </main>
   <footer class="enrollment-footer"><a href="index.html#inicio">Colegio Nacional Juan Eudoro Cáceres</a> · Asunción, Paraguay</footer>
 </body>
