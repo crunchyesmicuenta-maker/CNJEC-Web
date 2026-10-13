@@ -8,7 +8,7 @@
   <meta name="description" content="Escribe directamente sobre el contrato de inscripción y descarga tu PDF completado.">
   <link rel="stylesheet" href="enrollment-design.css?v=2">
   <script src="vendor/pdf-lib.min.js" defer></script>
-  <script type="module" src="enrollment.js?v=3"></script>
+  <script type="module" src="enrollment.js?v=4"></script>
 </head>
 <body>
   <header class="enrollment-header">
@@ -21,9 +21,8 @@
       <p>Toca los espacios azules del documento para escribir. Puedes acercar las páginas y descargar tu propia copia en PDF cuando termines.</p>
     </div>
     <p class="enrollment-privacy">Tus datos se completan en este navegador. «Guardar borrador» los conserva solo en esta pestaña, sin enviarlos al colegio. Las firmas se realizan a mano al imprimir.</p>
-    <noscript><p>Activa JavaScript para consultar si las inscripciones están habilitadas y completar el contrato.</p></noscript>
-    <div class="enrollment-privacy" id="availability-notice" role="status"><p id="availability-text">Consultando disponibilidad de inscripciones…</p><a href="Inscripciones.html">Volver a consultar</a> · <a href="index.html#contactos">Consultar con el colegio</a></div>
-    <section class="document-editor" hidden aria-label="Contrato de inscripción editable">
+    <noscript><p>Activa JavaScript para completar el contrato.</p></noscript>
+    <section class="document-editor" aria-label="Contrato de inscripción editable">
       <div class="document-toolbar">
         <div class="document-tools">
           <div class="zoom-tools" aria-label="Tamaño del documento">

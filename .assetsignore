@@ -10,5 +10,4 @@ server/**
 **/.env*
 **/.wrangler/**
 node_modules/**
-ADMINISTRACION.md
 wrangler.jsonc
