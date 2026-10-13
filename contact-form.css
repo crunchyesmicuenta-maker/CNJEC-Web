@@ -1,0 +1,33 @@
+/* Formulario público de contacto de las familias. */
+.school-contact-card{margin-bottom:28px;padding:clamp(22px,4vw,48px);background:white;border:1px solid #dee8ef;border-radius:24px;box-shadow:0 16px 45px -28px #16395050;scroll-margin-top:120px}
+.school-contact-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:28px}
+.school-contact-heading h2{margin:12px 0 14px;font-size:clamp(26px,3vw,38px);color:#15374f}
+.school-contact-heading p:not(.eyebrow){max-width:640px;font-size:14px;line-height:1.8}
+.school-contact-required{flex:none;max-width:180px;padding:9px 13px;border-radius:12px;background:#edf7fa;color:#086c8b;font-size:11px;font-weight:600;line-height:1.6}
+.school-contact-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.school-contact-group{min-width:0;padding:24px;border:1px solid #e0eaf0;border-radius:18px;background:#f6f9fc}
+.school-contact-group legend{padding:0 8px;font-size:15px;font-weight:600;color:#15374f}
+.school-contact-group legend span{display:inline-grid;place-items:center;width:27px;height:27px;margin-right:6px;border-radius:50%;background:#d5f2fa;color:#11617a;font-size:11px}
+.school-contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+.school-contact-wide{grid-column:1/-1}
+.school-contact-card label{display:flex;flex-direction:column;gap:7px;min-width:0;color:#23465e;font-size:12px;font-weight:500;line-height:1.7}
+.school-contact-card input:not([type=checkbox]),.school-contact-card select,.school-contact-card textarea{box-sizing:border-box;width:100%;min-width:0;min-height:46px;margin:0;padding:11px 12px;border:1px solid #cadce6;border-radius:10px;background:white;color:#15374f;font:inherit;font-weight:400;font-size:13px;line-height:1.6;transition:border-color .2s,box-shadow .2s}
+.school-contact-card textarea{min-height:110px;resize:vertical}
+.school-contact-card input::placeholder,.school-contact-card textarea::placeholder{color:#798a98;opacity:1}
+.school-contact-card input:focus-visible,.school-contact-card select:focus-visible,.school-contact-card textarea:focus-visible{outline:2px solid #0897c7;outline-offset:2px;border-color:#0897c7}
+.school-contact-message{margin-top:24px}
+.school-contact-card .school-contact-consent{flex-direction:row;align-items:flex-start;gap:12px;margin-top:20px;font-size:12px;font-weight:400}
+.school-contact-consent input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:#0897c7}
+.school-contact-privacy{margin:12px 0 0 30px;font-size:11px;line-height:1.7}
+.school-contact-privacy a{color:#086c8b;text-decoration:underline;text-underline-offset:3px}
+.school-contact-actions{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding-top:24px;border-top:1px solid #dee8ef}
+.school-contact-actions strong,.school-contact-actions span,.school-contact-actions small{display:block}
+.school-contact-actions strong{font-size:12px;font-weight:600;color:#23465e}
+.school-contact-actions span{font-size:12px;color:#617486;overflow-wrap:anywhere;margin-top:4px}
+.school-contact-actions small{font-size:11px;color:#617486;margin-top:7px}
+.school-contact-actions .button{flex:none;border:0;font-family:inherit}
+.school-contact-actions .button:disabled{opacity:.6;cursor:wait}
+.school-contact-result{margin-bottom:24px;padding:16px 18px;border:1px solid #a7daca;border-radius:12px;background:#eefaf5;color:#24634f;font-size:13px;line-height:1.8}
+.school-contact-card .school-contact-honey{display:none!important}
+@media(max-width:1000px){.school-contact-columns{grid-template-columns:1fr}.school-contact-heading{flex-direction:column;gap:14px}.school-contact-required{max-width:none}.school-contact-fields{gap:18px}}
+@media(max-width:600px){.school-contact-card{padding:22px 18px}.school-contact-group{padding:20px 16px}.school-contact-fields{grid-template-columns:1fr}.school-contact-heading h2{font-size:26px}.school-contact-card input:not([type=checkbox]),.school-contact-card select,.school-contact-card textarea{font-size:16px}.school-contact-actions{align-items:stretch;flex-direction:column;gap:18px}.school-contact-actions .button{justify-content:center;width:100%}.school-contact-privacy{margin-left:0}.school-contact-required{font-size:11px}.school-contact-group legend{font-size:14px}}

@@ -7,7 +7,9 @@
     <meta name="description" content="Conoce el Colegio Nacional Juan Eudoro Cáceres: nuestra historia, comunidad educativa, Educación Escolar Básica y énfasis del Nivel Medio en Asunción, Paraguay." />
     <meta name="theme-color" content="#102f46" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home-design.css?v=3" />
+    <link rel="stylesheet" href="home-design.css?v=4" />
+    <link rel="stylesheet" href="contact-form.css?v=1" />
+    <script src="contact-form.js?v=1" defer></script>
     <script src="enrollment-availability.js" defer></script>
     <link rel="stylesheet" href="navigation-menu.css?v=1" />
 </head>
@@ -83,6 +85,50 @@
     </nav>
 
     <section id="inscripciones" class="home-section enrollment-section" aria-labelledby="inscripciones-title">
+        <div id="formulario-contacto" class="school-contact-card" aria-labelledby="school-contact-title">
+            <div class="school-contact-heading">
+                <div><p class="eyebrow">Familias · Primer contacto</p><h2 id="school-contact-title">Formulario de contacto</h2><p>Cuéntanos quiénes son y en qué curso desea ingresar el futuro alumno. El colegio se comunicará contigo para orientarte.</p></div>
+                <span class="school-contact-required">Todos los campos son obligatorios</span>
+            </div>
+            <p id="school-contact-result" class="school-contact-result" role="status" hidden></p>
+            <form id="school-contact-form" action="https://formsubmit.co/cnjec699@hotmail.com" method="POST" accept-charset="UTF-8" aria-describedby="school-contact-privacy">
+                <input type="hidden" name="_cc" value="cnjec699@gmail.com" />
+                <input type="hidden" name="_subject" value="CNJEC · Consulta de una familia sobre un futuro alumno" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" class="school-contact-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <div class="school-contact-columns">
+                    <fieldset class="school-contact-group">
+                        <legend><span aria-hidden="true">01</span> Padre, madre o tutor</legend>
+                        <div class="school-contact-fields">
+                            <label class="school-contact-wide" for="contact-parent-name">Nombre y apellido<input id="contact-parent-name" name="Nombre del padre, madre o tutor" type="text" autocomplete="name" required minlength="3" maxlength="120" placeholder="Escribe tu nombre completo" /></label>
+                            <label for="contact-relationship">Parentesco<select id="contact-relationship" name="Parentesco" required><option value="" disabled selected>Selecciona</option><option>Padre</option><option>Madre</option><option>Tutor legal</option></select></label>
+                            <label for="contact-parent-document">Cédula o documento<input id="contact-parent-document" name="Documento del padre, madre o tutor" type="text" required minlength="4" maxlength="25" placeholder="Número de documento" /></label>
+                            <label for="contact-phone">Teléfono o WhatsApp<input id="contact-phone" name="Telefono o WhatsApp" type="tel" autocomplete="tel" required minlength="7" maxlength="25" placeholder="Ej.: 0981 123 456" /></label>
+                            <label for="contact-email">Correo electrónico<input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="tu.correo@ejemplo.com" /></label>
+                            <label class="school-contact-wide" for="contact-address">Domicilio y ciudad<input id="contact-address" name="Domicilio y ciudad" type="text" autocomplete="street-address" required minlength="5" maxlength="200" placeholder="Calle, barrio y ciudad" /></label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="school-contact-group">
+                        <legend><span aria-hidden="true">02</span> Futuro alumno</legend>
+                        <div class="school-contact-fields">
+                            <label class="school-contact-wide" for="contact-student-name">Nombre y apellido<input id="contact-student-name" name="Nombre del futuro alumno" type="text" autocomplete="section-student name" required minlength="3" maxlength="120" placeholder="Nombre completo del alumno" /></label>
+                            <label for="contact-student-document">Cédula o documento<input id="contact-student-document" name="Documento del futuro alumno" type="text" required minlength="4" maxlength="25" placeholder="Número de documento" /></label>
+                            <label for="contact-student-birthdate">Fecha de nacimiento<input id="contact-student-birthdate" name="Fecha de nacimiento del alumno" type="date" autocomplete="section-student bday" required /></label>
+                            <label for="contact-course">Grado o curso al que ingresará<select id="contact-course" name="Grado o curso solicitado" required><option value="" disabled selected>Selecciona</option><option>7.º grado · EEB</option><option>8.º grado · EEB</option><option>9.º grado · EEB</option><option>1.º curso · Nivel Medio</option><option>2.º curso · Nivel Medio</option><option>3.º curso · Nivel Medio</option></select></label>
+                            <label for="contact-shift">Turno de interés<select id="contact-shift" name="Turno de interes" required><option value="" disabled selected>Selecciona</option><option>Mañana</option><option>Tarde</option><option>A confirmar con el colegio</option></select></label>
+                            <label class="school-contact-wide" for="contact-school">Institución de procedencia<input id="contact-school" name="Institucion de procedencia" type="text" required minlength="3" maxlength="150" placeholder="Colegio o escuela actual" /></label>
+                        </div>
+                    </fieldset>
+                </div>
+                <label class="school-contact-message" for="contact-message">Tu consulta<textarea id="contact-message" name="Consulta" rows="3" required minlength="10" maxlength="1500" placeholder="Cuéntanos qué información necesitas sobre el ingreso al colegio."></textarea></label>
+                <label class="school-contact-consent"><input type="checkbox" id="contact-consent" name="Autorizacion de contacto" value="Autorizo el envio de estos datos al colegio para responder mi consulta" required /><span>Soy el padre, madre o tutor del alumno y autorizo el envío de estos datos al colegio para que responda mi consulta.</span></label>
+                <p id="school-contact-privacy" class="school-contact-privacy">El envío se procesa mediante FormSubmit, que conserva las consultas durante 30 días. <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">Privacidad del servicio ↗</a> Este formulario no confirma la inscripción.</p>
+                <div class="school-contact-actions">
+                    <div><strong>Tu consulta llegará a los dos correos del colegio</strong><span>cnjec699@hotmail.com · cnjec699@gmail.com</span><small>Al enviar, completa la verificación de seguridad para finalizar.</small></div>
+                    <button class="button button-primary" type="submit">Enviar al colegio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+                </div>
+            </form>
+        </div>
         <div class="enrollment-card reveal">
             <div class="enrollment-copy">
                 <p class="eyebrow">Documentación · Año lectivo 2027</p>
@@ -99,8 +145,8 @@
                     <li><strong>Descarga tu PDF.</strong><span>Conserva una copia individual con los datos escritos. Puedes guardar un borrador en la pestaña mientras lo completas.</span></li>
                     <li><strong>Imprime y firma.</strong><span>Consulta con el colegio las fechas y el modo de entregar el contrato.</span></li>
                 </ol>
-                <p class="enrollment-note">Tus datos no se envían ni se guardan en el colegio desde esta página. La inscripción se completa al entregar el contrato firmado.</p>
-                <a class="enrollment-contact" href="#contactos">Consultar con el colegio <span aria-hidden="true">→</span></a>
+                <p class="enrollment-note">Los datos que escribes en el contrato no se envían automáticamente. La inscripción se completa al entregar el contrato firmado. Para hacer una consulta, utiliza el formulario de arriba.</p>
+                <a class="enrollment-contact" href="#formulario-contacto">Consultar con el colegio <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>

@@ -28,6 +28,21 @@ Una cuenta de dirección puede quitar una cuenta y crearla de nuevo con otra con
 
 Este cambio incorpora el control de apertura y cierre. La carga de nuevas versiones del contrato requiere una ampliación posterior.
 
-## Desarrollo local
+## Formulario de contacto de las familias
+
+El formulario visible encima del contrato en Inicio envía una consulta a `cnjec699@hotmail.com`, con copia a `cnjec699@gmail.com`, mediante FormSubmit. Solicita datos básicos del tutor y del futuro alumno; todos los campos visibles y la autorización de contacto son obligatorios. No confirma ni registra una inscripción.
+
+Para activarlo una sola vez:
+
+1. Publicar los cambios y abrir Inicio → Inscripciones → Formulario de contacto.
+2. Completar y enviar una consulta de prueba autorizada. El navegador abre la verificación antispam del servicio antes de terminar el envío.
+3. Revisar `cnjec699@hotmail.com`, incluida la carpeta de spam, y confirmar el mensaje de activación de FormSubmit.
+4. Confirmar que la consulta llegue también a `cnjec699@gmail.com` como copia. Revisar la carpeta de spam en ambas cuentas si no aparece.
+
+Las consultas quedan pendientes de entrega hasta activar el destinatario. FormSubmit conserva las consultas durante 30 días según su documentación. El consentimiento del formulario informa a las familias de este procesamiento. No se guardan los campos en el almacenamiento del sitio ni se envían al completar el contrato PDF. El formulario de consultas está disponible aunque las inscripciones estén cerradas.
+
+No se enviaron correos reales durante las comprobaciones de desarrollo. Cambiar el destinatario principal requiere activar de nuevo el formulario. Documentación: https://formsubmit.co/documentation y https://formsubmit.co/help.
+
+## Desarrollo local del control de inscripciones
 
 Usar `npx wrangler dev`; un servidor de archivos estáticos no tiene las rutas API necesarias. Para desarrollo local, reemplazar temporalmente el binding de Secrets Store por `ENROLLMENT_SETUP_KEY` en `.dev.vars` (excluido del repositorio y de los archivos públicos).
