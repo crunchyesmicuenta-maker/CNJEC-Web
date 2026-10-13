@@ -252,7 +252,10 @@ h1,h2,h3,h4{line-height:1.25}
 .reveal.is-visible{opacity:1;transform:none;transition:opacity .85s ease,transform .85s cubic-bezier(.22,1,.36,1)}
 @media(min-width:1600px){.home-header{gap:40px}#navMenu a{font-size:13px}}
 /* En PC, Isolina se ubica después de Ignacio y antes de Limpia Concepción. */
-@media(min-width:1101px){#ex-directores .director-card:nth-child(3),#ex-directores .director-card:nth-child(4){order:1}}
+@media(min-width:1101px){
+ #ex-directores .director-card:nth-child(3),#ex-directores .director-card:nth-child(4){order:1}
+ #ex-directores .director-card:nth-child(4){grid-column:1/-1;justify-self:center;width:calc((100% - 60px)/4)}
+}
 @media(max-width:1100px){.home-shortcuts a{padding:21px 16px;gap:10px}.home-shortcuts a>svg{display:none}.hero-carousel__inner{width:65%}.current-director-slide{gap:28px;padding:28px}.directores-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.director-card p{font-size:12px}.personal-administrativo-grid .personal-staff-name{font-size:16px}.personal-administrativo-grid .personal-staff-role{font-size:12px}}
 @media(max-width:899px){
  .home-header,.home-header.compact-header{min-height:88px;padding:14px 24px;justify-content:center;background:transparent;isolation:isolate}
