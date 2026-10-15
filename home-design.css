@@ -175,12 +175,6 @@ h1,h2,h3,h4{line-height:1.25}
 .hero-carousel__dot{position:relative;width:35px;height:32px;border:none;background:none}
 .hero-carousel__dot::after{content:"";position:absolute;height:3px;inset:auto 5px 14px;background:#ffffff40;border-radius:2px;transition:background .25s}
 .hero-carousel__dot.is-active::after{background:#67d4ee;box-shadow:0 0 8px #67d4ee60}
-.egresados-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.egresado-card{display:flex;flex-direction:column;padding:14px;border:1px solid var(--line);border-radius:20px;background:white;transition:translate .3s,box-shadow .3s}
-.egresado-retrato{position:relative;overflow:hidden;border-radius:12px;width:100%;background:#e7edf2}
-.egresado-retrato img{position:absolute;max-width:none;height:auto}
-.egresado-card figcaption{font-size:11px;font-weight:600;line-height:1.65;padding:16px 5px 3px;color:#23465e}
-.egresado-card:hover{translate:0 -4px;box-shadow:var(--shadow)}
 .directores-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .director-card{display:flex;flex-direction:column;padding:18px;background:white;border-radius:22px;border:1px solid var(--line);box-shadow:0 8px 20px -20px #12395050;transition:translate .3s}
 .director-card:hover{translate:0 -4px}
@@ -285,7 +279,6 @@ h1,h2,h3,h4{line-height:1.25}
  .hero-carousel__bg::before{inset:35px 0 35px 55%;opacity:.24}
  .hero-carousel__dots{left:31px}
  .hero-carousel__slide{min-height:430px}
- .egresados-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
  .current-director-slide{grid-template-columns:200px minmax(0,1fr)}
  .current-director-bio h3{font-size:22px}
  .location-copy{padding:28px}
@@ -331,8 +324,6 @@ h1,h2,h3,h4{line-height:1.25}
  .hero-carousel__btn-primary{font-size:11px;padding:13px 16px}
  .hero-carousel__dots{left:21px}
  .hero-carousel__arrow--prev{right:76px}.hero-carousel__arrow--next{right:24px}
- .egresados-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
- .egresado-card{padding:9px;border-radius:15px}.egresado-retrato{border-radius:9px}.egresado-card figcaption{font-size:10px;padding:12px 3px 3px;line-height:1.6}
  .directores-grid{gap:14px}
  .director-card{padding:12px;border-radius:18px}.director-retrato{border-radius:10px}
  .director-card h3{font-size:12px;margin-top:15px}.director-card p{font-size:10px}
@@ -388,7 +379,6 @@ h1,h2,h3,h4{line-height:1.25}
 .hero-carousel{touch-action:pan-y}
 .hero-carousel__desc{font-size:14px}
 .hero-carousel__btn-primary,.button{font-size:13px}
-.egresado-card figcaption{font-size:12px}
 .director-card p{font-size:13px}
 .personal-administrativo-grid .personal-staff-role{font-size:12px}
 .current-director-bio p,.current-director-bio li{font-size:14px}
@@ -403,7 +393,6 @@ body:not(.home-enhanced) .program-tabs,body:not(.home-enhanced) .hero-carousel__
 @media(max-width:600px){
  .hero-actions .button,.hero-carousel__btn-primary{font-size:12px}
  .card p,.historia-texto p,.hero-carousel__desc{font-size:13px}
- .egresado-card figcaption{font-size:11px}
  .personal-administrativo-grid .personal-staff-name{font-size:13px}
  .personal-administrativo-grid .personal-staff-role{font-size:11px}
  #ex-directores .director-card p{font-size:12px}
