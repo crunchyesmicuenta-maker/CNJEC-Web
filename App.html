@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP · Colegio Nacional Juan Eudoro Cáceres</title>
+    <meta name="description" content="Espacio de la aplicación del Colegio Nacional Juan Eudoro Cáceres. Consulta aquí la disponibilidad de su descarga.">
+    <meta name="theme-color" content="#102f46">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home-design.css?v=8">
+    <link rel="stylesheet" href="navigation-menu.css?v=1">
+    <link rel="stylesheet" href="app-design.css?v=1">
+</head>
+<body class="app-page">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="home-header">
+        <a class="logo-container" href="index.html#inicio" aria-label="CNJEC — volver al inicio">
+            <div class="logo-img-wrap">
+                <!-- Intenta cargar el logo desde archivo (misma carpeta que index.html).
+                     Si no existe, se muestra un fallback visible. -->
+                <img
+                    class="logo-img"
+                    src="logo.png"
+                    alt="Logo CNJEC"
+                    loading="eager"
+                    onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';"
+                />
+                <span id="logo-fallback" class="logo-fallback" aria-hidden="true">CNJEC</span>
+            </div>
+            <span class="brand-name">CNJEC</span>
+        </a>
+
+        <button type="button" class="scroll-menu-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+        <nav id="navMenu" aria-label="Navegación principal">
+            <a href="index.html#inicio" class="nav-link">Inicio</a>
+            <a href="index.html#inscripciones" class="nav-link">Inscripciones</a>
+            <a href="index.html#mision" class="nav-link">Misión</a>
+            <a href="index.html#vision" class="nav-link">Visión</a>
+            <a href="index.html#historia" class="nav-link">Historia</a>
+            <a href="index.html#enfasis" class="nav-link">Oferta educativa</a>
+            <a href="index.html#ex-directores" class="nav-link">Exdirectores</a>
+            <a href="index.html#directores-actuales" class="nav-link">Directores actuales</a>
+            <a href="index.html#personal-administrativo" class="nav-link">Personal administrativo</a>
+            <a href="index.html#ubicacion" class="nav-link">Ubicación</a>
+            <a href="Actividades.html" class="nav-link" target="_blank" rel="noopener noreferrer" aria-label="Actividades (abre en una pestaña nueva)">Actividades</a>
+            <a href="Identidad.html" class="nav-link">Identidad</a>
+            <a href="App.html" class="nav-link" aria-current="page">APP</a>
+            <a href="index.html#contactos" class="nav-link">Contactos</a>
+        </nav>
+    </header>
+    <main id="contenido" class="app-main" tabindex="-1">
+        <section class="app-intro" aria-labelledby="app-title">
+            <div><p class="eyebrow">Colegio Nacional Juan Eudoro Cáceres</p><h1 id="app-title">La app de nuestro colegio</h1><p>Un espacio dedicado a la aplicación de nuestra comunidad educativa.</p></div>
+            <div class="app-emblem" aria-hidden="true"><img src="logo.png" alt="" width="130" height="130"><span>CNJEC</span></div>
+        </section>
+        <section id="descarga" class="app-download" aria-labelledby="app-download-title">
+            <span class="app-status">Próximamente</span>
+            <h2 id="app-download-title">Descarga de la aplicación</h2>
+            <p>Estamos preparando esta sección. Cuando la descarga esté disponible, encontrarás aquí el enlace y las indicaciones para instalar la app.</p>
+            <div class="app-page-actions"><a class="button button-primary" href="index.html">Volver al inicio <span aria-hidden="true">→</span></a><a href="index.html#contactos">Contactar con el colegio</a></div>
+        </section>
+    </main>
+    <footer id="contactos" aria-labelledby="contactos-title">
+        <div class="footer-inner">
+            <div class="footer-heading">
+                <a class="footer-brand" href="index.html#inicio" aria-label="CNJEC · Volver al inicio"><img src="logo.png" alt="" width="64" height="64" loading="lazy"/><span>CNJEC<small>Colegio Nacional Juan Eudoro Cáceres</small></span></a>
+                <p>Aprender, compartir y construir el futuro.</p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col"><h2 id="contactos-title">Hablemos</h2><p>Estamos para acompañarte.</p><a class="footer-email" href="mailto:cnjec699@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg> cnjec699@gmail.com</a><a class="footer-email" href="mailto:cnjec699@hotmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 6 9 7 9-7"/></svg> cnjec699@hotmail.com</a><p class="footer-hours">Lunes a viernes<br/><strong>07:00 a 18:00</strong></p></div>
+                <div class="footer-col footer-links"><h3>Explora el colegio</h3><a href="index.html#enfasis">Oferta educativa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="Actividades.html" target="_blank" rel="noopener noreferrer">Actividades <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="Identidad.html">Nuestra identidad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a href="index.html#ubicacion">Cómo llegar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+                <div class="footer-col"><h3>Síguenos</h3><p>Entérate de nuestras novedades.</p><div class="redes-sociales"><a href="https://www.facebook.com/p/Colegio-Nacional-Juan-Eudoro-Cáceres-100085972837954/" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook del colegio (pestaña nueva)"><img src="images/Facebook.jpg" alt="" loading="lazy" width="44" height="44" /></a><a href="https://www.instagram.com/c.n.j.e.c/" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram del colegio (pestaña nueva)"><img src="images/IG.jpg" alt="" loading="lazy" width="44" height="44" /></a></div></div>
+            </div>
+            <div class="copyright"><p>&copy; 2026 Colegio Nacional Juan Eudoro Cáceres.</p><a href="index.html#inicio">Volver al inicio ↑</a></div>
+        </div>
+    </footer>
+    <script src="site-effects.js?v=3" defer></script>
+</body>
+</html>

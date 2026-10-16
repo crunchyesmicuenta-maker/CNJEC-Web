@@ -17,6 +17,7 @@
     const header = document.querySelector('header');
     const toggle = document.querySelector('.scroll-menu-toggle');
     if (header && toggle) {
+        if (document.body.classList.contains('app-page')) document.body.classList.add('home-enhanced');
         const nav = header.querySelector('nav');
         const shell = document.createElement('div');
         shell.className = 'menu-scroll-shell';
